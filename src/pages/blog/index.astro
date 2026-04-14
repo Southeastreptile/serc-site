@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: 'ai-in-wildlife-rehabilitation',
+    title: 'AI in wildlife rehabilitation: from paper notes to life-saving insights',
+    date: 'April 13, 2026',
+    excerpt: 'How we used Claude, Anthropic\'s AI assistant, to turn handwritten field notes into a working spreadsheet, catch a data entry error, and surface growth insights that were invisible on paper — and why it matters for rehabbers everywhere.',
+    image: '/images/hatchling-rock.jpg',
+    imageAlt: 'Diamondback terrapin hatchling peeking over a rock',
+    tags: ['ai for conservation', 'diamondback terrapins', 'wildlife rehabilitation'],
+  },
+];
+---
+
+<Layout title="Blog" description="Conservation insights, rehabilitation stories, and updates from Southeastern Reptile Conservation.">
+
+  <div class="blog-list">
+    <h1 class="blog-list__heading">Blog</h1>
+
+    {posts.map(post => (
+      <a href={`/blog/${post.slug}`} class="post-card">
+        <div>
+          <div class="post-card__date">{post.date}</div>
+          <div class="post-card__title">{post.title}</div>
+          <p class="post-card__excerpt">{post.excerpt}</p>
+          <div class="tag-list">
+            {post.tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+          <span class="post-card__read-more">Read more</span>
+        </div>
+        <div class="post-card__image">
+          <img src={post.image} alt={post.imageAlt} />
+        </div>
+      </a>
+    ))}
+  </div>
+
+</Layout>

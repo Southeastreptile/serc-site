@@ -1,0 +1,216 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="AI in wildlife rehabilitation: from paper notes to life-saving insights"
+  description="How we used Claude, Anthropic's AI assistant, to turn handwritten field notes into a working spreadsheet, catch a data error, and surface insights invisible on paper."
+  image="/images/hatchling-rock.jpg"
+>
+
+<article class="blog-post">
+
+  <div class="blog-post__kicker">AI for conservation &nbsp;·&nbsp; Conservation + Technology</div>
+
+  <h1 class="blog-post__title">AI in wildlife rehabilitation: from paper notes to life-saving insights</h1>
+
+  <p class="blog-post__subtitle">
+    Keeping records while managing hands-on animal care is something every wildlife rehabber juggles.
+    But when processing those records takes more hours than your team has, critical insights never
+    make it off the page. Here is how we changed that for seven diamondback terrapin hatchlings,
+    and why it matters for rehabbers everywhere.
+  </p>
+
+  <div class="blog-post__meta">
+    <span>Southeast Reptile Conservation</span>
+    <div class="blog-post__meta-dot"></div>
+    <span>April 13, 2026</span>
+    <div class="blog-post__meta-dot"></div>
+    <span>Conservation</span>
+  </div>
+
+  <div class="blog-post__body">
+
+    <img src="/images/hatchling-rock.jpg" alt="A diamondback terrapin hatchling from Pleasure House Point Natural Area, Virginia Beach." />
+    <p class="img-caption">A diamondback terrapin hatchling from Pleasure House Point Natural Area, Virginia Beach.</p>
+
+    <h2>A problem every rehabber knows</h2>
+    <p>
+      Keeping records while managing hands-on animal care is a balancing act that every wildlife
+      rehabilitation team knows well. Handwritten notes are often the most practical option in the
+      moment, quick, reliable, and requiring no equipment beyond a pen and paper. The records get
+      kept. And then they sit, because turning those notes into something analyzable means hours of
+      manual data entry, formula building, and cross-checking that nobody has time for alongside
+      everything else.
+    </p>
+    <p>
+      The result is that good records stay on paper. And insights that should be guiding care
+      decisions remain invisible.
+    </p>
+    <p>
+      We ran into exactly this problem while caring for seven diamondback terrapin hatchlings, a
+      species of greatest conservation concern in Virginia. And we found a solution that we think
+      could help a lot of other programs too.
+    </p>
+
+    <h2>The animals behind the data</h2>
+    <p>
+      A few months ago, Jill, one of our volunteer rehabbers, got a call from a construction site
+      at Pleasure House Point Natural Area in Virginia Beach. The crew had uncovered a diamondback
+      terrapin nest during excavation. Rather than leave the eggs to chance, they stopped and made
+      the call. Jill went right out to carefully collect them for incubation.
+    </p>
+
+    <blockquote>
+      "I'll admit I was doubtful they would be viable, but we wanted to incubate them anyway, just
+      in case there was a chance. Imagine the surprise when tiny shells started cracking."
+    </blockquote>
+
+    <img src="/images/hatching-eggs.jpg" alt="Cracked shells in the incubation tray after six eggs hatched successfully." />
+    <p class="img-caption">The moment it all began — cracked shells in the incubation tray after six eggs hatched successfully.</p>
+
+    <p>
+      Six eggs hatched successfully. A seventh hatchling, Edward, came to us later from a finder.
+      The six original hatchlings were named after the construction crew members who made that call:
+      Butch, Alec, Travis, Clint, Shilo, and Jeff. To help our Category IV licensed rehabber
+      volunteers tell the animals apart during handling, one volunteer assigned each a visual
+      nickname based on a distinctive shell marking.
+    </p>
+
+    <div class="crew-grid">
+      {[
+        { id: 'PHP-1', name: 'Jeff', nick: 'Mr. Green' },
+        { id: 'PHP-2', name: 'Shilo', nick: 'Yin & Yang' },
+        { id: 'PHP-3', name: 'Clint', nick: 'Music Note' },
+        { id: 'PHP-4', name: 'Travis', nick: 'Mr. C' },
+        { id: 'PHP-5', name: 'Edward', nick: 'Star' },
+        { id: 'PHP-6', name: 'Alec', nick: 'Earhole' },
+        { id: 'PHP-7', name: 'Butch', nick: 'Scab' },
+      ].map(h => (
+        <div class="crew-card">
+          <div class="crew-card__id">{h.id}</div>
+          <div class="crew-card__name">{h.name}</div>
+          <div class="crew-card__nick">{h.nick}</div>
+        </div>
+      ))}
+    </div>
+
+    <img src="/images/hatchlings-tray.png" alt="Some of the PHP hatchlings — each one's distinct shell pattern made the nicknames essential for identification." />
+    <p class="img-caption">Some of the PHP hatchlings — each one's distinct shell pattern made the nicknames essential for identification.</p>
+
+    <p>
+      Session after session, our volunteers carefully measured and recorded each animal's weight in
+      grams and carapace width and length in millimeters, by hand, on paper. Four sessions. Seven
+      animals. Months of careful work. All of it sitting in a notebook, waiting for someone to find
+      the hours to process it.
+    </p>
+
+    <h2>What we did, step by step</h2>
+    <p>
+      We photographed the handwritten data sheets and brought them to Claude, Anthropic's AI
+      assistant. Claude is an AI assistant similar to ChatGPT, developed by the AI safety company
+      Anthropic. We want to be clear about how we approached this. Every output was reviewed by our
+      team before any action was taken. AI handled the time-consuming, repetitive work. Our
+      volunteers applied the judgment.
+    </p>
+
+    <img src="/images/handwritten-notes.jpg" alt="One of four handwritten data sessions — the starting point for our AI-assisted analysis." />
+    <p class="img-caption">One of four handwritten data sessions — the starting point for our AI-assisted analysis.</p>
+
+    <ol class="steps">
+      {[
+        { label: 'Transcription', text: 'Claude read all four handwritten sessions from the photos and organized every measurement into a clean, color-coded Excel spreadsheet with one row per animal per session. No manual data entry.' },
+        { label: 'Calculated growth fields', text: 'Claude built live Excel formulas that automatically calculate weight and shell size growth between every session, so the spreadsheet stays dynamic as we add future data.' },
+        { label: 'Growth summary', text: 'A second tab compared all seven animals side by side across every session, with total and percentage gains for weight, carapace width, and carapace length.' },
+        { label: 'Insights', text: 'Claude analyzed the full dataset and produced a written insights tab, identifying which animals were thriving, which needed closer attention, and flagging a growth pattern that had been invisible while the records were on paper.' },
+        { label: 'Error detection', text: 'Claude flagged two measurements in the April session that looked biologically implausible, reasoning that values for two animals had likely been swapped. We verified against our original notes, confirmed the error, corrected the values, and updated the analysis.' },
+      ].map((step, i) => (
+        <li class="step">
+          <div class="step__num">{i + 1}</div>
+          <div class="step__text"><strong>{step.label}.</strong> {step.text}</div>
+        </li>
+      ))}
+    </ol>
+
+    <img src="/images/spreadsheet.png" alt="The finished spreadsheet — color-coded by session, with growth calculations built in and data errors flagged for review." />
+    <p class="img-caption">The finished spreadsheet — color-coded by session, with growth calculations built in and data errors flagged for review.</p>
+
+    <p>
+      What would have taken hours of manual work was done in a single conversation. Every finding
+      was checked against our source records before anything was changed or acted upon.
+    </p>
+
+    <h2>The insight that mattered most</h2>
+    <p>
+      Most of the cohort is thriving. Over five and a half months, the majority of our hatchlings
+      more than doubled in weight and grew their shells significantly.
+    </p>
+
+    <div class="stat-grid">
+      {[
+        { num: '182%', label: "Mr. Green (Jeff)'s weight gain, from 14.2g to 40g" },
+        { num: '28mm', label: "Star (Edward)'s carapace length gain, the most in the group" },
+        { num: '7', label: 'hatchlings tracked across 4 measurement sessions' },
+      ].map(s => (
+        <div class="stat-card">
+          <div class="stat-card__num">{s.num}</div>
+          <div class="stat-card__label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="highlight">
+      <strong>But one animal stood out for a different reason.</strong> Earhole (Alec) had shown
+      little growth since December across both weight and shell size. That pattern was there in the
+      paper records all along, but without processing the data, we had no way to see it. Now we do.
+      Our volunteers know exactly who needs closer attention at feeding time, and we can make sure
+      he gets the individual care he needs.
+    </div>
+
+    <img src="/images/volunteer-handling.jpg" alt="A volunteer handles one of the PHP hatchlings during a measurement session, with the data sheet right at hand." />
+    <p class="img-caption">A volunteer handles one of the PHP hatchlings during a measurement session, with the data sheet right at hand.</p>
+
+    <h2>What responsible AI use looks like in practice</h2>
+    <p>
+      We are not suggesting AI replaces the expertise, the care, or the hands-on judgment that
+      wildlife rehabilitation depends on. What it can do is remove the bottleneck between careful
+      record keeping and the insights those records are meant to produce.
+    </p>
+    <p>
+      Used responsibly, with human review at every step, AI is a practical tool for small teams
+      doing important work with limited time. The records your volunteers are already keeping
+      deserve to be used. A phone camera and a conversation may be all it takes to make that happen.
+    </p>
+    <p>
+      If your program's notes are sitting on paper waiting to be useful, we hope this gives you a
+      place to start.*
+    </p>
+
+    <div class="cta-box">
+      <div class="cta-box__icon">🐢</div>
+      <div class="cta-box__text">
+        <strong>Want to support diamondback terrapin rehabilitation?</strong> Diamondback terrapins
+        are a species of greatest conservation concern in Virginia and face threats throughout their
+        range. Follow along with our updates or get in touch to learn how you can support wildlife
+        rehabilitation efforts for this remarkable species.
+      </div>
+    </div>
+
+    <div class="tag-list" style="margin-top: 2rem;">
+      {['wildlife rehabilitation', 'diamondback terrapins', 'ai for conservation', 'conservation tech', 'virginia wildlife', 'claude', 'anthropic'].map(tag => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+
+    <div class="footnote">
+      * We recognize that cost and environmental impact are fair considerations when evaluating any
+      AI tool. Anthropic offers guidance on how to use Claude efficiently, including strategies to
+      minimize unnecessary usage. For organizations weighing these factors,
+      <a href="https://www.anthropic.com" target="_blank" rel="noopener">anthropic.com</a> is a
+      good place to start.
+    </div>
+
+  </div>
+</article>
+
+</Layout>

@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'turtle-ai',
+    tagline: 'AI-powered monitoring for rehabilitating turtles',
+    status: 'Active',
+    github: 'https://github.com/lynnaloo/turtle-ai',
+    tech: ['Python', 'Gemma 3n', 'Ollama', 'Docker', 'RTSP', 'Twilio'],
+    description: `turtle-ai is an open-source, locally-run AI monitoring system designed to detect signs of distress in rehabilitating turtles using live RTSP camera feeds. Built for resource-limited rehabilitation environments, the system runs entirely on local hardware with no cloud dependency, capturing still frames every ten minutes and evaluating them using the Gemma 3n model via Ollama. When distress is detected — such as a turtle in a carapace-up position, showing signs of entrapment, or exhibiting unusual inactivity — the system sends a real-time WhatsApp alert via Twilio for immediate intervention.`,
+    presented: 'Presented at the 23rd TSA Annual Symposium, 2025',
+    highlights: [
+      'Detects carapace-up positioning, entrapment, unusual inactivity, and aggressive interactions',
+      'Fully local inference using Gemma 3n and Ollama — no cloud services required',
+      'Containerized architecture using Docker for easy deployment',
+      'Real-time WhatsApp alerts via Twilio with debounce logic to prevent alert fatigue',
+      'Prompt-engineered for turtle-specific distress detection with minimized false positives',
+      'Open-source and freely available for use by other rehabilitation programs',
+    ],
+  },
+];
+---
+
+<Layout
+  title="Open Source"
+  description="Open-source conservation technology projects developed and maintained by Southeastern Reptile Conservation."
+>
+
+  <!-- Header -->
+  <section style="padding: 5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <h1 style="margin-bottom: 1rem;">Open source projects</h1>
+    <p style="max-width: 620px; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8;">
+      At SERC, we believe conservation technology should be accessible to every program,
+      regardless of budget or technical resources. We build our tools in the open and share
+      them freely so other rehabilitators and researchers can benefit, adapt, and contribute.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  {projects.map(project => (
+    <section style="padding: 4rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.75rem;">
+            <span style="font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5A7A5A; background: #E8F0E8; border: 1px solid #C8DCC8; padding: 3px 10px; border-radius: 999px;">{project.status}</span>
+          </div>
+
+          <h2 style="font-family: 'Courier New', monospace; font-size: 2rem; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 0.5rem;">{project.name}</h2>
+          <p style="color: var(--color-text-muted); font-size: 1rem; margin-bottom: 1.5rem; font-style: italic;">{project.tagline}</p>
+
+          <p style="color: var(--color-text-muted); font-size: 15px; line-height: 1.85; margin-bottom: 1.5rem;">{project.description}</p>
+
+          {project.presented && (
+            <p style="font-size: 13px; color: var(--color-text-faint); font-style: italic; margin-bottom: 1.5rem;">
+              {project.presented}
+            </p>
+          )}
+
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem;">
+            {project.tech.map(t => (
+              <span style="font-family: 'Courier New', monospace; font-size: 12px; color: var(--color-text-muted); background: var(--color-surface); border: 1px solid var(--color-border); padding: 3px 10px;">{t}</span>
+            ))}
+          </div>
+
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--dark"
+            style="display: inline-flex; align-items: center; gap: 8px;"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+
+        <div>
+          <div style="background: var(--color-bg-dark); padding: 2rem; border-radius: 2px;">
+            <div style="font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #9A9080; margin-bottom: 1.25rem;">Key features</div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.9rem;">
+              {project.highlights.map(h => (
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #C5BEB4; line-height: 1.6;">
+                  <span style="color: #7A9A7A; flex-shrink: 0; margin-top: 2px;">&#10003;</span>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Architecture callout -->
+          <div style="margin-top: 1.5rem; background: var(--color-surface); border: 1px solid var(--color-border); padding: 1.5rem;">
+            <div style="font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1rem;">System flow</div>
+            <div style="display: flex; flex-direction: column; gap: 0; font-size: 13px; color: var(--color-text-muted);">
+              {[
+                'RTSP cameras stream live enclosure video',
+                'Python script captures still frames every 10 min',
+                'Gemma 3n (via Ollama) evaluates each frame locally',
+                'Distress detected → WhatsApp alert via Twilio',
+                'Web app logs observations and human review',
+              ].map((step, i, arr) => (
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                  <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+                    <div style={`width: 22px; height: 22px; border-radius: 50%; background: var(--color-bg-dark); color: var(--color-bg); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;`}>{i + 1}</div>
+                    {i < arr.length - 1 && <div style="width: 1px; height: 16px; background: var(--color-border);"></div>}
+                  </div>
+                  <p style="margin-bottom: i < arr.length - 1 ? '0' : '0'; padding: '3px 0'; line-height: 1.5;">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  ))}
+
+  <!-- Contribute CTA -->
+  <section style="padding: 5rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+    <div>
+      <h2 style="margin-bottom: 1rem;">Contribute or collaborate</h2>
+      <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        Our projects are open to contributions from developers, researchers, and wildlife
+        professionals. Whether you want to extend turtle-ai for a different species, adapt
+        it for your own facility, or propose a new project, we welcome your involvement.
+      </p>
+      <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;">
+        We are particularly interested in collaborations that expand the use of
+        conservation technology in resource-limited rehabilitation environments.
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="https://github.com/lynnaloo" target="_blank" rel="noopener" class="btn btn--dark" style="display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+        <a href="/contact" class="btn btn--outline">Get in touch</a>
+      </div>
+    </div>
+    <div style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 2rem;">
+      <div style="font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1rem;">Why open source?</div>
+      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1rem;">
+        Wildlife rehabilitation programs are almost always volunteer-run and
+        resource-constrained. Proprietary tools create barriers to adoption.
+        Open-source conservation technology means any program, anywhere, can
+        benefit from these advances without cost.
+      </p>
+      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8;">
+        It also means the community can improve, audit, and adapt the tools
+        for their own species and environments — advancing the field together.
+      </p>
+    </div>
+  </section>
+
+  <!-- Firebase config update note -->
+  <section style="background: var(--color-bg-dark); padding: 4rem var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+      <div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 300; color: #F5F2EC; margin-bottom: 0.5rem;">
+          turtle-ai is open source
+        </h2>
+        <p style="color: #9A9080; font-size: 0.95rem;">
+          Source code, documentation, and setup instructions available on GitHub.
+        </p>
+      </div>
+      <a
+        href="https://github.com/lynnaloo/turtle-ai"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--outline"
+        style="border-color: #D5D0C8; color: #D5D0C8; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px;"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        lynnaloo/turtle-ai
+      </a>
+    </div>
+  </section>
+
+</Layout>

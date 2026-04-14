@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About"
+  description="Southeastern Reptile Conservation is a licensed wildlife rehabilitation nonprofit serving Virginia, focused on native reptiles and amphibians."
+>
+
+  <!-- Hero -->
+  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; background: var(--color-bg);">
+    <div style="padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center;">
+      <h1 style="margin-bottom: 1.5rem;">Who we are</h1>
+      <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.25rem;">
+        Southeastern Reptile Conservation (SERC) is a Virginia-based nonprofit dedicated to the
+        conservation, rehabilitation, and protection of native reptiles and amphibians. We provide
+        permitted wildlife rehabilitation for injured and displaced native species with the goal of
+        returning them to the wild, while also supporting habitat stewardship, public education,
+        and conservation-focused technology to ensure native species can thrive in their natural
+        ecosystems.
+      </p>
+      <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8;">
+        SERC holds a Virginia DWR Category IIA Wildlife Rehabilitation Permit and operates as a
+        federally recognized 501(c)(3) public charity, effective September 17, 2025.
+      </p>
+    </div>
+    <div style="overflow: hidden; min-height: 500px;">
+      <img
+        src="/images/box-turtle-grass.jpg"
+        alt="Eastern box turtle in grass"
+        style="width: 100%; height: 100%; object-fit: cover;"
+      />
+    </div>
+  </section>
+
+  <!-- What we do -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="section">
+      <h2 style="margin-bottom: 3rem;">What we do</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Wildlife Rehabilitation</h3>
+          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
+            We provide expert care for injured, orphaned, and displaced native reptiles
+            and amphibians with the goal of returning healthy animals to the wild.
+            All rehabilitation is conducted by licensed Category IV rehabbers and
+            supervised volunteers.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Species Conservation</h3>
+          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
+            Several of the species we work with are of greatest conservation concern
+            in Virginia, including the diamondback terrapin. We partner with state
+            agencies and conservation organizations to support population monitoring,
+            habitat protection, and recovery efforts.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Technology & Data</h3>
+          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
+            We use data and technology to improve conservation outcomes. This includes
+            open-source monitoring tools, AI-assisted data analysis, and community
+            reporting systems that help us track wildlife health and trends over time.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Community Education</h3>
+          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
+            We work to build awareness of native reptile and amphibian species
+            through public education, community partnerships, and outreach to
+            builders, landowners, and the general public on how to coexist with
+            and protect local wildlife.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Second image section -->
+  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; background: var(--color-bg);">
+    <div style="overflow: hidden;">
+      <img
+        src="/images/box-turtle-leaves.jpg"
+        alt="Eastern box turtle on leaf litter"
+        style="width: 100%; height: 100%; object-fit: cover;"
+      />
+    </div>
+    <div style="padding: clamp(3rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center; background: var(--color-bg-dark);">
+      <h2 style="color: #F5F2EC; margin-bottom: 1.25rem;">Get involved</h2>
+      <p style="color: #9A9080; font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;">
+        SERC depends on the support of volunteers, donors, and the community.
+        Whether you want to volunteer your time, report a found animal, or make
+        a donation, we would love to hear from you.
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/contact" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">Contact us</a>
+        <a href="https://linktr.ee/turtlerehab" target="_blank" rel="noopener" class="btn" style="background: #B5A898; color: #2C2A26;">Donate</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Wildlife Rehabilitation and Conservation">
+
+  <!-- Hero -->
+  <section style="background: #B5A090; min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden;">
+    <div style="padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem);">
+      <h1 style="font-family: var(--font-serif); font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; color: var(--color-text); line-height: 1.1; margin-bottom: 1.5rem;">
+        Protecting native species.
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 2rem; max-width: 480px;">
+        Southeastern Reptile Conservation is a Virginia-based nonprofit dedicated to the
+        conservation, rehabilitation, and protection of native reptiles and amphibians.
+        We provide permitted wildlife rehabilitation with the goal of returning animals
+        to the wild, while supporting habitat stewardship, public education, and
+        conservation-focused technology.
+      </p>
+      <p style="color: var(--color-text-muted); font-size: 1rem; margin-bottom: 2rem;">
+        We can't do this without your support.
+      </p>
+      <a href="/about" class="btn btn--outline">
+        Learn more
+      </a>
+    </div>
+    <div style="height: 100%; min-height: 90vh; overflow: hidden;">
+      <img
+        src="/images/hero-turtle.jpg"
+        alt="Eastern box turtle in natural habitat"
+        style="width: 100%; height: 100%; object-fit: cover;"
+      />
+    </div>
+  </section>
+
+  <!-- Mission strip -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 3rem var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; text-align: center;">
+      <div>
+        <div style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.5rem;">Rehabilitation</div>
+        <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">Caring for injured and orphaned native reptiles and amphibians with licensed expertise.</p>
+      </div>
+      <div>
+        <div style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.5rem;">Conservation</div>
+        <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">Protecting habitats and advocating for species of greatest conservation concern in Virginia.</p>
+      </div>
+      <div>
+        <div style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.5rem;">Education</div>
+        <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">Building community awareness and using technology to advance conservation outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest from the blog -->
+  <section style="padding: 5rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border);">
+      <h2 style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300;">From the blog</h2>
+      <a href="/blog" style="font-size: 13px; text-decoration: underline; text-underline-offset: 4px; color: var(--color-text-muted);">All posts</a>
+    </div>
+    <a href="/blog/ai-in-wildlife-rehabilitation" class="post-card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; text-decoration: none; color: inherit;">
+      <div>
+        <div class="post-card__date">April 2026</div>
+        <div class="post-card__title">AI in wildlife rehabilitation: from paper notes to life-saving insights</div>
+        <p class="post-card__excerpt">How we used Claude, Anthropic's AI assistant, to turn handwritten field notes into a working spreadsheet, catch a data error, and surface insights that were invisible on paper.</p>
+        <span class="post-card__read-more">Read more</span>
+      </div>
+      <div class="post-card__image" style="aspect-ratio: 4/3; overflow: hidden;">
+        <img src="/images/hatchling-rock.jpg" alt="Diamondback terrapin hatchling" style="width: 100%; height: 100%; object-fit: cover;" />
+      </div>
+    </a>
+  </section>
+
+  <!-- Donate CTA -->
+  <section style="background: var(--color-bg-dark); padding: 5rem var(--site-gutter); text-align: center;">
+    <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: #F5F2EC; margin-bottom: 1rem;">
+      Support native wildlife rehabilitation
+    </h2>
+    <p style="color: #9A9080; max-width: 520px; margin: 0 auto 2rem; line-height: 1.75; font-size: 1rem;">
+      SERC is a 501(c)(3) nonprofit. Your donation directly supports the care of
+      injured and orphaned reptiles and amphibians in Virginia.
+    </p>
+    <a href="https://linktr.ee/turtlerehab" target="_blank" rel="noopener" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">
+      Donate
+    </a>
+  </section>
+
+</Layout>

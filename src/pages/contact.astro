@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Get in touch with Southeastern Reptile Conservation for wildlife rehabilitation help, volunteer inquiries, or general questions.">
+
+  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh;">
+
+    <div style="padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem); background: var(--color-bg);">
+      <h1 style="margin-bottom: 1.25rem;">Contact us</h1>
+      <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 2rem;">
+        Interested in working together? Need advice on a native reptile or amphibian?
+        Fill out the form and we will be in touch as soon as possible.
+      </p>
+      <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 0.5rem;">
+        <strong style="font-weight: 500;">Found an injured animal?</strong><br />
+        Please include the species (if known), location, and a description of the
+        animal's condition. Photos are helpful.
+      </p>
+      <p style="color: var(--color-text-muted); line-height: 1.8; margin-top: 2rem;">
+        <a href="mailto:info@southeastreptile.org" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 4px;">
+          info@southeastreptile.org
+        </a>
+      </p>
+    </div>
+
+    <div style="padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem); background: var(--color-surface); border-left: 1px solid var(--color-border);">
+      <form name="contact" method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 6px;">First name</label>
+            <input type="text" name="first-name" required style="width: 100%; padding: 10px 14px; background: var(--color-bg-light); border: 1px solid var(--color-border); font-family: var(--font-sans); font-size: 15px; color: var(--color-text); outline: none;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 6px;">Last name</label>
+            <input type="text" name="last-name" required style="width: 100%; padding: 10px 14px; background: var(--color-bg-light); border: 1px solid var(--color-border); font-family: var(--font-sans); font-size: 15px; color: var(--color-text); outline: none;" />
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 6px;">Email</label>
+          <input type="email" name="email" required style="width: 100%; padding: 10px 14px; background: var(--color-bg-light); border: 1px solid var(--color-border); font-family: var(--font-sans); font-size: 15px; color: var(--color-text); outline: none;" />
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 6px;">Message</label>
+          <textarea name="message" rows="6" required style="width: 100%; padding: 10px 14px; background: var(--color-bg-light); border: 1px solid var(--color-border); font-family: var(--font-sans); font-size: 15px; color: var(--color-text); outline: none; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--dark" style="align-self: flex-start;">Send</button>
+
+      </form>
+    </div>
+
+  </section>
+
+</Layout>

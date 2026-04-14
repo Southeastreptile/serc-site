@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const species = [
+  {
+    name: 'Diamondback Terrapin',
+    scientific: 'Malaclemys terrapin',
+    status: 'Species of Greatest Concern',
+    description: 'The only turtle in North America that lives in brackish coastal habitats. Diamondback terrapins are a species of greatest conservation concern in Virginia, facing threats from habitat loss, road mortality, crab trap drowning, and collection for the pet trade.',
+    image: '/images/hatchling-rock.jpg',
+  },
+  {
+    name: 'Eastern Box Turtle',
+    scientific: 'Terrapene carolina carolina',
+    status: 'Species of Conservation Concern',
+    description: 'A beloved and iconic Virginia turtle that is increasingly threatened by habitat fragmentation, road mortality, and collection. Box turtles have small home ranges and strong site fidelity, making habitat loss especially impactful for local populations.',
+    image: '/images/box-turtle-grass.jpg',
+  },
+  {
+    name: 'Native Reptiles & Amphibians',
+    scientific: 'Various species',
+    status: 'Rehabilitation Services',
+    description: 'SERC provides rehabilitation services for a range of native Virginia reptiles and amphibians, including snakes, lizards, frogs, and salamanders. If you have found an injured or displaced native reptile or amphibian, please contact us.',
+    image: '/images/tree-frog.jpg',
+  },
+];
+---
+
+<Layout title="Wildlife" description="Learn about the native reptile and amphibian species SERC works to rehabilitate and protect in Virginia.">
+
+  <!-- Header -->
+  <section style="padding: 5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto;">
+    <h1 style="margin-bottom: 1rem;">Wildlife we protect</h1>
+    <p style="max-width: 600px; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8;">
+      Virginia is home to a rich diversity of native reptile and amphibian species. Many face
+      significant threats from habitat loss, road mortality, and human disturbance. We focus
+      our rehabilitation and conservation efforts on species with the greatest need.
+    </p>
+  </section>
+
+  <!-- Species -->
+  {species.map((s, i) => (
+    <section style={`display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; ${i % 2 === 1 ? 'direction: rtl;' : ''}`}>
+      <div style={`overflow: hidden; ${i % 2 === 1 ? 'direction: ltr;' : ''}`}>
+        <img
+          src={s.image}
+          alt={s.name}
+          style="width: 100%; height: 100%; object-fit: cover;"
+        />
+      </div>
+      <div style={`padding: clamp(3rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center; background: ${i % 2 === 1 ? 'var(--color-surface)' : 'var(--color-bg)'}; direction: ltr; border-top: 1px solid var(--color-border);`}>
+        <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.75rem;">{s.status}</span>
+        <h2 style="margin-bottom: 0.25rem;">{s.name}</h2>
+        <p style="font-style: italic; color: var(--color-text-faint); font-size: 14px; margin-bottom: 1.25rem;">{s.scientific}</p>
+        <p style="color: var(--color-text-muted); font-size: 15px; line-height: 1.8;">{s.description}</p>
+      </div>
+    </section>
+  ))}
+
+  <!-- Found an animal CTA -->
+  <section style="background: var(--color-bg-dark); padding: 5rem var(--site-gutter); text-align: center;">
+    <h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300; color: #F5F2EC; margin-bottom: 1rem;">
+      Found an injured reptile or amphibian?
+    </h2>
+    <p style="color: #9A9080; max-width: 500px; margin: 0 auto 2rem; line-height: 1.75;">
+      Do not attempt to care for the animal yourself. Contact us with the species,
+      location, and condition of the animal and we will advise on next steps.
+    </p>
+    <a href="/contact" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">
+      Contact us
+    </a>
+  </section>
+
+</Layout>
