@@ -18,6 +18,36 @@ const projects = [
       'Prompt-engineered for turtle-specific distress detection with minimized false positives',
       'Open-source and freely available for use by other rehabilitation programs',
     ],
+    flow: [
+      'RTSP cameras stream live enclosure video',
+      'Python script captures still frames every 10 min',
+      'Gemma 3n (via Ollama) evaluates each frame locally',
+      'Distress detected — WhatsApp alert via Twilio',
+      'Web app logs observations and human review',
+    ],
+  },
+  {
+    name: 'ask-serc',
+    tagline: 'RAG chatbot for wildlife rehabilitators and volunteers',
+    status: 'Active',
+    github: 'https://github.com/lynnaloo/ask-serc',
+    tech: ['React', 'Google ADK', 'Gemini', 'Vertex AI', 'Firestore', 'Cloud Run'],
+    description: `ask-serc is an AI-powered chatbot that helps wildlife rehabilitators and volunteers quickly access information about Virginia native animal care. Personified as "Susie," an Eastern Box Turtle ambassador, the system uses retrieval-augmented generation (RAG) to route queries between SERC's own knowledge base for medical and rehabilitation protocols and Google Search for natural history and species identification. Every interaction is logged for volunteer review, helping the team continuously identify and fill gaps in the knowledge base.`,
+    highlights: [
+      'Intelligent tool routing between SERC knowledge base and Google Search',
+      'Powered by Gemini via Vertex AI with RAG grounding through Vertex AI Search',
+      'Knowledge gap tracking — every query logged for volunteer review',
+      'User feedback system with thumbs up/down response ratings',
+      'Admin dashboard for reviewing knowledge gaps at /admin',
+      'Automated Cloud Function syncs Google Drive documents daily',
+    ],
+    flow: [
+      'Volunteers upload care documents to shared Google Drive',
+      'Cloud Function syncs files to Cloud Storage daily',
+      'User query triggers tool selection via Google ADK',
+      'Gemini generates a response grounded in SERC knowledge base or Google Search',
+      'Exchange logged as a potential knowledge gap for volunteer review',
+    ],
   },
 ];
 ---
@@ -96,13 +126,7 @@ const projects = [
           <div style="margin-top: 1.5rem; background: var(--color-surface); border: 1px solid var(--color-border); padding: 1.5rem;">
             <div style="font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1rem;">System flow</div>
             <div style="display: flex; flex-direction: column; gap: 0; font-size: 13px; color: var(--color-text-muted);">
-              {[
-                'RTSP cameras stream live enclosure video',
-                'Python script captures still frames every 10 min',
-                'Gemma 3n (via Ollama) evaluates each frame locally',
-                'Distress detected → WhatsApp alert via Twilio',
-                'Web app logs observations and human review',
-              ].map((step, i, arr) => (
+              {project.flow.map((step, i, arr) => (
                 <div style="display: flex; align-items: flex-start; gap: 10px;">
                   <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
                     <div style={`width: 22px; height: 22px; border-radius: 50%; background: var(--color-bg-dark); color: var(--color-bg); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;`}>{i + 1}</div>
@@ -162,14 +186,14 @@ const projects = [
     <div style="max-width: var(--site-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
       <div>
         <h2 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 300; color: #F5F2EC; margin-bottom: 0.5rem;">
-          turtle-ai is open source
+          All projects are open source
         </h2>
         <p style="color: #9A9080; font-size: 0.95rem;">
           Source code, documentation, and setup instructions available on GitHub.
         </p>
       </div>
       <a
-        href="https://github.com/lynnaloo/turtle-ai"
+        href="https://github.com/lynnaloo"
         target="_blank"
         rel="noopener"
         class="btn btn--outline"
@@ -178,7 +202,7 @@ const projects = [
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
         </svg>
-        lynnaloo/turtle-ai
+        lynnaloo on GitHub
       </a>
     </div>
   </section>

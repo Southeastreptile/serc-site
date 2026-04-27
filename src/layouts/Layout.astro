@@ -40,6 +40,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <li><a href="/open-source" aria-current={Astro.url.pathname.startsWith('/open-source') ? 'page' : undefined}>Software</a></li>
             <li><a href="/blog" aria-current={Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
             <li><a href="/contact" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a></li>
+            <li><a href="/merch" aria-current={Astro.url.pathname === '/merch' ? 'page' : undefined}>Merch</a></li>
           </ul>
         </nav>
         <div class="nav__actions">
