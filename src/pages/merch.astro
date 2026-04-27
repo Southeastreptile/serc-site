@@ -7,42 +7,49 @@ const products = [
     price: '$30',
     styles: '8 styles',
     url: 'https://www.bonfire.com/help-save-injured-turtles/',
+    image: 'https://dynamic.bonfireassets.com/thumb/design-image/0d782fda-7508-4790-b681-8c4eb7fb6235/a12f1364-34a5-4ab3-bcd5-fb45910a2e8f/450/',
   },
   {
     name: 'All you need is love... and turtles!',
     price: '$32',
     styles: '9 styles',
     url: 'https://www.bonfire.com/all-you-need-is-love-and-turtles/',
+    image: 'https://dynamic.bonfireassets.com/thumb/design-image/8f2e3235-4e57-402f-9f79-046445ae3196/a12f1364-34a5-4ab3-bcd5-fb45910a2e8f/450/',
   },
   {
     name: 'Wear a snake on your heart!',
     price: '$28',
     styles: '7 styles',
     url: 'https://www.bonfire.com/save-native-snakes/',
+    image: 'https://dynamic.bonfireassets.com/thumb/design-image/68e3a592-b0ff-4ad1-b4ca-e474eee6f7e6/a12f1364-34a5-4ab3-bcd5-fb45910a2e8f/450/',
   },
   {
     name: 'Meet the toads at midnight!',
     price: '$28',
     styles: '7 styles',
     url: 'https://www.bonfire.com/save-the-toads/',
+    image: 'https://c.bonfireassets.com/thumb/design-image/4873981f-4b02-452a-8ced-be98bcd6ed75/e9c2cd77-4ea2-4179-a32e-3b0e6282c053/900/',
   },
   {
     name: 'Help support the baby turtles!',
     price: '$28',
     styles: '8 styles',
     url: 'https://www.bonfire.com/support-baby-turtles/',
+    image: 'https://c.bonfireassets.com/thumb/design-image/cc8a528d-27bd-4891-8f9f-845140ae3b60/fefea009-962d-403a-b60d-f799fa6bf49a/900/',
   },
   {
     name: 'Help support the baby turtles! (hoodie)',
     price: '$45',
     styles: '6 styles',
     url: 'https://www.bonfire.com/support-baby-turtles-winter/',
+    image: 'https://c.bonfireassets.com/thumb/design-image/8edbea98-f4d6-4f12-b245-aaaeb23e3ea1/b8c0e7b9-ed44-45dd-9b16-c5122ab0d815/900/',
   },
   {
     name: 'Turtle Totes to support rehab!',
     price: '$25',
     styles: '4 styles',
     url: 'https://www.bonfire.com/turtle-totes-for-rehab-1/',
+    image: 'https://c.bonfireassets.com/thumb/design-image/5dc0b10b-8530-4190-aeba-6ad30e252847/4a517a59-f7fe-43fa-bab5-e3b87f25424f/900/',
   },
 ];
 ---
@@ -69,19 +76,28 @@ const products = [
           href={product.url}
           target="_blank"
           rel="noopener noreferrer"
-          style="display: block; background: var(--color-surface); border: 1px solid var(--color-border); padding: 2rem; text-decoration: none; color: inherit; transition: border-color 0.2s;"
+          style="display: block; background: var(--color-surface); border: 1px solid var(--color-border); text-decoration: none; color: inherit; transition: border-color 0.2s;"
           onmouseover="this.style.borderColor='var(--color-accent)'"
           onmouseout="this.style.borderColor='var(--color-border)'"
         >
-          <div style="font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.3; margin-bottom: 1rem; color: var(--color-text);">
-            {product.name}
+          <div style="aspect-ratio: 1; overflow: hidden; background: #fff;">
+            <img
+              src={product.image}
+              alt={product.name}
+              style="width: 100%; height: 100%; object-fit: cover;"
+            />
           </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-            <span style="font-size: 1rem; color: var(--color-text);">{product.price}</span>
-            <span style="font-size: 12px; color: var(--color-text-faint); text-transform: uppercase; letter-spacing: 0.08em;">{product.styles}</span>
-          </div>
-          <div style="margin-top: 1.25rem; font-size: 13px; color: var(--color-text-muted); text-decoration: underline; text-underline-offset: 4px;">
-            Shop on Bonfire
+          <div style="padding: 1.25rem;">
+            <div style="font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.3; margin-bottom: 0.75rem; color: var(--color-text);">
+              {product.name}
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 1rem; color: var(--color-text);">{product.price}</span>
+              <span style="font-size: 12px; color: var(--color-text-faint); text-transform: uppercase; letter-spacing: 0.08em;">{product.styles}</span>
+            </div>
+            <div style="margin-top: 0.75rem; font-size: 13px; color: var(--color-text-muted); text-decoration: underline; text-underline-offset: 4px;">
+              Shop on Bonfire
+            </div>
           </div>
         </a>
       ))}
