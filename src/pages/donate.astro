@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const financial = [
+  {
+    name: 'Zeffy',
+    description: 'Make a direct monetary donation to SERC. Zeffy charges zero fees — 100% of your donation goes to us.',
+    url: 'https://www.zeffy.com/en-US/donation-form/donate-to-help-turtles',
+    cta: 'Donate on Zeffy',
+  },
+  {
+    name: 'PayPal',
+    description: 'Donate through PayPal Giving Fund. A trusted option for one-time or recurring contributions.',
+    url: 'https://www.paypal.com/us/fundraiser/charity/5720062',
+    cta: 'Donate on PayPal',
+  },
+];
+
+const inkind = [
+  {
+    name: 'Amazon Wish List',
+    description: 'Purchase supplies directly from our wishlist. Items ship straight to our rehabilitation program.',
+    url: 'https://www.amazon.com/hz/wishlist/ls/1CGZQ8S1QMSW?type=wishlist&filter=all&sort=priority',
+    cta: 'View wish list',
+  },
+  {
+    name: 'Chewy Wish List',
+    description: 'Shop our Chewy wish list for food, supplements, and supplies needed for animal care.',
+    url: 'https://www.chewy.com/g/serc_b148794353#wish-list&wishlistsortby=DEFAULT',
+    cta: 'View wish list',
+  },
+  {
+    name: 'Walmart Registry',
+    description: 'Find additional supplies and equipment on our Walmart registry.',
+    url: 'https://www.walmart.com/registry/RR/2bbb753a-b147-446e-bb00-7328e40334e8',
+    cta: 'View registry',
+  },
+];
+---
+
+<Layout
+  title="How to Help"
+  description="Support Southeastern Reptile Conservation through financial donations, in-kind supplies, or buying merch. Every contribution helps rehabilitate native reptiles and amphibians."
+>
+
+  <!-- Header -->
+  <section style="padding: 5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <h1 style="margin-bottom: 1rem;">How to help</h1>
+    <p style="max-width: 580px; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8;">
+      SERC is an all-volunteer 501(c)(3) nonprofit. Every contribution — whether a financial
+      donation, a bag of supplies, or a t-shirt purchase — directly supports the care of
+      injured and displaced native reptiles and amphibians in Virginia.
+    </p>
+  </section>
+
+  <!-- Financial donations -->
+  <section style="padding: 4rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <h2 style="margin-bottom: 0.5rem;">Financial donations</h2>
+    <p style="color: var(--color-text-muted); font-size: 15px; margin-bottom: 2.5rem;">
+      Tax-deductible donations fund veterinary care, supplies, and rehabilitation equipment.
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+      {financial.map(item => (
+        <div style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 2rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">{item.name}</h3>
+          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 1.5rem;">{item.description}</p>
+          <a href={item.url} target="_blank" rel="noopener noreferrer" class="btn btn--dark">{item.cta}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- In-kind supplies -->
+  <section style="padding: 4rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <h2 style="margin-bottom: 0.5rem;">In-kind supplies</h2>
+    <p style="color: var(--color-text-muted); font-size: 15px; margin-bottom: 2.5rem;">
+      Purchase items directly from our wish lists and they ship straight to our team.
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+      {inkind.map(item => (
+        <div style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 2rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">{item.name}</h3>
+          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 1.5rem;">{item.description}</p>
+          <a href={item.url} target="_blank" rel="noopener noreferrer" class="btn btn--outline">{item.cta}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Merch CTA -->
+  <section style="padding: 4rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+    <div>
+      <h2 style="margin-bottom: 0.75rem;">Shop merch</h2>
+      <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        Every t-shirt, hoodie, and tote bag purchase supports native wildlife rehabilitation.
+        Browse our Bonfire store and Sticker Mule shop for designs that show your love for
+        reptiles and amphibians.
+      </p>
+      <a href="/merch" class="btn btn--dark">Shop merch</a>
+    </div>
+    <div style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 2rem;">
+      <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1rem;">Other ways to give</div>
+      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 0.75rem;">
+        Follow us on Instagram <a href="https://www.instagram.com/purringturtle" target="_blank" rel="noopener" style="color: var(--color-text-muted); text-decoration: underline;">@purringturtle</a> and share our work with your community.
+      </p>
+      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8;">
+        Spreading the word about native reptile and amphibian conservation makes a real difference
+        for species that rarely make headlines.
+      </p>
+    </div>
+  </section>
+
+</Layout>
