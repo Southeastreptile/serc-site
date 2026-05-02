@@ -32,7 +32,7 @@ const projects = [
     status: 'Active',
     github: 'https://github.com/lynnaloo/ask-serc',
     tech: ['React', 'Google ADK', 'Gemini', 'Vertex AI', 'Firestore', 'Cloud Run'],
-    description: `ask-serc is an AI-powered chatbot that helps wildlife rehabilitators and volunteers quickly access information about Virginia native animal care. Personified as "Susie," an Eastern Box Turtle ambassador, the system uses retrieval-augmented generation (RAG) to route queries between SERC's own knowledge base for medical and rehabilitation protocols and Google Search for natural history and species identification. Every interaction is logged for volunteer review, helping the team continuously identify and fill gaps in the knowledge base.`,
+    description: `ask-serc is an AI-powered chatbot that helps SERC rehabbers and volunteers quickly access information about Virginia native animal care. Personified as "Susie," an Eastern Box Turtle ambassador, the system uses retrieval-augmented generation (RAG) to route queries between SERC's own knowledge base for rehabilitation protocols and Google Search for natural history and species identification. For cases requiring medications or treatment of severe injuries, Susie directs users to contact SERC's advisory veterinarian. Every interaction is logged for volunteer review, helping the team continuously identify and fill gaps in the knowledge base.`,
     highlights: [
       'Intelligent tool routing between SERC knowledge base and Google Search',
       'Powered by Gemini via Vertex AI with RAG grounding through Vertex AI Search',
@@ -178,6 +178,24 @@ const projects = [
         It also means the community can improve, audit, and adapt the tools
         for their own species and environments — advancing the field together.
       </p>
+    </div>
+  </section>
+
+  <!-- Supported by -->
+  <section style="padding: 3.5rem var(--site-gutter); border-top: 1px solid var(--color-border);">
+    <div style="max-width: var(--site-max); margin: 0 auto;">
+      <div style="font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1.5rem; text-align: center;">Supported by</div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <a href="https://elevenlabs.io/impact-program" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://eleven-public-cdn.elevenlabs.io/payloadcms/rxk2xwmcbb-elevenlabs-logo-black.svg"
+            alt="ElevenLabs Impact Program"
+            style="height: 28px; width: auto; display: block; opacity: 0.75; transition: opacity 0.2s;"
+            onmouseover="this.style.opacity='1'"
+            onmouseout="this.style.opacity='0.75'"
+          />
+        </a>
+      </div>
     </div>
   </section>
 
