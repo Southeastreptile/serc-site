@@ -1,0 +1,398 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Turtle Watch"
+  description="Live map of turtle activity corridors near major roads in southeastern Virginia. Powered by iNaturalist citizen science data."
+>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+
+  <style>
+    /* ── Page-specific overrides ── */
+    .tw-page {
+      max-width: var(--site-max);
+      margin: 0 auto;
+      padding: 4rem var(--site-gutter) 5rem;
+    }
+
+    .tw-hero {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .tw-hero h1 { margin-bottom: 0.5rem; }
+    .tw-hero p {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 640px;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* ── Seasonal alert ── */
+    .season-alert {
+      display: none;
+      background: #fff8e1;
+      border: 1px solid #f9c74f;
+      padding: 0.65rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: #7a5c00;
+      margin-bottom: 1.25rem;
+    }
+    .season-alert.visible { display: block; }
+
+    /* ── Stats ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .tw-stat {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 0.85rem 1rem;
+    }
+    .tw-stat .label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 0.3rem;
+    }
+    .tw-stat .value {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .tw-stat .value.small { font-size: 0.95rem; padding-top: 0.3rem; }
+
+    /* ── Controls ── */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .controls select {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      padding: 0.45rem 2rem 0.45rem 0.75rem;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-light);
+      color: var(--color-text);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235A5548'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.6rem center;
+    }
+
+    /* ── Status ── */
+    .status {
+      font-size: 0.8rem;
+      color: var(--color-text-faint);
+      margin-bottom: 0.6rem;
+      min-height: 1.2em;
+    }
+
+    /* ── Map ── */
+    #map {
+      width: 100%;
+      height: 520px;
+      border: 1px solid var(--color-border);
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.85rem;
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      align-items: center;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 24px;
+      height: 10px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .legend .source {
+      margin-left: auto;
+      font-size: 0.72rem;
+      font-style: italic;
+      color: var(--color-text-faint);
+    }
+
+    /* ── Footer note ── */
+    .tw-note {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      max-width: 720px;
+    }
+    .tw-note strong { font-weight: 500; color: var(--color-text); }
+    .tw-note a { text-decoration: underline; text-underline-offset: 3px; color: var(--color-text-muted); }
+
+    @media (max-width: 600px) {
+      #map { height: 380px; }
+    }
+  </style>
+
+  <main class="tw-page">
+
+    <div class="tw-hero">
+      <h1>Turtle Watch</h1>
+      <p>Active turtle corridors near major roads in southeastern Virginia — based on citizen science observations from iNaturalist. Use this map to identify areas where turtles regularly cross roads during active seasons.</p>
+    </div>
+
+    <!-- Seasonal alert: shown April–September -->
+    <div class="season-alert" id="season-alert">
+      🐢 <strong>Peak season:</strong> Turtles are actively moving now. Please slow down near wetlands, forested roadsides, and highlighted areas on this map.
+    </div>
+
+    <!-- Stats -->
+    <div class="stat-row" id="stats" style="display:none;">
+      <div class="tw-stat">
+        <div class="label">Observations</div>
+        <div class="value" id="stat-count">—</div>
+      </div>
+      <div class="tw-stat">
+        <div class="label">Active corridors</div>
+        <div class="value" id="stat-corridors">—</div>
+      </div>
+      <div class="tw-stat">
+        <div class="label">Near major roads</div>
+        <div class="value" id="stat-road">—</div>
+      </div>
+      <div class="tw-stat">
+        <div class="label">Seasons covered</div>
+        <div class="value small">Spring · Summer · Fall</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <select id="years-filter">
+        <option value="5">Last 5 years</option>
+        <option value="3">Last 3 years</option>
+        <option value="10">Last 10 years</option>
+        <option value="all">All time</option>
+      </select>
+      <button class="btn btn--dark" id="load-btn" onclick="loadAll()" style="border-radius: 4px; font-size: 13px; padding: 8px 20px;">
+        Load sightings ↗
+      </button>
+    </div>
+
+    <div class="status" id="status">Click "Load sightings" to fetch live data from iNaturalist and OpenStreetMap.</div>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <span>
+        <span class="legend-swatch" style="background:#e24b4a; opacity:0.6;"></span>
+        Active corridor near major road
+      </span>
+      <span>
+        <span class="legend-swatch" style="background:#378add; opacity:0.5; border: 1px dashed #378add;"></span>
+        Active area (away from major road)
+      </span>
+      <span class="source">Research-grade observations only · iNaturalist + OpenStreetMap</span>
+    </div>
+
+    <!-- Footer note -->
+    <div class="tw-note">
+      <strong>About this map.</strong> Highlighted areas show grid cells with 5 or more research-grade turtle observations recorded during spring, summer, or fall. Red cells are within approximately 0.25 miles of a motorway, trunk, primary, or secondary road. Individual observation locations and species are not shown. Data is fetched live from <a href="https://www.inaturalist.org" target="_blank" rel="noopener">iNaturalist</a> and road geometry from <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a> via the Overpass API.
+      <br><br>
+      If you find an injured turtle on or near a road, <a href="/contact">contact Southeastern Reptile Conservation</a> for guidance on next steps.
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    // ── Constants ──────────────────────────────────────────────────────────────
+    const BOUNDS        = { swlat: 36.5, swlng: -77.5, nelat: 37.5, nelng: -75.5 };
+    const GRID_DEG      = 0.04;
+    const ROAD_THRESH   = 0.004;
+    const MIN_CLUSTER   = 5;
+    const ACTIVE_MONTHS = [3,4,5,6,7,8,9,10,11];
+
+    // ── Map init ───────────────────────────────────────────────────────────────
+    let map, overlayLayer;
+
+    function initMap() {
+      if (map) return;
+      map = L.map('map').setView([36.85, -76.3], 9);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map);
+      overlayLayer = L.layerGroup().addTo(map);
+    }
+
+    // ── Seasonal alert banner ──────────────────────────────────────────────────
+    (function() {
+      const m = new Date().getMonth() + 1;
+      if (m >= 4 && m <= 9) {
+        document.getElementById('season-alert').classList.add('visible');
+      }
+    })();
+
+    // ── Helpers ────────────────────────────────────────────────────────────────
+    function setStatus(msg) { document.getElementById('status').textContent = msg; }
+
+    function cellKey(lat, lng) {
+      return `${Math.floor(lat / GRID_DEG)},${Math.floor(lng / GRID_DEG)}`;
+    }
+    function cellCenter(key) {
+      const [r, c] = key.split(',').map(Number);
+      return { lat: (r + 0.5) * GRID_DEG, lng: (c + 0.5) * GRID_DEG };
+    }
+    function cellBounds(key) {
+      const [r, c] = key.split(',').map(Number);
+      return [[r * GRID_DEG, c * GRID_DEG], [(r + 1) * GRID_DEG, (c + 1) * GRID_DEG]];
+    }
+
+    function pointSegmentDist(px, py, ax, ay, bx, by) {
+      const dx = bx - ax, dy = by - ay;
+      if (dx === 0 && dy === 0) return Math.hypot(px - ax, py - ay);
+      const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)));
+      return Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
+    }
+
+    function pointNearRoads(lat, lng, roads) {
+      for (const road of roads) {
+        if (!road.geometry) continue;
+        const nodes = road.geometry;
+        for (let i = 0; i < nodes.length - 1; i++) {
+          const a = nodes[i], b = nodes[i + 1];
+          if (pointSegmentDist(lat, lng, a.lat, a.lon, b.lat, b.lon) < ROAD_THRESH) return true;
+        }
+      }
+      return false;
+    }
+
+    // ── Data fetching ──────────────────────────────────────────────────────────
+    async function fetchObservations(d1, d2) {
+      let obs = [], page = 1, total = null;
+      while (true) {
+        const url = `https://api.inaturalist.org/v1/observations?taxon_name=Testudines&quality_grade=research&geo=true`
+          + `&swlat=${BOUNDS.swlat}&swlng=${BOUNDS.swlng}&nelat=${BOUNDS.nelat}&nelng=${BOUNDS.nelng}`
+          + `&d1=${d1}&d2=${d2}&per_page=200&page=${page}&order=desc&order_by=created_at`;
+        const res  = await fetch(url);
+        const data = await res.json();
+        if (total === null) total = Math.min(data.total_results, 1000);
+        obs = obs.concat(data.results || []);
+        setStatus(`Fetching observations… ${obs.length} of ${total}`);
+        if (obs.length >= total || !data.results?.length) break;
+        page++;
+        if (page > 5) break;
+      }
+      return obs;
+    }
+
+    async function fetchRoads() {
+      setStatus('Fetching road geometry from OpenStreetMap…');
+      const query = `[out:json][timeout:30];
+way["highway"~"^(motorway|trunk|primary|secondary)$"](${BOUNDS.swlat},${BOUNDS.swlng},${BOUNDS.nelat},${BOUNDS.nelng});
+out geom;`;
+      const res  = await fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: query });
+      const data = await res.json();
+      return data.elements || [];
+    }
+
+    // ── Main load + render ─────────────────────────────────────────────────────
+    async function loadAll() {
+      initMap();
+      document.getElementById('load-btn').disabled = true;
+      overlayLayer.clearLayers();
+
+      const years = document.getElementById('years-filter').value;
+      const d1 = years === 'all'
+        ? '2010-01-01'
+        : new Date(Date.now() - years * 365.25 * 86400000).toISOString().slice(0, 10);
+      const d2 = new Date().toISOString().slice(0, 10);
+
+      try {
+        const [obs, roads] = await Promise.all([fetchObservations(d1, d2), fetchRoads()]);
+
+        setStatus('Analyzing corridors…');
+
+        const seasonal = obs.filter(o => {
+          if (!o.location || !o.observed_on) return false;
+          return ACTIVE_MONTHS.includes(new Date(o.observed_on).getMonth() + 1);
+        });
+
+        const grid = {};
+        seasonal.forEach(o => {
+          const [lat, lng] = o.location.split(',').map(Number);
+          const k = cellKey(lat, lng);
+          grid[k] = (grid[k] || 0) + 1;
+        });
+
+        const activeCells = Object.entries(grid).filter(([, count]) => count >= MIN_CLUSTER);
+
+        let roadCount = 0;
+        activeCells.forEach(([key, count]) => {
+          const { lat, lng } = cellCenter(key);
+          const nearRoad = pointNearRoads(lat, lng, roads);
+          if (nearRoad) roadCount++;
+
+          const color   = nearRoad ? '#e24b4a' : '#378add';
+          const fillOp  = nearRoad ? 0.42 : 0.22;
+          const weight  = nearRoad ? 2 : 1;
+          const dash    = nearRoad ? null : '5,4';
+
+          L.rectangle(cellBounds(key), {
+            color, weight, fillColor: color, fillOpacity: fillOp, dashArray: dash
+          }).bindPopup(
+            `<strong style="font-family:'Marcellus',Georgia,serif;font-size:1rem;">Turtle activity area</strong><br>`
+            + `<span style="font-size:0.82rem;">${count} sighting${count !== 1 ? 's' : ''} recorded</span><br>`
+            + `<span style="font-size:0.82rem;">Spring · Summer · Fall</span>`
+            + (nearRoad
+              ? `<br><span style="font-size:0.82rem;color:#c0392b;font-weight:500;">Near major road — slow down</span>`
+              : '')
+          ).addTo(overlayLayer);
+        });
+
+        document.getElementById('stat-count').textContent     = seasonal.length.toLocaleString();
+        document.getElementById('stat-corridors').textContent = activeCells.length;
+        document.getElementById('stat-road').textContent      = roadCount;
+        document.getElementById('stats').style.display        = 'grid';
+        setStatus(`Showing ${activeCells.length} active corridors with 5+ seasonal sightings. ${roadCount} near major roads.`);
+
+        if (seasonal.length > 0) {
+          const lats = seasonal.map(o => +o.location.split(',')[0]);
+          const lngs = seasonal.map(o => +o.location.split(',')[1]);
+          map.fitBounds([[Math.min(...lats), Math.min(...lngs)], [Math.max(...lats), Math.max(...lngs)]], { padding: [30, 30] });
+        }
+
+      } catch (e) {
+        setStatus('Error loading data. Please try again.');
+        console.error(e);
+      }
+
+      document.getElementById('load-btn').disabled = false;
+    }
+
+    initMap();
+  </script>
+
+</Layout>
