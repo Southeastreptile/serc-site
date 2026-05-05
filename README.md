@@ -36,7 +36,7 @@ Key constants at the top of `src/pages/turtle-watch/index.astro`:
 ```js
 const GRID_DEG    = 0.04;   // ~2.7 mile grid cell size
 const ROAD_THRESH = 0.004;  // ~0.25 miles road proximity threshold
-const MIN_CLUSTER = 5;      // minimum sightings to highlight a cell
+const MIN_CLUSTER = 2;      // minimum sightings to highlight a cell
 ```
 
 Data sources: iNaturalist (`api.inaturalist.org/v1/observations`, research-grade Testudines) and OpenStreetMap Overpass API (motorway, trunk, primary, secondary roads). A seasonal alert banner appears automatically April–September.

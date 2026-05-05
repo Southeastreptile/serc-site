@@ -105,11 +105,39 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     /* ── Map ── */
+    .map-wrap {
+      position: relative;
+    }
     #map {
       width: 100%;
       height: 520px;
       border: 1px solid var(--color-border);
     }
+    .map-loader {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(237, 234, 227, 0.75);
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .map-loader.visible { display: flex; }
+    .map-spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--color-border);
+      border-top-color: var(--color-text);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+    .map-loader-text {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ── Legend ── */
     .legend {
@@ -188,50 +216,61 @@ import Layout from '../../layouts/Layout.astro';
     <!-- Controls -->
     <div class="controls">
       <select id="years-filter">
-        <option value="5">Last 5 years</option>
         <option value="3">Last 3 years</option>
-        <option value="10">Last 10 years</option>
-        <option value="all">All time</option>
+        <option value="5">Last 5 years</option>
+        <option value="10" selected>Last 10 years</option>
+        <option value="15">Last 15 years</option>
+        <option value="all">All time (since 2008)</option>
       </select>
       <button class="btn btn--dark" id="load-btn" onclick="loadAll()" style="border-radius: 4px; font-size: 13px; padding: 8px 20px;">
         Load sightings ↗
       </button>
     </div>
 
-    <div class="status" id="status">Click "Load sightings" to fetch live data from iNaturalist and OpenStreetMap.</div>
+    <div class="status" id="status">Loading sightings…</div>
 
     <!-- Map -->
-    <div id="map"></div>
+    <div class="map-wrap">
+      <div class="map-loader" id="map-loader">
+        <div class="map-spinner"></div>
+        <div class="map-loader-text" id="loader-text">Fetching sightings…</div>
+      </div>
+      <div id="map"></div>
+    </div>
 
     <!-- Legend -->
     <div class="legend">
+      <span style="display:flex; align-items:center; gap:6px;">
+        <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#7A9A7A; border:1px solid #2C2A26; flex-shrink:0;"></span>
+        Individual sighting
+      </span>
       <span>
         <span class="legend-swatch" style="background:#e24b4a; opacity:0.6;"></span>
-        Active corridor near major road
+        Crossing area near major road (3+ sightings)
       </span>
       <span>
-        <span class="legend-swatch" style="background:#378add; opacity:0.5; border: 1px dashed #378add;"></span>
-        Active area (away from major road)
+        <span class="legend-swatch" style="background:#378add; opacity:0.5;"></span>
+        High activity area (6+ sightings)
       </span>
-      <span class="source">Research-grade observations only · iNaturalist + OpenStreetMap</span>
+      <span class="source">All iNaturalist sightings · Road geometry: OpenStreetMap</span>
     </div>
 
     <!-- Footer note -->
     <div class="tw-note">
-      <strong>About this map.</strong> Highlighted areas show grid cells with 5 or more research-grade turtle observations recorded during spring, summer, or fall. Red cells are within approximately 0.25 miles of a motorway, trunk, primary, or secondary road. Individual observation locations and species are not shown. Data is fetched live from <a href="https://www.inaturalist.org" target="_blank" rel="noopener">iNaturalist</a> and road geometry from <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a> via the Overpass API.
+      <strong>About this map.</strong> Green dots show individual turtle sightings from iNaturalist (all quality levels, spring–fall). Red areas highlight small zones (~0.7 mile grid cells) with 3 or more sightings within approximately 0.35 miles of a major road — these are the places most worth slowing down. Species are not shown. Data is fetched live from <a href="https://www.inaturalist.org" target="_blank" rel="noopener">iNaturalist</a> and road geometry from <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a> via the Overpass API.
       <br><br>
       If you find an injured turtle on or near a road, <a href="/contact">contact Southeastern Reptile Conservation</a> for guidance on next steps.
     </div>
 
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-  <script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script is:inline>
     // ── Constants ──────────────────────────────────────────────────────────────
-    const BOUNDS        = { swlat: 36.5, swlng: -77.5, nelat: 37.5, nelng: -75.5 };
-    const GRID_DEG      = 0.04;
-    const ROAD_THRESH   = 0.004;
-    const MIN_CLUSTER   = 5;
+    const BOUNDS        = { swlat: 36.5, swlng: -77.8, nelat: 37.4, nelng: -75.8 };
+    const GRID_DEG      = 0.01;    // ~0.7 mile grid cells
+    const ROAD_THRESH   = 0.005;   // ~0.35 miles
+    const MIN_CLUSTER   = 2;
     const ACTIVE_MONTHS = [3,4,5,6,7,8,9,10,11];
 
     // ── Map init ───────────────────────────────────────────────────────────────
@@ -256,7 +295,14 @@ import Layout from '../../layouts/Layout.astro';
     })();
 
     // ── Helpers ────────────────────────────────────────────────────────────────
-    function setStatus(msg) { document.getElementById('status').textContent = msg; }
+    function setStatus(msg) {
+      document.getElementById('status').textContent = msg;
+      const lt = document.getElementById('loader-text');
+      if (lt) lt.textContent = msg;
+    }
+    function setLoading(on) {
+      document.getElementById('map-loader').classList.toggle('visible', on);
+    }
 
     function cellKey(lat, lng) {
       return `${Math.floor(lat / GRID_DEG)},${Math.floor(lng / GRID_DEG)}`;
@@ -290,10 +336,11 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     // ── Data fetching ──────────────────────────────────────────────────────────
-    async function fetchObservations(d1, d2) {
+    async function fetchObservations(d1, d2, researchOnly = false) {
       let obs = [], page = 1, total = null;
       while (true) {
-        const url = `https://api.inaturalist.org/v1/observations?taxon_name=Testudines&quality_grade=research&geo=true`
+        const gradeParam = researchOnly ? '&quality_grade=research' : '';
+        const url = `https://api.inaturalist.org/v1/observations?taxon_name=Testudines${gradeParam}&geo=true`
           + `&swlat=${BOUNDS.swlat}&swlng=${BOUNDS.swlng}&nelat=${BOUNDS.nelat}&nelng=${BOUNDS.nelng}`
           + `&d1=${d1}&d2=${d2}&per_page=200&page=${page}&order=desc&order_by=created_at`;
         const res  = await fetch(url);
@@ -323,23 +370,29 @@ out geom;`;
       initMap();
       document.getElementById('load-btn').disabled = true;
       overlayLayer.clearLayers();
+      setLoading(true);
 
       const years = document.getElementById('years-filter').value;
       const d1 = years === 'all'
-        ? '2010-01-01'
+        ? '2008-01-01'
         : new Date(Date.now() - years * 365.25 * 86400000).toISOString().slice(0, 10);
       const d2 = new Date().toISOString().slice(0, 10);
 
       try {
-        const [obs, roads] = await Promise.all([fetchObservations(d1, d2), fetchRoads()]);
+        const [allObs, roads] = await Promise.all([
+          fetchObservations(d1, d2, false),
+          fetchRoads(),
+        ]);
 
         setStatus('Analyzing corridors…');
 
-        const seasonal = obs.filter(o => {
+        // All observations for both dots and corridors
+        const seasonal = allObs.filter(o => {
           if (!o.location || !o.observed_on) return false;
           return ACTIVE_MONTHS.includes(new Date(o.observed_on).getMonth() + 1);
         });
 
+        // All observations for corridor grid
         const grid = {};
         seasonal.forEach(o => {
           const [lat, lng] = o.location.split(',').map(Number);
@@ -349,34 +402,61 @@ out geom;`;
 
         const activeCells = Object.entries(grid).filter(([, count]) => count >= MIN_CLUSTER);
 
+        // Plot individual sighting dots (no species info)
+        seasonal.forEach(o => {
+          const [lat, lng] = o.location.split(',').map(Number);
+          const date = o.observed_on
+            ? new Date(o.observed_on).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+            : 'Date unknown';
+          L.circleMarker([lat, lng], {
+            radius: 8,
+            color: '#3a6b3a',
+            weight: 1.5,
+            fillColor: '#5a9e5a',
+            fillOpacity: 0.9,
+          }).bindPopup(
+            `<strong style="font-family:'Marcellus',Georgia,serif;font-size:1rem;">Turtle sighting</strong><br>`
+            + `<span style="font-size:0.82rem;">${date}</span>`
+          ).addTo(overlayLayer);
+        });
+
+        // Plot corridor cells — red near roads (3+), blue away from roads (6+)
         let roadCount = 0;
         activeCells.forEach(([key, count]) => {
           const { lat, lng } = cellCenter(key);
           const nearRoad = pointNearRoads(lat, lng, roads);
-          if (nearRoad) roadCount++;
 
-          const color   = nearRoad ? '#e24b4a' : '#378add';
-          const fillOp  = nearRoad ? 0.42 : 0.22;
-          const weight  = nearRoad ? 2 : 1;
-          const dash    = nearRoad ? null : '5,4';
-
-          L.rectangle(cellBounds(key), {
-            color, weight, fillColor: color, fillOpacity: fillOp, dashArray: dash
-          }).bindPopup(
-            `<strong style="font-family:'Marcellus',Georgia,serif;font-size:1rem;">Turtle activity area</strong><br>`
-            + `<span style="font-size:0.82rem;">${count} sighting${count !== 1 ? 's' : ''} recorded</span><br>`
-            + `<span style="font-size:0.82rem;">Spring · Summer · Fall</span>`
-            + (nearRoad
-              ? `<br><span style="font-size:0.82rem;color:#c0392b;font-weight:500;">Near major road — slow down</span>`
-              : '')
-          ).addTo(overlayLayer);
+          if (nearRoad) {
+            roadCount++;
+            L.rectangle(cellBounds(key), {
+              color: '#c0392b',
+              weight: 1.5,
+              fillColor: '#e24b4a',
+              fillOpacity: 0.35,
+            }).bindPopup(
+              `<strong style="font-family:'Marcellus',Georgia,serif;font-size:1rem;">Turtle crossing area</strong><br>`
+              + `<span style="font-size:0.82rem;">${count} sighting${count !== 1 ? 's' : ''} recorded</span><br>`
+              + `<span style="font-size:0.82rem;color:#c0392b;font-weight:500;">Near major road — slow down</span>`
+            ).addTo(overlayLayer);
+          } else if (count >= 6) {
+            L.rectangle(cellBounds(key), {
+              color: '#2471a3',
+              weight: 1.5,
+              fillColor: '#378add',
+              fillOpacity: 0.25,
+            }).bindPopup(
+              `<strong style="font-family:'Marcellus',Georgia,serif;font-size:1rem;">High activity area</strong><br>`
+              + `<span style="font-size:0.82rem;">${count} sightings recorded</span><br>`
+              + `<span style="font-size:0.82rem;">Away from major roads</span>`
+            ).addTo(overlayLayer);
+          }
         });
 
         document.getElementById('stat-count').textContent     = seasonal.length.toLocaleString();
-        document.getElementById('stat-corridors').textContent = activeCells.length;
+        document.getElementById('stat-corridors').textContent = roadCount;
         document.getElementById('stat-road').textContent      = roadCount;
         document.getElementById('stats').style.display        = 'grid';
-        setStatus(`Showing ${activeCells.length} active corridors with 5+ seasonal sightings. ${roadCount} near major roads.`);
+        setStatus(`Showing ${seasonal.length.toLocaleString()} sightings across ${activeCells.length} active corridors. ${roadCount} near major roads.`);
 
         if (seasonal.length > 0) {
           const lats = seasonal.map(o => +o.location.split(',')[0]);
@@ -389,10 +469,11 @@ out geom;`;
         console.error(e);
       }
 
+      setLoading(false);
       document.getElementById('load-btn').disabled = false;
     }
 
-    initMap();
+    loadAll();
   </script>
 
 </Layout>
