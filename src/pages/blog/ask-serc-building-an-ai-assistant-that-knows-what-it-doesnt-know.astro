@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Ask Susie: building an AI assistant that knows what it doesn't know"
+  description="Wildlife care is not a domain where hallucination is acceptable. Here's why we built a strictly grounded AI chatbot for our rehabbers, and how retrieval-augmented generation makes it trustworthy."
+>
+
+<article class="blog-post">
+
+  <div class="blog-post__kicker">AI for conservation &nbsp;·&nbsp; Conservation + Technology</div>
+
+  <h1 class="blog-post__title">Ask Susie: building an AI assistant that knows what it doesn't know</h1>
+
+  <p class="blog-post__subtitle">
+    Wildlife care is not a domain where an AI can afford to make things up. Wrong medication,
+    wrong temperature, wrong diet. The consequences are not abstract. Here is why we built
+    a strictly grounded AI assistant for our rehabbers, and why the grounding is the whole point.
+  </p>
+
+  <div class="blog-post__meta">
+    <span>Southeast Reptile Conservation</span>
+    <div class="blog-post__meta-dot"></div>
+    <span>May 4, 2026</span>
+    <div class="blog-post__meta-dot"></div>
+    <span>Conservation Technology</span>
+  </div>
+
+  <div class="blog-post__body">
+
+    <h2>The midnight problem</h2>
+    <p>
+      Wildlife rehabilitation does not run on business hours. A volunteer gets a call at 11pm
+      about an injured box turtle found on a road. They bring the animal in and need to make quick
+      decisions: is this an emergency that needs an emergency vet or a more senior rehabber tonight,
+      or can it wait until morning? What temperature should the enclosure be? Is the animal in
+      enough distress to warrant immediate intervention?
+    </p>
+    <p>
+      The answers to those questions exist. We have built up care protocols, species guides, and
+      rehabilitation records over years of work, all living in a shared Google Drive. But at 11pm,
+      searching through folders while also managing an injured animal is not a realistic ask.
+      Knowledge that is hard to access in the moment is not as useful as it should be.
+    </p>
+    <p>
+      That is the problem Ask Susie was built to solve.
+    </p>
+
+    <h2>Meet Susie</h2>
+    <p>
+      Ask Susie is an AI-powered chatbot named for one of our Eastern Box Turtle ambassadors. Volunteers and rehabbers can type a question in plain language.
+      Something like "what temperature should a box turtle enclosure be during overwintering?"
+      or "what are the signs of respiratory infection in a snapping turtle?" gets a direct,
+      sourced answer in seconds.
+    </p>
+    <p>
+      What Susie is not is a general-purpose AI. She is not ChatGPT. She does not pull answers
+      from the internet at large, invent plausible-sounding protocols, or synthesize information
+      from sources we have not reviewed. What she knows, she knows because we taught her, and
+      she is designed to tell you clearly when she does not know something.
+    </p>
+
+    <h2>Why grounding matters, and what it actually means</h2>
+    <p>
+      You may have heard the term "hallucination" used to describe AI. It refers to a model
+      confidently generating information that sounds correct but is simply fabricated. General AI
+      assistants do this because they are trained to produce fluent, helpful-sounding responses,
+      and sometimes that fluency outpaces accuracy.
+    </p>
+    <p>
+      In most contexts, hallucination is an inconvenience. In wildlife care, it is dangerous.
+      An AI that invents a medication dosage, misremembers a temperature range, or confuses the
+      care needs of two similar species could directly harm an animal. This is non-negotiable for
+      us: the AI must only tell our volunteers things we can stand behind.
+    </p>
+    <p>
+      The solution is a technique called <strong>retrieval-augmented generation</strong>, or RAG.
+      Instead of relying solely on what the model was trained on, RAG adds a step: before
+      answering, the system retrieves the most relevant documents from a curated knowledge base
+      and uses those as the actual source of the answer. The model's job is to read those
+      documents and synthesize a clear response, rather than generating information from memory.
+    </p>
+
+    <div class="highlight">
+      Think of it less like asking a smart friend who knows a lot, and more like asking a
+      well-organized librarian who finds the right document and reads you the relevant section.
+      The information comes from the shelf, not from their imagination.
+    </div>
+
+    <p>
+      For Susie, that shelf is our Google Drive. Every care protocol, species guide, and intake
+      procedure we have written lives there. When a volunteer asks a question, Susie searches
+      that library first. If the answer is there, she finds it and surfaces it. If it is not,
+      she says so, and that admission is just as valuable as the answer would have been.
+    </p>
+
+    <h2>How it's built</h2>
+    <p>
+      For those who want the technical picture: Ask Susie is built on Google's Agent Development
+      Kit (ADK) with Gemini as the underlying language model, hosted on Google Cloud Run.
+      The knowledge base is indexed in Vertex AI Search, which handles the retrieval side of RAG.
+      It finds the most relevant chunks of our documentation given a volunteer's question and
+      passes them to Gemini to synthesize the response.
+    </p>
+    <p>
+      A Cloud Function runs on a daily schedule to sync our Google Drive documents into Cloud
+      Storage, so the knowledge base stays current as we update and add protocols. When we
+      improve a care guide or add a new species document, Susie knows about it the next day
+      without any manual steps.
+    </p>
+    <p>
+      For questions that fall outside our knowledge base (natural history, species identification,
+      general biology), Susie has access to Google Search as a second tool. The system routes
+      between the two depending on the nature of the question: care and rehabilitation protocols
+      come from our documents, everything else can draw on the broader web. Cases that require
+      actual veterinary judgment are directed to our advisory veterinarian.
+    </p>
+
+    <ol class="steps">
+      {[
+        { label: 'Volunteer asks a question', text: 'Plain language, no special formatting or commands required.' },
+        { label: 'Tool selection', text: 'The agent decides whether to search SERC\'s knowledge base, run a Google Search, or both, based on the type of question.' },
+        { label: 'Retrieval', text: 'Vertex AI Search finds the most relevant sections of our care protocols and species guides.' },
+        { label: 'Response generation', text: 'Gemini synthesizes a clear answer grounded in the retrieved documents.' },
+        { label: 'Logging', text: 'Every exchange is logged as a potential knowledge gap for volunteer review.' },
+      ].map((step, i) => (
+        <li class="step">
+          <div class="step__num">{i + 1}</div>
+          <div class="step__text"><strong>{step.label}.</strong> {step.text}</div>
+        </li>
+      ))}
+    </ol>
+
+    <h2>The knowledge gap loop</h2>
+    <p>
+      One of the features we are most proud of is not the AI at all. It is the feedback loop
+      built around it. Every question a volunteer asks is logged for review, and volunteers can
+      rate responses with a simple thumbs up or down. The admin dashboard surfaces questions
+      that went unanswered or got poor ratings, which tells us exactly where our documentation
+      has gaps.
+    </p>
+    <p>
+      In other words, every time Susie says "I don't know," that is not a failure. It is a
+      signal. It tells us what to write next. The more the chatbot is used, the better our
+      underlying knowledge base gets, and the more useful the chatbot becomes. It is a loop
+      that makes the whole system smarter over time without any AI involved in that improvement
+      at all: just people identifying gaps and filling them.
+    </p>
+
+    <h2>What this means for other rehabbers</h2>
+    <p>
+      Building Ask Susie required technical infrastructure that most small rehabilitation programs
+      do not have in-house: cloud hosting, AI APIs, custom development. We are not suggesting
+      every program needs to build their own version. But the principle behind it is worth
+      thinking about regardless of your tech situation.
+    </p>
+    <p>
+      Ask Susie is only as good as the documentation we gave it. That documentation
+      (the care protocols, the species guides, the intake procedures) would be valuable on its
+      own even without any AI layer at all. Getting that knowledge out of people's heads and
+      into a shared, searchable format is step one, with or without a chatbot on top of it.
+    </p>
+    <p>
+      If you are curious about how Ask Susie works or want to explore building something similar
+      for your own program, the source code is open and available on GitHub as ask-serc. We are happy to
+      talk through what we built and what we learned.
+    </p>
+
+    <div class="cta-box">
+      <div class="cta-box__icon">🐢</div>
+      <div class="cta-box__text">
+        <strong>Ask Susie is open source.</strong> The full source code is available on GitHub
+        as ask-serc under the southeastreptile organization. If you are a rehabilitation program
+        interested in building something similar, or a developer who wants to contribute,
+        we would love to hear from you.
+      </div>
+    </div>
+
+    <div class="tag-list" style="margin-top: 2rem;">
+      {['ai for conservation', 'wildlife rehabilitation', 'conservation tech', 'rag', 'gemini', 'google cloud', 'open source'].map(tag => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+
+  </div>
+</article>
+
+</Layout>
