@@ -1,0 +1,1040 @@
+[
+  {
+    "id": "eastern-box-turtle",
+    "commonName": "Eastern Box Turtle",
+    "scientificName": "Terrapene carolina carolina",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 4.5,
+      "maxIn": 7,
+      "notes": "Males typically larger than females"
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "VU",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVb",
+    "description": "Virginia's most recognizable land turtle, the eastern box turtle has a highly domed shell that can close completely \u2014 a unique trait among North American turtles. They are long-lived, slow to mature, and deeply tied to their home territory. Adults are highly variable in color but typically show yellow or orange markings on a dark brown or black shell.",
+    "identificationFeatures": [
+      "High domed carapace, brown or black with yellow or orange markings",
+      "Hinged plastron that closes completely",
+      "No webbing between toes",
+      "Males often have red or orange eyes; females typically brown"
+    ],
+    "colors": [
+      "brown",
+      "black",
+      "yellow",
+      "orange"
+    ],
+    "similarSpecies": [
+      {
+        "id": "common-snapping-turtle",
+        "differentiator": "Snapping turtles are much larger, fully aquatic, and have a long saw-toothed tail; box turtles are terrestrial with a hinged plastron"
+      }
+    ],
+    "funFact": "Eastern box turtles can live over 100 years and spend their entire lives within a home range smaller than a few acres.",
+    "sercNotes": "Primary SERC intake species. Hatchlings are difficult to raise; head-starting program targets this species. Road mortality and habitat loss are primary threats in the Hampton Roads area.",
+    "inatTaxonId": 39814
+  },
+  {
+    "id": "north-american-snapping-turtle",
+    "commonName": "North American Snapping Turtle",
+    "scientificName": "Chelydra serpentina",
+    "family": "Chelydridae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 8,
+      "maxIn": 14,
+      "notes": "Can reach up to 20 inches; females typically smaller"
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVb",
+    "description": "The common snapping turtle is one of Virginia's largest freshwater turtles, recognized by its massive head, long saw-toothed tail, and relatively small plastron. Despite their fearsome reputation, snapping turtles are generally docile in the water and only snap when cornered on land. They are important scavengers and help maintain healthy aquatic ecosystems.",
+    "identificationFeatures": [
+      "Large size, 8\u201320 inches",
+      "Long tail with saw-toothed ridge on top",
+      "Small cross-shaped plastron",
+      "Rough, keeled carapace, brown to olive to black",
+      "Large head with hooked beak"
+    ],
+    "colors": [
+      "brown",
+      "olive",
+      "black"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-box-turtle",
+        "differentiator": "Box turtles are much smaller, terrestrial, and have a hinged plastron that closes completely"
+      },
+      {
+        "id": "eastern-spiny-softshell",
+        "differentiator": "Softshells have a leathery shell without scutes and a long snorkel-like snout"
+      }
+    ],
+    "funFact": "Snapping turtles breathe through their skin in winter, absorbing dissolved oxygen from the water while buried in mud \u2014 a process called cloacal bursae respiration.",
+    "sercNotes": "Common SERC intake species, especially juveniles with shell injuries from lawn equipment and vehicles. Adults are extremely difficult to handle safely.",
+    "inatTaxonId": 39682
+  },
+  {
+    "id": "northern-diamondback-terrapin",
+    "commonName": "Northern Diamondback Terrapin",
+    "scientificName": "Malaclemys terrapin terrapin",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 4,
+      "maxIn": 9,
+      "notes": "Males 4\u20135.5 in.; females significantly larger at 6\u20139 in."
+    },
+    "habitat": [
+      "brackish",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "VU",
+      "federal": "species of concern",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IIa",
+    "description": "The diamondback terrapin is the only North American turtle that lives exclusively in brackish coastal habitats \u2014 the salt marshes, tidal creeks, and estuaries of the Atlantic coast. Virginia's coastal plain, including the Chesapeake Bay, is critical habitat. Their concentric diamond-shaped rings on each scute make them unmistakable, and no two individuals have the same pattern.",
+    "identificationFeatures": [
+      "Concentric diamond or ring pattern on each scute",
+      "Gray or white skin with dark spots or speckles",
+      "Brackish water habitat only",
+      "Females significantly larger than males",
+      "Light-colored, bulbous head"
+    ],
+    "colors": [
+      "gray",
+      "brown",
+      "black",
+      "white"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-painted-turtle",
+        "differentiator": "Painted turtles have smooth scutes with red or yellow markings and are found in freshwater, not brackish water"
+      },
+      {
+        "id": "red-eared-slider",
+        "differentiator": "Red-eared sliders have a distinctive red patch behind the eye and are found in freshwater"
+      }
+    ],
+    "funFact": "Diamondback terrapins can tolerate a wider range of salinity than almost any other turtle, moving between near-fresh water and full saltwater within the same tidal creek system.",
+    "sercNotes": "SERC head-starting program species. PHP (Pleasure House Point) cohort of diamondback terrapins is a current active project. Eggs collected by volunteer Jill from a construction site in Virginia Beach. Crab pot drowning is a major mortality source in Virginia.",
+    "inatTaxonId": 39836
+  },
+  {
+    "id": "eastern-painted-turtle",
+    "commonName": "Eastern Painted Turtle",
+    "scientificName": "Chrysemys picta picta",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 4.5,
+      "maxIn": 6
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The eastern painted turtle is one of Virginia's most commonly seen freshwater turtles, frequently spotted basking in rows on logs and rocks along ponds and slow rivers. They are medium-sized, flat-shelled, and vividly marked with red on the edges of the carapace and an ornate red and yellow plastron.",
+    "identificationFeatures": [
+      "Smooth, flat, olive to black carapace",
+      "Bright red or orange on inner margins of carapace",
+      "Ornate red and yellow pattern on plastron",
+      "Yellow stripes on head and neck",
+      "No ridge or keel on shell"
+    ],
+    "colors": [
+      "olive",
+      "black",
+      "red",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "red-eared-slider",
+        "differentiator": "Red-eared sliders have a red patch behind the eye and lack the red carapace margins of painted turtles"
+      },
+      {
+        "id": "northern-red-bellied-cooter",
+        "differentiator": "Red-bellied cooters are larger with a reddish plastron and an arrow-shaped head marking"
+      }
+    ],
+    "funFact": "Painted turtle hatchlings can survive being frozen solid during winter \u2014 their bodies produce a kind of natural antifreeze that protects their cells.",
+    "inatTaxonId": 39771
+  },
+  {
+    "id": "spotted-turtle",
+    "commonName": "Spotted Turtle",
+    "scientificName": "Clemmys guttata",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 3.25,
+      "maxIn": 4.5
+    },
+    "habitat": [
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "EN",
+      "federal": "none",
+      "virginia": "special concern"
+    },
+    "vwapTier": "Tier IIIa",
+    "description": "A small, striking turtle with bright yellow spots scattered across a smooth black shell, the spotted turtle inhabits shallow wetlands, bogs, and marshy areas. They are among Virginia's most imperiled freshwater turtles, threatened by habitat loss and collection for the pet trade. Virginia law prohibits collecting or possessing spotted turtles.",
+    "identificationFeatures": [
+      "Smooth black carapace with scattered yellow dots",
+      "Yellow spots on head and neck",
+      "Small size, 3\u20134.5 inches",
+      "Orange or yellow plastron with black blotches",
+      "Males have tan chin and brown eyes; females have yellow chin and orange eyes"
+    ],
+    "colors": [
+      "black",
+      "yellow",
+      "orange"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-painted-turtle",
+        "differentiator": "Painted turtles are larger with a striped rather than spotted pattern and lack yellow spots on the shell"
+      }
+    ],
+    "funFact": "Spotted turtles are one of the few Virginia turtles that are active in early spring \u2014 they can sometimes be seen basking on mild days in February when other species are still dormant.",
+    "sercNotes": "Protected species \u2014 Virginia law prohibits collection or possession. If presented as an intake, contact DWR immediately.",
+    "inatTaxonId": 50000
+  },
+  {
+    "id": "wood-turtle",
+    "commonName": "Wood Turtle",
+    "scientificName": "Glyptemys insculpta",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 5.5,
+      "maxIn": 9
+    },
+    "habitat": [
+      "semi-aquatic",
+      "terrestrial",
+      "riparian",
+      "forest"
+    ],
+    "regions": [
+      "piedmont",
+      "blue ridge",
+      "valley and ridge"
+    ],
+    "conservationStatus": {
+      "iucn": "EN",
+      "federal": "species of concern",
+      "virginia": "threatened"
+    },
+    "vwapTier": "Tier IIa",
+    "description": "Virginia's wood turtle is a state-threatened species found in the cooler, cleaner rivers and streams of the piedmont and mountain regions. They are highly intelligent for a reptile and split their time between aquatic and terrestrial habitats, foraging in riparian forests and meadows. Their sculpted, pyramid-shaped scutes make them unmistakable.",
+    "identificationFeatures": [
+      "Sculpted, pyramid-shaped scutes give a rough, carved appearance",
+      "Orange or red coloring on neck and legs",
+      "Brown to gray carapace",
+      "Yellow plastron with dark blotches along outer edges",
+      "Medium to large size, 5.5\u20139 inches"
+    ],
+    "colors": [
+      "brown",
+      "gray",
+      "orange",
+      "red",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-box-turtle",
+        "differentiator": "Box turtles have a hinged plastron, higher dome, and are fully terrestrial; wood turtles have sculptured scutes and orange coloring on limbs"
+      }
+    ],
+    "funFact": "Wood turtles have been observed stomping the ground repeatedly to bring earthworms to the surface \u2014 a behavior remarkably similar to gull-stomping seen in birds.",
+    "sercNotes": "State threatened. Virginia DWR must be notified if presented as intake. Found only in piedmont and mountain regions \u2014 if found in coastal plain, verify ID carefully.",
+    "inatTaxonId": 39865
+  },
+  {
+    "id": "bog-turtle",
+    "commonName": "Bog Turtle",
+    "scientificName": "Glyptemys muhlenbergii",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 3,
+      "maxIn": 4.5
+    },
+    "habitat": [
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "piedmont",
+      "blue ridge",
+      "valley and ridge"
+    ],
+    "conservationStatus": {
+      "iucn": "CR",
+      "federal": "threatened",
+      "virginia": "endangered"
+    },
+    "vwapTier": "Tier Ia",
+    "description": "North America's smallest turtle and one of its most endangered, the bog turtle is a federally threatened species found in a handful of isolated sphagnum bogs and wet meadows in Virginia's mountains and piedmont. They are extremely secretive and rarely seen. If you think you have found a bog turtle, do not disturb it \u2014 contact Virginia DWR immediately.",
+    "identificationFeatures": [
+      "Very small \u2014 3 to 4.5 inches, North America's smallest turtle",
+      "Distinctive large orange or yellow patch on each side of the neck",
+      "Dark brown or black carapace",
+      "Isolated bog and wet meadow habitat only"
+    ],
+    "colors": [
+      "brown",
+      "black",
+      "orange",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "spotted-turtle",
+        "differentiator": "Spotted turtles have yellow spots on their shell and head rather than neck patches; bog turtles are smaller and have a distinct neck blotch"
+      },
+      {
+        "id": "eastern-mud-turtle",
+        "differentiator": "Mud turtles lack the orange neck blotch and have a hinged plastron; bog turtles are typically smaller"
+      }
+    ],
+    "funFact": "Bog turtles are so rare that their known populations in Virginia are individually monitored. Finding one in the wild is considered a significant herpetological event.",
+    "sercNotes": "Federally threatened, state endangered. Do not accept as intake without immediate DWR coordination. Possession is a federal offense.",
+    "inatTaxonId": 39864
+  },
+  {
+    "id": "common-musk-turtle",
+    "commonName": "Common Musk Turtle (Stinkpot)",
+    "scientificName": "Sternotherus odoratus",
+    "family": "Kinosternidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 2,
+      "maxIn": 4.5
+    },
+    "habitat": [
+      "aquatic"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "One of Virginia's smallest turtles, the common musk turtle earns its nickname 'stinkpot' from the foul-smelling musk it releases when handled. Despite their tiny size, they have disproportionately large heads and powerful jaws. They are almost entirely aquatic and rarely venture far from water.",
+    "identificationFeatures": [
+      "Very small, 2\u20134.5 inches",
+      "Two yellow stripes on each side of the head",
+      "Small plastron with single hinge",
+      "Dark brown to black, smooth or slightly keeled carapace",
+      "Releases strong musk when handled"
+    ],
+    "colors": [
+      "brown",
+      "black"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-mud-turtle",
+        "differentiator": "Mud turtles have a larger plastron with two hinges and lack the yellow head stripes of musk turtles"
+      },
+      {
+        "id": "striped-mud-turtle",
+        "differentiator": "Striped mud turtles have light stripes on the carapace; musk turtles have stripes on the head only"
+      }
+    ],
+    "funFact": "Stinkpots are surprisingly good climbers \u2014 they are regularly found basking in tree branches hanging over water, sometimes as high as 6 feet up.",
+    "inatTaxonId": 39703
+  },
+  {
+    "id": "eastern-mud-turtle",
+    "commonName": "Eastern Mud Turtle",
+    "scientificName": "Kinosternon subrubrum subrubrum",
+    "family": "Kinosternidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 2.75,
+      "maxIn": 4
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A small, secretive turtle of shallow, sluggish waters in eastern Virginia, the eastern mud turtle is a generalist that tolerates a wide range of conditions. They are easily confused with the similar musk turtle but can be identified by their larger plastron with two distinct hinges.",
+    "identificationFeatures": [
+      "Small, 2.75\u20134 inches",
+      "Smooth, rounded brown carapace without stripes",
+      "Large plastron with two hinges",
+      "Plain brown or olive head without distinct stripes",
+      "Shallow freshwater and wetland habitat in eastern Virginia"
+    ],
+    "colors": [
+      "brown",
+      "olive"
+    ],
+    "similarSpecies": [
+      {
+        "id": "common-musk-turtle",
+        "differentiator": "Musk turtles have two yellow stripes on each side of the head and a smaller plastron with one hinge"
+      },
+      {
+        "id": "striped-mud-turtle",
+        "differentiator": "Striped mud turtles have light stripes along the carapace; eastern mud turtles have a plain brown shell"
+      }
+    ],
+    "funFact": "Eastern mud turtles can aestivate \u2014 burying themselves in mud during dry summer months and entering a dormant state similar to winter hibernation.",
+    "inatTaxonId": 39713
+  },
+  {
+    "id": "striped-mud-turtle",
+    "commonName": "Striped Mud Turtle",
+    "scientificName": "Kinosternon baurii",
+    "family": "Kinosternidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 3,
+      "maxIn": 4
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The striped mud turtle is at the northern edge of its range in southeastern Virginia and is less common than its close relative the eastern mud turtle. It is distinguished by light stripes running along the carapace and on the head.",
+    "identificationFeatures": [
+      "Three light stripes running along the carapace",
+      "Two light stripes on the head",
+      "Small, 3\u20134 inches",
+      "Brown carapace",
+      "Coastal plain habitat only in Virginia"
+    ],
+    "colors": [
+      "brown",
+      "tan"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-mud-turtle",
+        "differentiator": "Eastern mud turtles have a plain brown carapace without stripes"
+      },
+      {
+        "id": "common-musk-turtle",
+        "differentiator": "Musk turtles have stripes on the head only, not on the carapace"
+      }
+    ],
+    "funFact": "Striped mud turtles are one of the rarest turtles in Virginia, found only in a few coastal counties \u2014 a Virginia sighting is worth reporting to the Virginia Herpetological Society.",
+    "inatTaxonId": 39753
+  },
+  {
+    "id": "eastern-chicken-turtle",
+    "commonName": "Eastern Chicken Turtle",
+    "scientificName": "Deirochelys reticularia reticularia",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 4,
+      "maxIn": 6
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IIIa",
+    "description": "The eastern chicken turtle is an uncommon species at the northern edge of its range in southeastern Virginia, found only in the coastal plain. They are named for their reportedly chicken-like taste and are identified by a distinctively long, striped neck and a netlike pattern on the carapace.",
+    "identificationFeatures": [
+      "Very long neck, often as long as half the carapace length",
+      "Netlike or reticulate pattern on carapace",
+      "Yellow vertical stripes on hindlegs",
+      "Oval, flattened carapace, olive to brown",
+      "Yellow plastron without markings"
+    ],
+    "colors": [
+      "olive",
+      "brown",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-painted-turtle",
+        "differentiator": "Painted turtles lack the extremely long neck and reticulate carapace pattern of chicken turtles"
+      },
+      {
+        "id": "northern-red-bellied-cooter",
+        "differentiator": "Cooters are larger and rounder without the elongated neck"
+      }
+    ],
+    "funFact": "Unlike most Virginia turtles, chicken turtles are active during cooler months and may actually aestivate in summer, reversing the typical turtle activity pattern.",
+    "inatTaxonId": 39762
+  },
+  {
+    "id": "northern-red-bellied-cooter",
+    "commonName": "Northern Red-bellied Cooter",
+    "scientificName": "Pseudemys rubriventris",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 10,
+      "maxIn": 15.5
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVa",
+    "description": "One of Virginia's larger freshwater turtles, the northern red-bellied cooter is identified by its reddish plastron and a distinctive arrow-shaped yellow marking on its head pointing toward the snout. They bask in large groups on logs and are common in larger rivers and ponds of the coastal plain and piedmont.",
+    "identificationFeatures": [
+      "Large size, 10\u201315.5 inches",
+      "Arrow-shaped yellow marking on top of head pointing toward snout",
+      "Reddish or orange plastron",
+      "Dark carapace with reddish or yellow markings",
+      "Often basks in large groups"
+    ],
+    "colors": [
+      "brown",
+      "olive",
+      "red",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-river-cooter",
+        "differentiator": "River cooters have a yellow plastron without red; red-bellied cooters have a reddish plastron and the arrow head mark"
+      },
+      {
+        "id": "red-eared-slider",
+        "differentiator": "Red-eared sliders have a red patch behind the eye and lack the arrow-shaped head marking"
+      }
+    ],
+    "funFact": "Northern red-bellied cooters in Massachusetts are federally threatened \u2014 Virginia's population is part of the core range and is considered important to the species' long-term survival.",
+    "inatTaxonId": 39826
+  },
+  {
+    "id": "eastern-river-cooter",
+    "commonName": "Eastern River Cooter",
+    "scientificName": "Pseudemys concinna concinna",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 9,
+      "maxIn": 12
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "riparian"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont",
+      "blue ridge"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A large, robust freshwater turtle common in the clear, flowing rivers of Virginia's piedmont and coastal plain. Eastern river cooters are strong swimmers that prefer larger bodies of water with plenty of basking sites. They are similar to the red-bellied cooter but can be identified by their yellow plastron.",
+    "identificationFeatures": [
+      "Large size, 9\u201312 inches",
+      "Yellow plastron, often with faint concentric markings",
+      "Dark carapace with yellow or light markings",
+      "C-shaped markings visible on the second pleural scute",
+      "Found in large rivers and open water"
+    ],
+    "colors": [
+      "brown",
+      "olive",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "northern-red-bellied-cooter",
+        "differentiator": "Red-bellied cooters have a reddish plastron and a distinctive arrow-shaped head marking"
+      },
+      {
+        "id": "coastal-plain-cooter",
+        "differentiator": "Coastal plain cooters are a subspecies found further east; the two are very difficult to distinguish without careful examination"
+      }
+    ],
+    "funFact": "Cooter is derived from an African word meaning turtle, brought to the Americas by enslaved West Africans \u2014 a reminder that common names carry cultural history.",
+    "inatTaxonId": 39830
+  },
+  {
+    "id": "coastal-plain-cooter",
+    "commonName": "Coastal Plain Cooter",
+    "scientificName": "Pseudemys concinna floridana",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 9,
+      "maxIn": 13
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A subspecies of the river cooter found in the still and slow-moving waters of Virginia's coastal plain. Very similar to the eastern river cooter and the two subspecies can be difficult to distinguish. In Virginia, range overlap and habitat type are often the best initial clues.",
+    "identificationFeatures": [
+      "Large, 9\u201313 inches",
+      "Yellow plastron without red",
+      "Dark carapace with light markings",
+      "Coastal plain still-water habitat"
+    ],
+    "colors": [
+      "brown",
+      "olive",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-river-cooter",
+        "differentiator": "Nearly identical \u2014 distinguish by habitat (river cooters prefer flowing water) and range overlap"
+      },
+      {
+        "id": "northern-red-bellied-cooter",
+        "differentiator": "Red-bellied cooters have a reddish plastron and arrow-shaped head marking"
+      }
+    ],
+    "funFact": "Cooters are primarily herbivorous as adults \u2014 unusual for freshwater turtles \u2014 and play an important role in aquatic plant management in Virginia's slow-moving coastal waterways.",
+    "inatTaxonId": 1367318
+  },
+  {
+    "id": "red-eared-slider",
+    "commonName": "Red-eared Slider",
+    "scientificName": "Trachemys scripta elegans",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 5,
+      "maxIn": 11
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The red-eared slider is not native to Virginia but is widely established after decades of pet releases. They are one of the most recognizable turtles in the world, identified by the bright red stripe behind each eye. While they appear harmless, established populations compete with native turtles for basking sites and food.",
+    "identificationFeatures": [
+      "Bright red or orange stripe behind each eye",
+      "Olive carapace with yellow stripes",
+      "Yellow plastron with dark round blotches",
+      "Medium to large size, 5\u201311 inches",
+      "Commonly basking on logs with other turtles"
+    ],
+    "colors": [
+      "olive",
+      "green",
+      "yellow",
+      "red"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-painted-turtle",
+        "differentiator": "Painted turtles lack the red ear stripe and have red markings on the carapace margin rather than on the head"
+      },
+      {
+        "id": "northern-red-bellied-cooter",
+        "differentiator": "Cooters are larger with an arrow-shaped head marking and reddish plastron; no red patch behind eye"
+      }
+    ],
+    "funFact": "Red-eared sliders were sold by the millions as pets in the US until 1975, when the FDA banned the sale of turtles under 4 inches due to Salmonella risks \u2014 but adults were still sold and many ended up released into the wild.",
+    "sercNotes": "Non-native species. SERC does not rehabilitate red-eared sliders. If presented as an intake, contact the finder about options; do not release into Virginia waterways.",
+    "inatTaxonId": 51271
+  },
+  {
+    "id": "northern-map-turtle",
+    "commonName": "Northern Map Turtle",
+    "scientificName": "Graptemys geographica",
+    "family": "Emydidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 3.25,
+      "maxIn": 10.8,
+      "notes": "Extreme sexual dimorphism: males 3.25\u20136.25 in., females 7\u201310.8 in."
+    },
+    "habitat": [
+      "aquatic",
+      "riparian"
+    ],
+    "regions": [
+      "piedmont",
+      "valley and ridge"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVa",
+    "description": "Named for the map-like lines on their shell, northern map turtles are shy, highly aquatic turtles of Virginia's larger rivers. They are wary baskers that will immediately slide into the water at the slightest disturbance. Females are dramatically larger than males \u2014 one of the most extreme cases of sexual dimorphism among Virginia turtles.",
+    "identificationFeatures": [
+      "Network of light lines on carapace resembling a topographic map",
+      "Low keel running along the vertebral scutes",
+      "Yellow markings on dark skin",
+      "Very wary \u2014 will flee basking sites quickly",
+      "Extreme size difference between males and females"
+    ],
+    "colors": [
+      "brown",
+      "olive",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-painted-turtle",
+        "differentiator": "Painted turtles are smaller, lack the vertebral keel, and have more vivid red markings on the shell margin"
+      }
+    ],
+    "funFact": "Female northern map turtles have much larger heads and jaws than males, allowing them to crush the mollusks and clams that make up the bulk of their diet \u2014 males eat mainly insects.",
+    "inatTaxonId": 39858
+  },
+  {
+    "id": "eastern-spiny-softshell",
+    "commonName": "Eastern Spiny Softshell",
+    "scientificName": "Apalone spinifera spinifera",
+    "family": "Trionychidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 5,
+      "maxIn": 17,
+      "notes": "Males 5\u20139.25 in.; females 7\u201317 in."
+    },
+    "habitat": [
+      "aquatic",
+      "riparian"
+    ],
+    "regions": [
+      "piedmont",
+      "valley and ridge",
+      "appalachian plateau"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVa",
+    "description": "Virginia's only softshell turtle, the eastern spiny softshell is immediately recognizable by its flat, leathery shell and long, tubular snout. They are extremely fast swimmers and spend most of their time buried in sandy river bottoms with just their snout protruding to breathe. Despite their docile appearance, they can deliver a surprisingly powerful bite.",
+    "identificationFeatures": [
+      "Flat, leathery shell without scutes",
+      "Long, flexible, tube-like snout",
+      "Olive to tan coloring with dark spots or ocelli",
+      "Spiny or rough projections on front edge of carapace",
+      "Extremely fast in water"
+    ],
+    "colors": [
+      "olive",
+      "tan",
+      "brown"
+    ],
+    "similarSpecies": [
+      {
+        "id": "north-american-snapping-turtle",
+        "differentiator": "Snapping turtles have a hard, ridged carapace and a long saw-toothed tail; softshells have a leathery, flat shell and a long snout"
+      }
+    ],
+    "funFact": "Spiny softshells can absorb oxygen directly through their skin and the lining of their throat, allowing them to stay submerged for hours without surfacing to breathe.",
+    "inatTaxonId": 39556
+  },
+  {
+    "id": "loggerhead-sea-turtle",
+    "commonName": "Loggerhead Sea Turtle",
+    "scientificName": "Caretta caretta",
+    "family": "Cheloniidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 31,
+      "maxIn": 45
+    },
+    "habitat": [
+      "marine"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "VU",
+      "federal": "threatened",
+      "virginia": "threatened"
+    },
+    "vwapTier": "Tier IIa",
+    "description": "The loggerhead is Virginia's most commonly encountered sea turtle, using the Chesapeake Bay and coastal waters as foraging habitat. They are large, reddish-brown turtles with massive heads and powerful jaws. Loggerheads do not nest in Virginia but are regularly stranded on beaches, particularly in autumn when they can become cold-stunned as water temperatures drop.",
+    "identificationFeatures": [
+      "Very large, 31\u201345 inches",
+      "Reddish-brown carapace with five or more pairs of costal scutes",
+      "Massive head relative to body size",
+      "Two pairs of prefrontal scales between the eyes",
+      "Marine and coastal habitat only"
+    ],
+    "colors": [
+      "brown",
+      "red"
+    ],
+    "similarSpecies": [
+      {
+        "id": "kemp-ridley-sea-turtle",
+        "differentiator": "Kemp's ridleys are smaller with a nearly circular gray-olive shell; loggerheads are larger and reddish-brown"
+      }
+    ],
+    "funFact": "Loggerheads navigate thousands of miles using Earth's magnetic field and often return to the very beach where they were born to nest \u2014 decades later.",
+    "sercNotes": "If a stranded loggerhead is found on a Virginia beach, contact the Virginia Aquarium Stranding Response Team (VAST) immediately at 757-385-7575. Do not attempt to move the animal.",
+    "inatTaxonId": 39665
+  },
+  {
+    "id": "kemp-ridley-sea-turtle",
+    "commonName": "Kemp's Ridley Sea Turtle",
+    "scientificName": "Lepidochelys kempii",
+    "family": "Cheloniidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 23,
+      "maxIn": 27.5
+    },
+    "habitat": [
+      "marine"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "CR",
+      "federal": "endangered",
+      "virginia": "endangered"
+    },
+    "vwapTier": "Tier Ia",
+    "description": "The world's most endangered sea turtle, the Kemp's ridley is a small, gray-olive sea turtle that forages in Virginia's coastal waters and the Chesapeake Bay. They are particularly vulnerable to cold-stunning in autumn and are frequently stranded on Virginia beaches. Any stranded Kemp's ridley is a conservation emergency.",
+    "identificationFeatures": [
+      "Small for a sea turtle, 23\u201327.5 inches",
+      "Nearly circular, gray-olive carapace",
+      "Five pairs of costal scutes",
+      "Triangular head with hooked beak",
+      "Marine habitat only"
+    ],
+    "colors": [
+      "gray",
+      "olive"
+    ],
+    "similarSpecies": [
+      {
+        "id": "loggerhead-sea-turtle",
+        "differentiator": "Loggerheads are larger, reddish-brown, and have a more elongated oval shell; Kemp's ridleys are smaller and gray with a nearly round shell"
+      }
+    ],
+    "funFact": "Kemp's ridley sea turtles nest almost exclusively on a single beach in Tamaulipas, Mexico \u2014 making the entire species dangerously dependent on one location.",
+    "sercNotes": "Federally endangered. If stranded, contact VAST immediately at 757-385-7575. Do not move without authorization.",
+    "inatTaxonId": 73844
+  },
+  {
+    "id": "leatherback-sea-turtle",
+    "commonName": "Leatherback Sea Turtle",
+    "scientificName": "Dermochelys coriacea",
+    "family": "Dermochelyidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 55,
+      "maxIn": 71
+    },
+    "habitat": [
+      "marine"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "VU",
+      "federal": "endangered",
+      "virginia": "endangered"
+    },
+    "vwapTier": "Tier Ia",
+    "description": "The leatherback is the world's largest turtle and the only sea turtle without a hard shell \u2014 its carapace is covered with leathery skin over a mosaic of tiny bones. They are deep-water foragers that follow jellyfish into Virginia's offshore waters in summer and can dive to over 3,000 feet. An encounter with a leatherback in Virginia coastal waters is rare and remarkable.",
+    "identificationFeatures": [
+      "Enormous size, 55\u201371 inches, up to 2,000 lbs",
+      "Smooth, leathery black carapace with white or pink spots",
+      "No scutes \u2014 skin over flexible bone",
+      "Seven prominent ridges running length of carapace",
+      "Deep offshore water habitat"
+    ],
+    "colors": [
+      "black",
+      "white"
+    ],
+    "similarSpecies": [],
+    "funFact": "Leatherbacks can maintain a body temperature significantly warmer than the surrounding water \u2014 a rare trait in reptiles \u2014 which allows them to forage in cold North Atlantic waters.",
+    "sercNotes": "Federally endangered. Any stranded leatherback requires immediate contact with VAST at 757-385-7575 and NOAA.",
+    "inatTaxonId": 39677
+  },
+  {
+    "id": "green-sea-turtle",
+    "commonName": "Green Sea Turtle",
+    "scientificName": "Chelonia mydas",
+    "family": "Cheloniidae",
+    "group": "reptile",
+    "subgroup": "turtle",
+    "sizeRange": {
+      "minIn": 31,
+      "maxIn": 47
+    },
+    "habitat": [
+      "marine"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "EN",
+      "federal": "threatened",
+      "virginia": "threatened"
+    },
+    "vwapTier": "Tier IIa",
+    "description": "The green sea turtle is an occasional visitor to Virginia's coastal waters, primarily in summer and early fall. They are named not for their shell color but for the greenish color of their fat, which comes from a primarily herbivorous diet. Younger animals are more carnivorous and more likely to be found in Virginia waters.",
+    "identificationFeatures": [
+      "Large, 31\u201347 inches",
+      "Smooth, oval carapace, olive to brown with lighter patterning",
+      "Single pair of prefrontal scales between the eyes \u2014 key ID feature",
+      "Small head relative to body",
+      "Marine habitat"
+    ],
+    "colors": [
+      "olive",
+      "brown"
+    ],
+    "similarSpecies": [
+      {
+        "id": "loggerhead-sea-turtle",
+        "differentiator": "Loggerheads have two pairs of prefrontal scales and a much larger, heavier head; green turtles have one pair and a smaller, more rounded head"
+      }
+    ],
+    "funFact": "Green sea turtles are one of the few reptiles known to return to the exact beach where they hatched to nest \u2014 sometimes after journeys of over 1,000 miles.",
+    "sercNotes": "Federally threatened. Any stranded green sea turtle requires contact with VAST at 757-385-7575.",
+    "inatTaxonId": 39659
+  }
+]

@@ -1,0 +1,380 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+import turtles from '../../content/species/virginia-turtles.json';
+import snakes from '../../content/species/virginia-snakes.json';
+import frogsToads from '../../content/species/virginia-frogs-toads.json';
+import salamanders from '../../content/species/virginia-salamanders.json';
+
+const allSpecies: any[] = [
+  ...(turtles as any[]),
+  ...(snakes as any[]),
+  ...(frogsToads as any[]),
+  ...(salamanders as any[]),
+];
+
+function getStatusBadge(s: any): { label: string; bg: string } | null {
+  const cs = s.conservationStatus;
+  if (cs.virginia === 'endangered')         return { label: 'VA Endangered',        bg: '#8a3228' };
+  if (cs.virginia === 'threatened')         return { label: 'VA Threatened',         bg: '#9c6b30' };
+  if (cs.federal === 'endangered')          return { label: 'Fed. Endangered',       bg: '#8a3228' };
+  if (cs.federal === 'threatened')          return { label: 'Fed. Threatened',       bg: '#9c6b30' };
+  if (cs.iucn === 'CR')                     return { label: 'Critically Endangered', bg: '#8a3228' };
+  if (cs.iucn === 'EN')                     return { label: 'Endangered',            bg: '#9c6b30' };
+  if (cs.virginia === 'special concern')    return { label: 'VA Special Concern',    bg: '#7a7060' };
+  if (cs.iucn === 'VU')                     return { label: 'Vulnerable',            bg: '#7a7060' };
+  if (cs.federal === 'species of concern')  return { label: 'Species of Concern',   bg: '#7a7060' };
+  return null;
+}
+---
+
+<Layout
+  title="Virginia Reptile & Amphibian Field Guide — SERC"
+  description="Identify native turtles, snakes, frogs, toads, salamanders, and newts found in Virginia. Species profiles with conservation status, identification features, and habitat information from Southeastern Reptile Conservation."
+>
+
+<style>
+  .sp-header {
+    padding: 4rem var(--site-gutter) 2rem;
+    max-width: var(--site-max);
+    margin: 0 auto;
+  }
+
+  .sp-filters {
+    padding: 1.25rem var(--site-gutter);
+    max-width: var(--site-max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .sp-filters select {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--color-bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239A9080' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    border: 1px solid var(--color-border);
+    padding: 0.45rem 2.25rem 0.45rem 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text);
+    cursor: pointer;
+    min-width: 160px;
+  }
+
+  .sp-filters select:focus {
+    outline: none;
+    border-color: var(--color-text-muted);
+  }
+
+  .sp-count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--color-text-faint);
+    white-space: nowrap;
+  }
+
+  .sp-grid-wrap {
+    padding: 2.5rem var(--site-gutter) 6rem;
+    max-width: var(--site-max);
+    margin: 0 auto;
+  }
+
+  .sp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .sp-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s;
+  }
+
+  .sp-card:hover { border-color: var(--color-text-muted); }
+
+  .sp-card__img-wrap {
+    aspect-ratio: 4 / 3;
+    background: var(--color-surface);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sp-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    position: absolute;
+    inset: 0;
+  }
+
+  .sp-card__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-border);
+  }
+
+  .sp-card__body {
+    padding: 0.875rem 1rem 1.125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+  }
+
+  .sp-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .sp-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    line-height: 1.6;
+  }
+
+  .sp-badge--status     { color: #fff; }
+  .sp-badge--naturalized { border: 1px solid var(--color-border); color: var(--color-text-faint); }
+  .sp-badge--venomous   { background: #8a3228; color: #fff; }
+
+  .sp-card__group {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-faint);
+  }
+
+  .sp-card__name {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--color-text);
+    line-height: 1.3;
+    margin-top: 0.1rem;
+  }
+
+  .sp-card__sci {
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--color-text-faint);
+    margin-top: 0.1rem;
+  }
+
+  .sp-none {
+    display: none;
+    padding: 4rem 0;
+    text-align: center;
+    color: var(--color-text-faint);
+    font-size: 15px;
+    grid-column: 1 / -1;
+  }
+</style>
+
+  <!-- Header -->
+  <section class="sp-header">
+    <h1 style="margin-bottom: 0.75rem;">Virginia field guide</h1>
+    <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8; max-width: 600px;">
+      Identification profiles for native reptiles and amphibians found in Virginia — turtles, snakes,
+      frogs, toads, salamanders, and newts. Filter by group, habitat, or region.
+    </p>
+    <a href="https://www.inaturalist.org/people/southeastreptile" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 1rem; padding: 5px 12px; background: var(--color-surface); border: 1px solid var(--color-border); font-size: 12px; color: var(--color-text-muted); text-decoration: none; transition: opacity 0.2s;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 2C9 2 4 6 4 12c0 4 2.5 7.5 6 9"/><path d="M12 2c3 0 8 4 8 10 0 4-2.5 7.5-6 9"/><path d="M12 2v20"/><path d="M4 12h16"/></svg>
+      Photos powered by iNaturalist
+    </a>
+  </section>
+
+  <!-- Filters -->
+  <div class="sp-filters">
+    <select id="filter-group" aria-label="Filter by group">
+      <option value="">All groups</option>
+      <option value="turtle" selected>Turtles</option>
+      <option value="snake">Snakes</option>
+      <option value="frog-toad">Frogs &amp; Toads</option>
+      <option value="salamander-newt">Salamanders &amp; Newts</option>
+    </select>
+
+    <select id="filter-habitat" aria-label="Filter by habitat">
+      <option value="">All habitats</option>
+      <option value="aquatic">Aquatic</option>
+      <option value="semi-aquatic">Semi-aquatic</option>
+      <option value="terrestrial">Terrestrial</option>
+      <option value="brackish">Brackish</option>
+      <option value="marine">Marine</option>
+      <option value="wetland">Wetland</option>
+      <option value="forest">Forest</option>
+      <option value="riparian">Riparian</option>
+      <option value="arboreal">Arboreal</option>
+      <option value="grassland">Grassland</option>
+      <option value="fossorial">Fossorial / Underground</option>
+    </select>
+
+    <select id="filter-region" aria-label="Filter by region">
+      <option value="">All regions</option>
+      <option value="coastal plain">Coastal Plain</option>
+      <option value="piedmont">Piedmont</option>
+      <option value="blue ridge">Blue Ridge</option>
+      <option value="valley and ridge">Valley &amp; Ridge</option>
+      <option value="appalachian plateau">Appalachian Plateau</option>
+    </select>
+
+    <span class="sp-count" id="sp-count">{allSpecies.length} species</span>
+  </div>
+
+  <!-- Grid -->
+  <div class="sp-grid-wrap">
+    <div class="sp-grid" id="sp-grid">
+      {allSpecies.map((s) => {
+        const status = getStatusBadge(s);
+        const isNaturalized = s.nativeStatus !== undefined && s.nativeStatus !== 'native';
+        const isVenomous = s.venomous === true;
+        return (
+          <a
+            href={`/species/${s.id}`}
+            class="sp-card"
+            data-subgroup={s.subgroup}
+            data-habitat={s.habitat.join(' ')}
+            data-region={s.regions.join(' ')}
+            data-inat-id={String(s.inatTaxonId)}
+          >
+            <div class="sp-card__img-wrap">
+              <img class="sp-card__img" src="" alt={s.commonName} />
+              <div class="sp-card__placeholder">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1">
+                  <ellipse cx="22" cy="28" rx="14" ry="10" />
+                  <ellipse cx="22" cy="16" rx="6" ry="5" />
+                </svg>
+              </div>
+            </div>
+            <div class="sp-card__body">
+              {(isVenomous || isNaturalized || status) && (
+                <div class="sp-card__badges">
+                  {isVenomous && <span class="sp-badge sp-badge--venomous">Venomous</span>}
+                  {isNaturalized && <span class="sp-badge sp-badge--naturalized">Naturalized</span>}
+                  {status && (
+                    <span class="sp-badge sp-badge--status" style={`background:${status.bg}`}>
+                      {status.label}
+                    </span>
+                  )}
+                </div>
+              )}
+              <div class="sp-card__group">{s.subgroup}</div>
+              <div class="sp-card__name">{s.commonName}</div>
+              <div class="sp-card__sci">{s.scientificName}</div>
+            </div>
+          </a>
+        );
+      })}
+      <p class="sp-none" id="sp-none">No species match the selected filters.</p>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var groupEl   = document.getElementById('filter-group');
+      var habitatEl = document.getElementById('filter-habitat');
+      var regionEl  = document.getElementById('filter-region');
+      var countEl   = document.getElementById('sp-count');
+      var noneEl    = document.getElementById('sp-none');
+      var cards     = Array.from(document.querySelectorAll('.sp-card'));
+
+      // iNat photo loading — only fetch photos for visible cards, track what's loaded
+      var loaded = {};
+
+      function loadVisiblePhotos() {
+        var toLoad = [];
+        cards.forEach(function (card) {
+          if (card.style.display === 'none') return;
+          var id = card.dataset.inatId;
+          if (id && !loaded[id]) {
+            loaded[id] = card.querySelector('.sp-card__img');
+            toLoad.push(id);
+          }
+        });
+        if (!toLoad.length) return;
+
+        var cursor = 0;
+        function fetchNext() {
+          if (cursor >= toLoad.length) return;
+          var batch = toLoad.slice(cursor, cursor + 30);
+          cursor += 30;
+          fetch('https://api.inaturalist.org/v1/taxa?id=' + batch.join(',') + '&per_page=30')
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              (data.results || []).forEach(function (t) {
+                var url = t.default_photo && t.default_photo.medium_url;
+                var el  = loaded[String(t.id)];
+                if (url && el) {
+                  el.onload = function () { el.style.display = 'block'; };
+                  el.src = url;
+                }
+              });
+              fetchNext();
+            })
+            .catch(function () { fetchNext(); });
+        }
+        fetchNext();
+      }
+
+      function matchGroup(sg, g) {
+        if (!g) return true;
+        if (g === 'frog-toad')      return sg === 'frog' || sg === 'toad';
+        if (g === 'salamander-newt') return sg === 'salamander' || sg === 'newt';
+        return sg === g;
+      }
+
+      function run() {
+        var g = groupEl.value;
+        var h = habitatEl.value;
+        var r = regionEl.value;
+        var visible = 0;
+
+        cards.forEach(function (card) {
+          var sg  = card.dataset.subgroup || '';
+          var hab = (card.dataset.habitat || '').split(' ');
+          var reg = (card.dataset.region  || '').split(' ');
+
+          var ok = matchGroup(sg, g)
+            && (!h || hab.indexOf(h) > -1)
+            && (!r || reg.indexOf(r) > -1 || reg.indexOf('statewide') > -1);
+
+          card.style.display = ok ? '' : 'none';
+          if (ok) visible++;
+        });
+
+        countEl.textContent = visible + ' species';
+        noneEl.style.display = visible === 0 ? 'block' : 'none';
+        loadVisiblePhotos();
+      }
+
+      groupEl.addEventListener('change', run);
+      habitatEl.addEventListener('change', run);
+      regionEl.addEventListener('change', run);
+
+      // Run on load to apply the default turtle filter and fetch only turtle photos
+      run();
+    })();
+  </script>
+
+</Layout>

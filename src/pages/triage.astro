@@ -1,0 +1,294 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Found an Injured Reptile or Amphibian in Virginia? Here's What to Do"
+  description="Step-by-step guidance for helping an injured native reptile or amphibian in Virginia — what to do, what not to do, and when to contact a licensed wildlife rehabilitator."
+  image="/images/box-turtle-grass.jpg"
+  schema={[
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "What to do if you find an injured reptile or amphibian in Virginia",
+      "description": "Step-by-step guidance for safely helping an injured or displaced native reptile or amphibian in Virginia and getting them to a licensed rehabilitator.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Stay back and observe",
+          "text": "Do not immediately approach or handle the animal. Observe from a few feet away to assess its condition without causing additional stress or injury."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Photograph the animal and note the location",
+          "text": "Take clear photos of the animal from multiple angles before touching it. Note the exact location — street address, cross street, or GPS coordinates."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Contain safely if injured",
+          "text": "Place in a cardboard box with air holes, lined with a dry cloth. No food, water, or heat. Keep in a quiet, dark, room-temperature space."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Contact SERC",
+          "text": "Email info@southeastreptile.org or text 757-324-3720 with your photos, species, location, and description of the animal's condition."
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "Southeastern Reptile Conservation",
+      "url": "https://www.southeastreptile.org",
+      "email": "info@southeastreptile.org",
+      "telephone": "+17573243720",
+      "areaServed": { "@type": "State", "name": "Virginia" }
+    }
+  ]}
+>
+
+<style>
+  .triage-body {
+    font-size: 17px;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .check-list li {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 17px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .check-list .icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+    align-items: start;
+  }
+  .step:last-child { border-bottom: none; }
+
+  .step__num {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--color-text-faint);
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+
+  .step__title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .callout--amber {
+    background: #f5efe0;
+    border: 1px solid #c8b898;
+    border-left: 3px solid #9c7a40;
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .who-box {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .who-box h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .who-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .who-box li {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    padding-left: 1.1rem;
+    text-indent: -1.1rem;
+  }
+</style>
+
+  <!-- Header -->
+  <section style="padding: 5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-faint); display: block; margin-bottom: 1rem;">Wildlife triage guide</span>
+    <h1 style="margin-bottom: 1rem;">Found an injured animal?</h1>
+    <p style="max-width: 580px;" class="triage-body">
+      Here's what to do — and what to avoid — while you wait for guidance from a licensed rehabilitator.
+    </p>
+  </section>
+
+  <!-- Does it need help? -->
+  <section style="background: var(--color-surface); border-bottom: 1px solid var(--color-border);">
+    <div class="section">
+      <h2 style="margin-bottom: 2rem;">Does it actually need help?</h2>
+      <div class="two-col">
+        <div>
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1rem;">Signs it needs help</div>
+          <ul class="check-list">
+            <li><span class="icon" style="color: #8a3228;">✕</span> Visible wounds, blood, or crushed shell</li>
+            <li><span class="icon" style="color: #8a3228;">✕</span> Can't move normally or right itself</li>
+            <li><span class="icon" style="color: #8a3228;">✕</span> Open-mouth or labored breathing</li>
+            <li><span class="icon" style="color: #8a3228;">✕</span> Unresponsive or extremely lethargic</li>
+            <li><span class="icon" style="color: #8a3228;">✕</span> Entangled in netting or fishing line</li>
+            <li><span class="icon" style="color: #8a3228;">✕</span> Attacked by a dog or cat — even without visible wounds</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1rem;">Probably fine — leave it alone</div>
+          <ul class="check-list">
+            <li><span class="icon" style="color: #4a7c59;">✓</span> Turtle crossing a road or in a yard</li>
+            <li><span class="icon" style="color: #4a7c59;">✓</span> Snake basking or crossing a path</li>
+            <li><span class="icon" style="color: #4a7c59;">✓</span> Frog or toad near water or in a garden</li>
+            <li><span class="icon" style="color: #4a7c59;">✓</span> Hatchling turtle heading toward water</li>
+            <li><span class="icon" style="color: #4a7c59;">✓</span> Animal that retreats when approached</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section style="padding: 4rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <h2 style="margin-bottom: 0.5rem;">What to do</h2>
+    <p class="triage-body" style="margin-bottom: 2rem;">If it does appear injured, follow these steps.</p>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step__num">1</div>
+        <div>
+          <div class="step__title">Stay back and observe first</div>
+          <p class="triage-body">Don't immediately pick it up. Watch from a short distance and let the animal's movement tell you what you're dealing with.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num">2</div>
+        <div>
+          <div class="step__title">Photograph the animal and note the location</div>
+          <p class="triage-body">Take clear photos before touching anything — top, side, close-up if possible. Note the exact address or GPS pin. Photos and location are the most important things we need.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num">3</div>
+        <div>
+          <div class="step__title">Contain it safely</div>
+          <p class="triage-body">Place in a cardboard box with a lid and a few air holes. Line it with a dry cloth or paper towel. No food, water, or heating pads. Keep in a quiet, dark, room-temperature space away from pets.</p>
+          <div class="callout--amber">
+            <strong>Turtle on the road?</strong> If it's uninjured, carry it to safety <strong>in the direction it was already heading</strong> — turtles have a destination. Never move a turtle far from where you found it. If it's injured, box it and contact us.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num">4</div>
+        <div>
+          <div class="step__title">Contact SERC</div>
+          <p class="triage-body">
+            Email <a href="mailto:info@southeastreptile.org" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">info@southeastreptile.org</a> or text <a href="sms:7573243720" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">757-324-3720</a> with your photos, the species (best guess is fine), where you found it, and what it's doing. We'll tell you exactly what to do next.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Who we can help -->
+  <section style="background: var(--color-surface); border-bottom: 1px solid var(--color-border);">
+    <div class="section">
+      <h2 style="margin-bottom: 2rem;">Who we can — and can't — help</h2>
+      <div class="who-grid">
+        <div class="who-box" style="background: var(--color-bg);">
+          <h3><span style="color: #4a7c59;">✓</span> We can help</h3>
+          <ul>
+            <li>→ Native Virginia turtles</li>
+            <li>→ Native frogs, toads, and salamanders</li>
+            <li>→ Native non-venomous snakes</li>
+            <li>→ Native lizards and skinks</li>
+          </ul>
+        </div>
+        <div class="who-box" style="background: #fdf8f2; border-color: #c8b898;">
+          <h3><span style="color: #8a3228;">✕</span> We can't help</h3>
+          <ul>
+            <li>→ Pet reptiles or exotics (red-eared sliders, tortoises, ball pythons, etc.)</li>
+            <li>→ Venomous snakes — <a href="https://dwr.virginia.gov" target="_blank" rel="noopener" style="color: var(--color-text-muted); text-decoration: underline;">Virginia DWR</a></li>
+            <li>→ Sea turtles — VAST: <a href="tel:7573857575" style="color: var(--color-text-muted); text-decoration: underline; white-space: nowrap;">757-385-7575</a></li>
+            <li>→ Birds or mammals: <a href="tel:8554011527" style="color: var(--color-text-muted); text-decoration: underline; white-space: nowrap;">855-401-1527</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--color-bg-dark); padding: 5rem var(--site-gutter); text-align: center;">
+    <h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300; color: #F5F2EC; margin-bottom: 1rem;">
+      Ready to reach out?
+    </h2>
+    <p style="color: #9A9080; max-width: 480px; margin: 0 auto 0.75rem; line-height: 1.75; font-size: 1.05rem;">
+      Send us your photos and location and we'll advise on next steps.
+    </p>
+    <p style="color: #6A6560; font-size: 15px; margin-bottom: 2rem;">
+      <a href="mailto:info@southeastreptile.org" style="color: #9A9080;">info@southeastreptile.org</a>
+      &nbsp;&middot;&nbsp;
+      Text: <a href="sms:7573243720" style="color: #9A9080;">757-324-3720</a>
+    </p>
+    <a href="/contact" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">
+      Contact us
+    </a>
+  </section>
+
+</Layout>

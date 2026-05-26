@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page Not Found"
+  description="The page you're looking for doesn't exist. Find wildlife rehabilitation guidance, our species field guide, or contact SERC."
+>
+
+  <section style="min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 5rem var(--site-gutter); text-align: center;">
+    <div style="max-width: 520px;">
+      <div style="font-family: var(--font-serif); font-size: 6rem; font-weight: 300; color: var(--color-border); line-height: 1; margin-bottom: 1.5rem;">404</div>
+      <h1 style="font-size: 2rem; margin-bottom: 1rem;">Page not found</h1>
+      <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem;">
+        That page doesn't exist or may have moved. Here are some places to start:
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; text-align: left; margin-bottom: 2.5rem;">
+        <a href="/triage" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: var(--color-surface); border: 1px solid var(--color-border); text-decoration: none; color: var(--color-text); transition: opacity 0.2s;">
+          <span>Found an injured animal?</span>
+          <span style="color: var(--color-text-faint);">Triage guide →</span>
+        </a>
+        <a href="/species" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: var(--color-surface); border: 1px solid var(--color-border); text-decoration: none; color: var(--color-text); transition: opacity 0.2s;">
+          <span>Identify a species</span>
+          <span style="color: var(--color-text-faint);">Field guide →</span>
+        </a>
+        <a href="/contact" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: var(--color-surface); border: 1px solid var(--color-border); text-decoration: none; color: var(--color-text); transition: opacity 0.2s;">
+          <span>Get in touch</span>
+          <span style="color: var(--color-text-faint);">Contact →</span>
+        </a>
+        <a href="/donate" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: var(--color-surface); border: 1px solid var(--color-border); text-decoration: none; color: var(--color-text); transition: opacity 0.2s;">
+          <span>Support our work</span>
+          <span style="color: var(--color-text-faint);">Donate →</span>
+        </a>
+      </div>
+      <a href="/" class="btn btn--dark">Back to home</a>
+    </div>
+  </section>
+
+</Layout>

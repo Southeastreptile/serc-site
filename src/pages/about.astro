@@ -3,8 +3,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="About"
-  description="Southeastern Reptile Conservation is a licensed wildlife rehabilitation nonprofit serving Virginia, focused on native reptiles and amphibians."
+  title="About SERC — Licensed Wildlife Rehabilitators in Virginia"
+  description="Southeastern Reptile Conservation is a licensed 501(c)(3) nonprofit providing permitted wildlife rehabilitation for native reptiles and amphibians in Virginia."
+  image="/images/box-turtle-grass.jpg"
 >
 
   <!-- Hero -->
@@ -28,6 +29,9 @@ import Layout from '../layouts/Layout.astro';
       <img
         src="/images/box-turtle-grass.jpg"
         alt="Eastern box turtle in grass"
+        width="5472"
+        height="3648"
+        fetchpriority="high"
         style="width: 100%; height: 100%; object-fit: cover;"
       />
     </div>
@@ -95,7 +99,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div style="background: var(--color-surface); border: 1px solid var(--color-border);">
           <div style="aspect-ratio: 4/3; overflow: hidden;">
-            <img src="/images/susie.jpg" alt="Susie the Eastern Box Turtle" style="width: 100%; height: 100%; object-fit: cover;" />
+            <img src="/images/susie.jpg" alt="Susie the Eastern Box Turtle" width="900" height="720" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <div style="padding: 1.5rem;">
             <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.4rem;">Eastern Box Turtle</div>
@@ -112,7 +116,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div style="background: var(--color-surface); border: 1px solid var(--color-border);">
           <div style="aspect-ratio: 4/3; overflow: hidden;">
-            <img src="/images/peanut.jpg" alt="Peanut the Eastern Box Turtle" style="width: 100%; height: 100%; object-fit: cover;" />
+            <img src="/images/peanut.jpg" alt="Peanut the Eastern Box Turtle" width="900" height="720" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <div style="padding: 1.5rem;">
             <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.4rem;">Eastern Box Turtle</div>
@@ -128,7 +132,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div style="background: var(--color-surface); border: 1px solid var(--color-border);">
           <div style="aspect-ratio: 4/3; overflow: hidden;">
-            <img src="/images/natalie.jpeg" alt="Natalie the Fowler's Toad" style="width: 100%; height: 100%; object-fit: cover;" />
+            <img src="/images/natalie.jpeg" alt="Natalie the Fowler's Toad" width="3024" height="3348" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <div style="padding: 1.5rem;">
             <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.4rem;">Fowler's Toad</div>
@@ -152,6 +156,9 @@ import Layout from '../layouts/Layout.astro';
       <img
         src="/images/box-turtle-leaves.jpg"
         alt="Eastern box turtle on leaf litter"
+        width="5472"
+        height="3648"
+        loading="lazy"
         style="width: 100%; height: 100%; object-fit: cover;"
       />
     </div>

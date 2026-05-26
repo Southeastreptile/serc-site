@@ -3,8 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Turtle Watch"
-  description="Live map of turtle activity corridors near major roads in southeastern Virginia. Powered by iNaturalist citizen science data."
+  title="Turtle Watch — Live Turtle Activity Map for Southeastern Virginia"
+  description="See where turtles are most active near roads in southeastern Virginia. Our live map uses iNaturalist citizen science data to show turtle crossing corridors so you know where to slow down."
+  image="/images/hatchling-rock.jpg"
 >
 
   <!-- Leaflet -->
@@ -252,7 +253,10 @@ import Layout from '../../layouts/Layout.astro';
         <span class="legend-swatch" style="background:#378add; opacity:0.5;"></span>
         High activity area (6+ sightings)
       </span>
-      <span class="source">All iNaturalist sightings · Road geometry: OpenStreetMap</span>
+      <a href="https://www.inaturalist.org/people/southeastreptile" target="_blank" rel="noopener" class="source" style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; background: var(--color-bg-light, #F5F2EC); border: 1px solid var(--color-border, #D5D0C8); color: var(--color-text-muted, #5A5548); text-decoration: none; font-size: 11px; transition: opacity 0.2s;">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 2C9 2 4 6 4 12c0 4 2.5 7.5 6 9"/><path d="M12 2c3 0 8 4 8 10 0 4-2.5 7.5-6 9"/><path d="M12 2v20"/><path d="M4 12h16"/></svg>
+        Powered by iNaturalist · Road geometry: OpenStreetMap
+      </a>
     </div>
 
     <!-- Footer note -->

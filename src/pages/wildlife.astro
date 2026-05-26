@@ -8,6 +8,9 @@ const species = [
     status: 'Species of Greatest Concern',
     description: 'The only turtle in North America that lives in brackish coastal habitats. Diamondback terrapins are a species of greatest conservation concern in Virginia, facing threats from habitat loss, road mortality, crab trap drowning, and collection for the pet trade.',
     image: '/images/hatchling-rock.jpg',
+    imageW: 3012, imageH: 2846,
+    profileUrl: '/species/northern-diamondback-terrapin',
+    profileLabel: 'View species profile',
   },
   {
     name: 'Eastern Box Turtle',
@@ -15,6 +18,9 @@ const species = [
     status: 'Species of Conservation Concern',
     description: 'A beloved and iconic Virginia turtle that is increasingly threatened by habitat fragmentation, road mortality, and collection. Box turtles have small home ranges and strong site fidelity, making habitat loss especially impactful for local populations.',
     image: '/images/box-turtle-grass.jpg',
+    imageW: 5472, imageH: 3648,
+    profileUrl: '/species/eastern-box-turtle',
+    profileLabel: 'View species profile',
   },
   {
     name: 'Common Snapping Turtle',
@@ -22,6 +28,9 @@ const species = [
     status: 'Rehabilitation Services',
     description: 'One of Virginia\'s most widespread aquatic turtles, the common snapping turtle is a frequent patient in wildlife rehabilitation. Often misunderstood due to their defensive behavior on land, snapping turtles are an important part of healthy aquatic ecosystems. We care for injured and displaced individuals with the goal of returning them to their home waters.',
     image: '/images/snapping-turtle.jpg',
+    imageW: 5472, imageH: 3648,
+    profileUrl: '/species/north-american-snapping-turtle',
+    profileLabel: 'View species profile',
   },
   {
     name: 'Native Reptiles & Amphibians',
@@ -29,19 +38,27 @@ const species = [
     status: 'Rehabilitation Services',
     description: 'SERC provides rehabilitation services for a range of native Virginia reptiles and amphibians, including snakes, lizards, frogs, and salamanders. If you have found an injured or displaced native reptile or amphibian, please contact us.',
     image: '/images/tree-frog.jpg',
+    imageW: 968, imageH: 812,
+    profileUrl: '/species',
+    profileLabel: 'Browse the field guide',
   },
 ];
 ---
 
-<Layout title="Wildlife" description="Learn about the native reptile and amphibian species SERC works to rehabilitate and protect in Virginia.">
+<Layout
+  title="Our Patients — Species SERC Rehabilitates in Virginia"
+  description="Meet the native reptile and amphibian species SERC rehabilitates and protects in Virginia — including the diamondback terrapin, Eastern box turtle, and common snapping turtle."
+  image="/images/box-turtle-grass.jpg"
+>
 
   <!-- Header -->
   <section style="padding: 5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto;">
-    <h1 style="margin-bottom: 1rem;">Wildlife we protect</h1>
+    <h1 style="margin-bottom: 1rem;">Our patients</h1>
     <p style="max-width: 600px; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8;">
-      Virginia is home to a rich diversity of native reptile and amphibian species. Many face
-      significant threats from habitat loss, road mortality, and human disturbance. We focus
-      our rehabilitation and conservation efforts on species with the greatest need.
+      These are the species we care for — injured, orphaned, and displaced native reptiles and
+      amphibians brought into SERC for rehabilitation. Our goal for every patient is to return
+      them to the wild. Some species also receive focused conservation attention due to their
+      status in Virginia.
     </p>
   </section>
 
@@ -52,6 +69,9 @@ const species = [
         <img
           src={s.image}
           alt={s.name}
+          width={s.imageW}
+          height={s.imageH}
+          loading="lazy"
           style="width: 100%; height: 100%; object-fit: cover;"
         />
       </div>
@@ -60,6 +80,7 @@ const species = [
         <h2 style="margin-bottom: 0.25rem;">{s.name}</h2>
         <p style="font-style: italic; color: var(--color-text-faint); font-size: 14px; margin-bottom: 1.25rem;">{s.scientific}</p>
         <p style="color: var(--color-text-muted); font-size: 15px; line-height: 1.8;">{s.description}</p>
+        <a href={s.profileUrl} style="display: inline-block; margin-top: 1.5rem; font-size: 13px; color: var(--color-text-muted); text-decoration: underline; text-underline-offset: 4px;">{s.profileLabel} →</a>
       </div>
     </section>
   ))}

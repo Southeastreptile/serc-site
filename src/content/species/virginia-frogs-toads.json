@@ -1,0 +1,756 @@
+[
+  {
+    "id": "north-american-bullfrog",
+    "commonName": "North American Bullfrog",
+    "scientificName": "Lithobates catesbeianus",
+    "family": "Ranidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 3.6,
+      "maxIn": 6
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's largest frog, the bullfrog is a familiar presence on the edges of ponds, lakes, and slow rivers statewide. The deep, resonant 'jug-o-rum' call of males is one of the most recognizable sounds of a Virginia summer. Bullfrogs are voracious predators that will eat nearly anything they can swallow, including other frogs, small snakes, and even birds.",
+    "identificationFeatures": [
+      "Very large, 3.6\u20136 inches \u2014 Virginia's biggest frog",
+      "Green to olive-brown above, often mottled",
+      "Large circular tympanum (eardrum) behind eye \u2014 in males, larger than the eye; in females, equal to the eye",
+      "No dorsolateral ridges running down the back",
+      "Webbed hind feet"
+    ],
+    "colors": [
+      "green",
+      "olive",
+      "brown"
+    ],
+    "similarSpecies": [
+      {
+        "id": "north-american-green-frog",
+        "differentiator": "Green frogs are smaller and have two prominent dorsolateral ridges running down the back; bullfrogs lack these ridges"
+      }
+    ],
+    "funFact": "Bullfrogs can remain submerged for hours by absorbing dissolved oxygen directly through their skin \u2014 the same mechanism that allows them to overwinter underwater.",
+    "inatTaxonId": 65979
+  },
+  {
+    "id": "north-american-green-frog",
+    "commonName": "North American Green Frog",
+    "scientificName": "Lithobates clamitans",
+    "family": "Ranidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2.25,
+      "maxIn": 3.5
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "riparian"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "One of Virginia's most commonly encountered frogs, the green frog is found at the edge of nearly every pond, stream, and lake in the state. Their 'loose banjo string' or 'boing' call is one of the most characteristic summer sounds near water. Green frogs closely resemble bullfrogs but are noticeably smaller and have distinctive dorsolateral ridges.",
+    "identificationFeatures": [
+      "Medium size, 2.25\u20133.5 inches",
+      "Green, olive, or bronze above, often mottled",
+      "Two prominent dorsolateral ridges running down the back \u2014 key distinction from bullfrog",
+      "Tympanum roughly equal to eye size in both sexes",
+      "White or yellowish belly"
+    ],
+    "colors": [
+      "green",
+      "olive",
+      "brown"
+    ],
+    "similarSpecies": [
+      {
+        "id": "north-american-bullfrog",
+        "differentiator": "Bullfrogs are larger and lack dorsolateral ridges; green frogs have two distinct ridges running down the back"
+      },
+      {
+        "id": "pickerel-frog",
+        "differentiator": "Pickerel frogs have square or rectangular dark spots arranged in two rows and a yellow or orange groin; green frogs are more uniformly colored"
+      }
+    ],
+    "funFact": "Green frogs can change color somewhat based on temperature and light \u2014 the same individual may appear bright green on a warm sunny day and olive-brown in cooler conditions.",
+    "inatTaxonId": 65982
+  },
+  {
+    "id": "wood-frog",
+    "commonName": "Wood Frog",
+    "scientificName": "Lithobates sylvaticus",
+    "family": "Ranidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 1.4,
+      "maxIn": 3.3
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The wood frog is Virginia's earliest breeding frog, often calling from vernal pools while snow is still on the ground. Their distinctive 'duck-like quacking' chorus can be heard in late winter and early spring, then they disappear entirely into the forest floor for the rest of the year. The dark mask through the eye is unmistakable.",
+    "identificationFeatures": [
+      "Dark mask through the eye and along the jaw \u2014 'robber's mask'",
+      "Tan, brown, or reddish-brown above",
+      "White or cream belly",
+      "Dorsolateral ridges present",
+      "Medium size, 1.4\u20133.3 inches"
+    ],
+    "colors": [
+      "brown",
+      "tan",
+      "red"
+    ],
+    "similarSpecies": [
+      {
+        "id": "pickerel-frog",
+        "differentiator": "Pickerel frogs have square spots in two rows and a yellow or orange groin; wood frogs have a plain back with a distinctive eye mask"
+      }
+    ],
+    "funFact": "Wood frogs survive winter by freezing solid \u2014 their hearts stop, breathing ceases, and up to 65% of their body water turns to ice. Come spring, they thaw and hop away.",
+    "inatTaxonId": 66012
+  },
+  {
+    "id": "pickerel-frog",
+    "commonName": "Pickerel Frog",
+    "scientificName": "Lithobates palustris",
+    "family": "Ranidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 1.75,
+      "maxIn": 3.5
+    },
+    "habitat": [
+      "semi-aquatic",
+      "wetland",
+      "riparian",
+      "terrestrial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The pickerel frog is Virginia's only mildly toxic frog \u2014 its skin secretions are distasteful to predators and can irritate the eyes and mouth of an animal that tries to eat it. It is identified by two parallel rows of square or rectangular dark spots on a tan or brown background, and bright yellow or orange coloring in the groin and on the inner thighs.",
+    "identificationFeatures": [
+      "Two parallel rows of square or rectangular dark spots on back",
+      "Bright yellow or orange on inner thighs and groin \u2014 visible when frog jumps",
+      "Tan or light brown background color",
+      "Dorsolateral ridges present",
+      "Medium size, 1.75\u20133.5 inches"
+    ],
+    "colors": [
+      "brown",
+      "tan",
+      "yellow",
+      "orange"
+    ],
+    "similarSpecies": [
+      {
+        "id": "southern-leopard-frog",
+        "differentiator": "Leopard frogs have rounded or oval spots rather than square ones, and lack the yellow or orange coloring in the groin"
+      },
+      {
+        "id": "north-american-green-frog",
+        "differentiator": "Green frogs lack the parallel rows of square spots and the yellow groin coloring"
+      }
+    ],
+    "funFact": "Pickerel frogs are the only Virginia frog with genuinely unpalatable skin secretions \u2014 they are one of the few native frogs that predators like garter snakes will refuse to eat.",
+    "inatTaxonId": 66002
+  },
+  {
+    "id": "southern-leopard-frog",
+    "commonName": "Southern Leopard Frog",
+    "scientificName": "Lithobates sphenocephalus",
+    "family": "Ranidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2,
+      "maxIn": 5
+    },
+    "habitat": [
+      "semi-aquatic",
+      "wetland",
+      "terrestrial"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A large, spotted frog of the coastal plain and piedmont, the southern leopard frog is identified by its rounded dark spots on a green or brown background. Unlike pickerel frogs, the spots are rounded rather than square, and there is no yellow coloring in the groin. They are common around ponds, marshes, and slow streams and are active across a long season.",
+    "identificationFeatures": [
+      "Rounded or oval dark spots on green or brown background",
+      "White spot in center of tympanum",
+      "Pointed snout",
+      "Dorsolateral ridges present",
+      "No yellow coloring in groin"
+    ],
+    "colors": [
+      "green",
+      "brown",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "pickerel-frog",
+        "differentiator": "Pickerel frogs have square spots in two neat rows and yellow or orange in the groin; leopard frogs have rounded spots and no yellow groin"
+      }
+    ],
+    "funFact": "Southern leopard frogs can leap up to three feet in a single bound \u2014 impressive for an animal that fits in the palm of your hand \u2014 and often jump toward water in a series of erratic zigzag leaps to confuse predators.",
+    "inatTaxonId": 60341
+  },
+  {
+    "id": "eastern-american-toad",
+    "commonName": "Eastern American Toad",
+    "scientificName": "Anaxyrus americanus americanus",
+    "family": "Bufonidae",
+    "group": "amphibian",
+    "subgroup": "toad",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2,
+      "maxIn": 3.5
+    },
+    "habitat": [
+      "terrestrial",
+      "wetland",
+      "forest",
+      "grassland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's most familiar toad, the eastern American toad is found in nearly every terrestrial habitat in the state, including suburban yards and gardens. Their long, melodious trill is one of the defining sounds of spring. Despite the old myth, toads do not cause warts \u2014 but their parotoid glands do secrete mild toxins that make them unpalatable to most predators.",
+    "identificationFeatures": [
+      "Brown, gray, or olive with dark spots, each containing one or two warts",
+      "Large parotoid glands behind eyes",
+      "Bumpy, warty skin",
+      "Stout body",
+      "Cranial crests between eyes that touch or are connected to the parotoid glands"
+    ],
+    "colors": [
+      "brown",
+      "gray",
+      "olive"
+    ],
+    "similarSpecies": [
+      {
+        "id": "fowlers-toad",
+        "differentiator": "Fowler's toads have three or more warts per dark spot, cranial crests that contact but are not connected to the parotoid glands, and a nasal call rather than a trill"
+      }
+    ],
+    "funFact": "American toads can eat up to 1,000 insects per day and are one of the most effective natural pest controllers in Virginia gardens \u2014 a single toad in your garden is a genuine asset.",
+    "inatTaxonId": 123594
+  },
+  {
+    "id": "fowlers-toad",
+    "commonName": "Fowler's Toad",
+    "scientificName": "Anaxyrus fowleri",
+    "family": "Bufonidae",
+    "group": "amphibian",
+    "subgroup": "toad",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2,
+      "maxIn": 3
+    },
+    "habitat": [
+      "terrestrial",
+      "grassland",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's second toad species, Fowler's toad is very similar to the American toad and the two often overlap in range. The most reliable distinction is the call \u2014 Fowler's toad produces a nasal, sheep-like bleat rather than the American toad's long musical trill. Fowler's toads tend to prefer sandier, more open habitats and breed later in spring.",
+    "identificationFeatures": [
+      "Brown or gray with dark spots, each containing three or more warts \u2014 vs. one or two in American toad",
+      "Cranial crests that contact but are not fused to the parotoid glands",
+      "Belly mostly white with a single dark spot",
+      "Nasal, buzzy call rather than a trill"
+    ],
+    "colors": [
+      "brown",
+      "gray",
+      "olive"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-american-toad",
+        "differentiator": "American toads have one or two warts per dark spot, cranial crests fused to the parotoid glands, and a long musical trill"
+      }
+    ],
+    "funFact": "Fowler's toads and American toads occasionally hybridize where their ranges overlap, producing individuals with intermediate characteristics that can be very difficult to identify.",
+    "inatTaxonId": 992298
+  },
+  {
+    "id": "spring-peeper",
+    "commonName": "Spring Peeper",
+    "scientificName": "Pseudacris crucifer",
+    "family": "Hylidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 0.75,
+      "maxIn": 1.5
+    },
+    "habitat": [
+      "wetland",
+      "forest",
+      "terrestrial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The spring peeper is perhaps Virginia's most familiar amphibian sound \u2014 the high-pitched chorus of peepers calling from wetlands and ditches is the unofficial announcement of spring. Despite being heard by nearly everyone, they are rarely seen: they are tiny, cryptically colored tree frogs that spend most of their lives hidden in forest leaf litter. The X-shaped mark on the back is distinctive.",
+    "identificationFeatures": [
+      "Very small, 0.75\u20131.5 inches",
+      "X-shaped dark marking on the back",
+      "Tan, brown, or gray above",
+      "Smooth skin",
+      "Small toe pads for climbing"
+    ],
+    "colors": [
+      "brown",
+      "tan",
+      "gray"
+    ],
+    "similarSpecies": [
+      {
+        "id": "upland-chorus-frog",
+        "differentiator": "Upland chorus frogs have three stripes or broken stripes down the back rather than an X; both are tiny but peepers have the distinctive X mark"
+      }
+    ],
+    "funFact": "A single male spring peeper calling at close range can produce sounds exceeding 90 decibels \u2014 comparable to a lawnmower \u2014 yet the frog is barely larger than a thumbnail.",
+    "inatTaxonId": 24268
+  },
+  {
+    "id": "upland-chorus-frog",
+    "commonName": "Upland Chorus Frog",
+    "scientificName": "Pseudacris feriarum",
+    "family": "Hylidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 0.75,
+      "maxIn": 1.5
+    },
+    "habitat": [
+      "wetland",
+      "grassland",
+      "terrestrial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A tiny frog of open wetlands, fields, and flooded ditches, the upland chorus frog is one of Virginia's earliest callers, often breeding alongside spring peepers. Their call \u2014 like running a finger along the teeth of a comb \u2014 is a reliable early spring sound. They are rarely seen due to their small size and secretive habits.",
+    "identificationFeatures": [
+      "Very small, 0.75\u20131.5 inches",
+      "Three dark stripes or rows of spots running down the back",
+      "Dark stripe through eye",
+      "Gray, tan, or brown background",
+      "White line along upper lip"
+    ],
+    "colors": [
+      "brown",
+      "gray",
+      "tan"
+    ],
+    "similarSpecies": [
+      {
+        "id": "spring-peeper",
+        "differentiator": "Spring peepers have an X-shaped mark on the back, not stripes; chorus frogs have longitudinal stripes or broken stripe rows"
+      }
+    ],
+    "funFact": "Upland chorus frogs can breed in water as shallow as a few inches \u2014 a flooded tire rut or roadside ditch is sufficient habitat for a breeding population.",
+    "inatTaxonId": 24263
+  },
+  {
+    "id": "gray-treefrog",
+    "commonName": "Gray Treefrog",
+    "scientificName": "Dryophytes versicolor",
+    "family": "Hylidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 1.25,
+      "maxIn": 2
+    },
+    "habitat": [
+      "arboreal",
+      "wetland",
+      "forest"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A master of camouflage, the gray treefrog is a common but rarely seen resident of Virginia's forests and suburban trees. Their mottled gray-green skin matches tree bark so precisely that they are nearly invisible when resting on a branch. The bright orange or yellow flash on the inner thighs, visible when jumping, is a key identification feature. Two species of gray treefrog occur in Virginia and are visually identical \u2014 they can only be reliably separated by call.",
+    "identificationFeatures": [
+      "Mottled gray, green, or brown \u2014 highly variable and can change color",
+      "Bright orange or yellow on inner thighs, visible when jumping",
+      "Large, sticky toe pads",
+      "White spot below each eye",
+      "Rough, warty-textured skin"
+    ],
+    "colors": [
+      "gray",
+      "green",
+      "brown",
+      "orange",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "copes-gray-treefrog",
+        "differentiator": "Cope's gray treefrog is visually identical \u2014 the only reliable field distinction is the call. Cope's has a faster, harsher trill; gray treefrog has a slower, more musical trill"
+      }
+    ],
+    "funFact": "Gray treefrogs can change their color from gray to green in minutes depending on temperature, light, and humidity \u2014 allowing them to match a wide range of bark and leaf surfaces.",
+    "inatTaxonId": 1668899
+  },
+  {
+    "id": "copes-gray-treefrog",
+    "commonName": "Cope's Gray Treefrog",
+    "scientificName": "Dryophytes chrysoscelis",
+    "family": "Hylidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 1.25,
+      "maxIn": 2
+    },
+    "habitat": [
+      "arboreal",
+      "wetland",
+      "forest"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Cope's gray treefrog is visually identical to the gray treefrog and shares much of the same range in Virginia. The two species were only recognized as distinct in the 1950s when researchers discovered they are different chromosomally \u2014 gray treefrogs are tetraploid (4 sets of chromosomes) while Cope's are diploid (2 sets). In the field, the call is the only reliable way to tell them apart.",
+    "identificationFeatures": [
+      "Visually identical to gray treefrog",
+      "Mottled gray, green, or brown",
+      "Bright orange or yellow on inner thighs",
+      "Large sticky toe pads",
+      "Call: faster, harsher, more buzzy trill than gray treefrog"
+    ],
+    "colors": [
+      "gray",
+      "green",
+      "brown",
+      "orange",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "gray-treefrog",
+        "differentiator": "Visually identical \u2014 distinguish by call only. Gray treefrog has a slower, more musical trill; Cope's has a faster, harsher buzz"
+      }
+    ],
+    "funFact": "Cope's gray treefrog is a diploid species that is believed to be the ancestor of the tetraploid gray treefrog \u2014 the two are thought to have separated relatively recently in evolutionary terms.",
+    "inatTaxonId": 1668922
+  },
+  {
+    "id": "green-treefrog",
+    "commonName": "Green Treefrog",
+    "scientificName": "Dryophytes cinereus",
+    "family": "Hylidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 1.25,
+      "maxIn": 2.5
+    },
+    "habitat": [
+      "arboreal",
+      "wetland",
+      "semi-aquatic"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "One of Virginia's most striking frogs, the green treefrog is a vivid, smooth-skinned bright green frog of the coastal plain. They frequently appear on windows and walls on warm summer nights, attracted by insects near lights. The bold white or pale yellow stripe along the side of the body is a distinctive field mark.",
+    "identificationFeatures": [
+      "Smooth, vivid lime or emerald green above",
+      "Bold white or pale yellow stripe along each side from jaw to flank",
+      "Large sticky toe pads",
+      "Small size, 1.25\u20132.5 inches",
+      "Coastal plain only in Virginia"
+    ],
+    "colors": [
+      "green",
+      "white",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "gray-treefrog",
+        "differentiator": "Gray treefrogs are mottled gray or green with orange thighs and rough skin; green treefrogs are uniformly bright green with a white lateral stripe and smooth skin"
+      }
+    ],
+    "funFact": "Green treefrogs are sometimes called 'rain frogs' because their call increases dramatically before and during rainstorms \u2014 they appear to sense barometric pressure changes and call in anticipation of rain.",
+    "inatTaxonId": 1668858
+  },
+  {
+    "id": "eastern-cricket-frog",
+    "commonName": "Eastern Cricket Frog",
+    "scientificName": "Acris crepitans",
+    "family": "Hylidae",
+    "group": "amphibian",
+    "subgroup": "frog",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 0.6,
+      "maxIn": 1.4
+    },
+    "habitat": [
+      "semi-aquatic",
+      "wetland",
+      "grassland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Despite being a member of the treefrog family, cricket frogs spend most of their time on the ground near water and have reduced toe pads. They are tiny, warty-skinned frogs that superficially resemble small toads. They are one of Virginia's most abundant frogs and their clicking 'gick gick gick' call is a common summer sound near ponds and streams.",
+    "identificationFeatures": [
+      "Very small, 0.6\u20131.4 inches",
+      "Warty skin despite being a treefrog",
+      "Highly variable coloration \u2014 green, brown, gray, or reddish with dark markings",
+      "Dark triangular marking between the eyes",
+      "Ragged Y-shaped stripe on back in many individuals"
+    ],
+    "colors": [
+      "green",
+      "brown",
+      "gray",
+      "red"
+    ],
+    "similarSpecies": [
+      {
+        "id": "spring-peeper",
+        "differentiator": "Spring peepers are smooth-skinned with an X mark on the back; cricket frogs are warty with more variable patterning"
+      }
+    ],
+    "funFact": "Cricket frogs can leap over three feet in a single bound \u2014 more than 40 times their own body length \u2014 making them one of the most impressive leapers relative to body size in the animal kingdom.",
+    "inatTaxonId": 24230
+  },
+  {
+    "id": "eastern-narrow-mouthed-toad",
+    "commonName": "Eastern Narrow-mouthed Toad",
+    "scientificName": "Gastrophryne carolinensis",
+    "family": "Microhylidae",
+    "group": "amphibian",
+    "subgroup": "toad",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 0.9,
+      "maxIn": 1.25
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "wetland",
+      "fossorial"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "One of Virginia's most unusual-looking amphibians, the eastern narrow-mouthed toad has a tiny, pointed head, a plump body, and a fold of skin across the back of the head. Despite its name, it is not closely related to true toads. They are secretive and fossorial, spending most of their time under logs, rocks, and debris. Their call sounds like an electric buzz or the bleating of a sheep.",
+    "identificationFeatures": [
+      "Small, plump body with a tiny, pointed head",
+      "Fold of skin across back of head just behind the eyes",
+      "Gray, brown, or olive above with darker sides",
+      "No obvious neck \u2014 head appears to blend into body",
+      "Small size, under 1.25 inches"
+    ],
+    "colors": [
+      "gray",
+      "brown",
+      "olive"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-american-toad",
+        "differentiator": "American toads are much larger and have a broader head; narrow-mouthed toads have a distinctive tiny pointed head and skin fold"
+      }
+    ],
+    "funFact": "Eastern narrow-mouthed toads have a unique relationship with eastern hog-nosed snakes \u2014 they shelter near or even inside the snakes' burrows, apparently immune to predation, possibly because their skin secretions are distasteful to the snake.",
+    "inatTaxonId": 25078
+  },
+  {
+    "id": "eastern-spadefoot",
+    "commonName": "Eastern Spadefoot",
+    "scientificName": "Scaphiopus holbrookii",
+    "family": "Scaphiopodidae",
+    "group": "amphibian",
+    "subgroup": "toad",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 1.75,
+      "maxIn": 2.25
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "fossorial"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVc",
+    "description": "The eastern spadefoot is one of Virginia's most secretive amphibians, spending most of its life underground and emerging only during heavy rains to breed explosively in temporary pools. They dig with a hard, spade-like projection on each hind foot \u2014 the source of their name. A large aggregation of calling spadefoots during a summer rainstorm is an unforgettable herpetological experience.",
+    "identificationFeatures": [
+      "Stout body, smooth skin with small warts",
+      "Large, golden or copper-colored eyes with vertical pupils \u2014 unique among Virginia frogs",
+      "Two light yellow stripes from eye down back",
+      "Hard, dark spade-like projection on each hind foot",
+      "Brown or gray above"
+    ],
+    "colors": [
+      "brown",
+      "gray",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-american-toad",
+        "differentiator": "American toads have horizontal pupils and large parotoid glands; spadefoots have vertical pupils, no parotoid glands, and a spade on each hind foot"
+      }
+    ],
+    "funFact": "Eastern spadefoot tadpoles develop incredibly fast \u2014 they can metamorphose in as little as two weeks, an adaptation to breeding in temporary pools that may dry up quickly.",
+    "inatTaxonId": 26695
+  }
+]

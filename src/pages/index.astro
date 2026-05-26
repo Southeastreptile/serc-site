@@ -2,7 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Wildlife Rehabilitation and Conservation">
+<Layout
+  title="Virginia Reptile & Amphibian Rehabilitation and Conservation"
+  description="Southeastern Reptile Conservation (SERC) is a licensed nonprofit providing wildlife rehabilitation for injured native reptiles and amphibians in Virginia. We rescue, rehabilitate, and release."
+  image="/images/hero-turtle.jpg"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Southeastern Reptile Conservation",
+    "alternateName": "SERC",
+    "url": "https://www.southeastreptile.org",
+    "logo": "https://www.southeastreptile.org/images/serc-logo.png",
+    "description": "Licensed nonprofit providing wildlife rehabilitation for native reptiles and amphibians in Virginia.",
+    "email": "info@southeastreptile.org",
+    "areaServed": { "@type": "State", "name": "Virginia" },
+    "sameAs": [
+      "https://www.instagram.com/purringturtle",
+      "https://github.com/southeastreptile",
+      "https://www.inaturalist.org/people/southeastreptile"
+    ],
+    "knowsAbout": ["Wildlife Rehabilitation", "Reptile Conservation", "Amphibian Conservation", "Diamondback Terrapin", "Eastern Box Turtle"]
+  }}
+>
 
   <!-- Hero -->
   <section style="background: #B5A090; min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden;">
@@ -17,17 +38,18 @@ import Layout from '../layouts/Layout.astro';
         to the wild, while supporting habitat stewardship, public education, and
         conservation-focused technology.
       </p>
-      <p style="color: var(--color-text-muted); font-size: 1rem; margin-bottom: 2rem;">
-        We can't do this without your support.
-      </p>
-      <a href="/about" class="btn btn--outline">
-        Learn more
-      </a>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/triage" class="btn btn--dark">Found an animal?</a>
+        <a href="/donate" class="btn btn--outline">Donate</a>
+      </div>
     </div>
     <div style="height: 100%; min-height: 90vh; overflow: hidden;">
       <img
         src="/images/hero-turtle.jpg"
         alt="Eastern box turtle in natural habitat"
+        width="5472"
+        height="3648"
+        fetchpriority="high"
         style="width: 100%; height: 100%; object-fit: cover;"
       />
     </div>
@@ -51,6 +73,18 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Found an animal callout -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 2.5rem var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem;">
+      <div>
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.4rem;">Need help right now?</div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 300; margin-bottom: 0.4rem;">Found an injured reptile or amphibian?</h2>
+        <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7;">Our triage guide tells you exactly what to do — step by step.</p>
+      </div>
+      <a href="/triage" class="btn btn--dark" style="white-space: nowrap; flex-shrink: 0;">Go to triage guide →</a>
+    </div>
+  </section>
+
   <!-- Latest from the blog -->
   <section style="padding: 5rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border);">
@@ -65,7 +99,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="post-card__read-more">Read more</span>
       </div>
       <div class="post-card__image" style="aspect-ratio: 4/3; overflow: hidden;">
-        <img src="/images/hatchling-rock.jpg" alt="Diamondback terrapin hatchling" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="/images/hatchling-rock.jpg" alt="Diamondback terrapin hatchling" width="3012" height="2846" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </a>
   </section>
@@ -79,9 +113,7 @@ import Layout from '../layouts/Layout.astro';
       SERC is a 501(c)(3) nonprofit. Your donation directly supports the care of
       injured and orphaned reptiles and amphibians in Virginia.
     </p>
-    <a href="/donate" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">
-      Donate
-    </a>
+    <a href="/donate" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">Donate</a>
   </section>
 
 </Layout>

@@ -1,0 +1,507 @@
+[
+  {
+    "id": "eastern-hellbender",
+    "commonName": "Eastern Hellbender",
+    "scientificName": "Cryptobranchus alleganiensis alleganiensis",
+    "family": "Cryptobranchidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 11.5,
+      "maxIn": 20,
+      "notes": "North America's largest salamander; record individuals exceed 24 inches"
+    },
+    "habitat": [
+      "aquatic",
+      "riparian"
+    ],
+    "regions": [
+      "blue ridge",
+      "valley and ridge",
+      "appalachian plateau"
+    ],
+    "conservationStatus": {
+      "iucn": "NT",
+      "federal": "species of concern",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier Ia",
+    "description": "North America's largest salamander and one of only three giant salamander species in the world, the eastern hellbender is a fully aquatic species found in the clean, cold, fast-flowing rivers of Virginia's mountains. They breathe primarily through folds of skin along their sides and require highly oxygenated water. Their populations have declined sharply due to water quality degradation and sedimentation. Finding a hellbender while fishing or snorkeling is a sign of an exceptionally healthy river.",
+    "identificationFeatures": [
+      "Enormous size, 11.5\u201324+ inches \u2014 unmistakable",
+      "Flattened head and body",
+      "Fleshy skin folds along the sides",
+      "Brown with darker mottling, no bright colors",
+      "Small eyes, fully aquatic",
+      "Found only in fast, rocky mountain streams"
+    ],
+    "colors": [
+      "brown",
+      "gray"
+    ],
+    "similarSpecies": [
+      {
+        "id": "common-mudpuppy",
+        "differentiator": "Mudpuppies are much smaller with visible bushy red external gills; hellbenders are far larger and have no external gills as adults"
+      }
+    ],
+    "funFact": "Hellbenders are sometimes called 'snot otters,' 'devil dogs,' or 'Allegheny alligators' by anglers \u2014 and are completely harmless. They actually compete with trout for crayfish, not with anglers for fish.",
+    "sercNotes": "VWAP Tier Ia. If found as bycatch by a fisher or encountered in distress, contact Virginia DWR immediately. Do not remove from the water.",
+    "inatTaxonId": 143755
+  },
+  {
+    "id": "red-spotted-newt",
+    "commonName": "Red-spotted Newt",
+    "scientificName": "Notophthalmus viridescens viridescens",
+    "family": "Salamandridae",
+    "group": "amphibian",
+    "subgroup": "newt",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2.25,
+      "maxIn": 4.8
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "forest",
+      "terrestrial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's most commonly seen salamander, the red-spotted newt has a remarkable three-stage life cycle. Aquatic larvae transform into terrestrial red efts \u2014 vivid orange-red juveniles that wander forest floors for up to seven years before returning to water as olive-green aquatic adults. The bright orange eft stage is a warning coloration: newts produce tetrodotoxin, a potent neurotoxin, in their skin.",
+    "identificationFeatures": [
+      "Eft stage (juvenile, terrestrial): bright orange-red with a row of red spots bordered by black along the sides",
+      "Adult stage (aquatic): olive-green or yellowish-brown with red spots bordered by black",
+      "Small to medium size, 2.25\u20134.8 inches",
+      "Rough, granular skin in eft stage; smoother in adult stage",
+      "Compressed tail in adult stage for swimming"
+    ],
+    "colors": [
+      "red",
+      "orange",
+      "olive",
+      "green"
+    ],
+    "similarSpecies": [
+      {
+        "id": "northern-red-salamander",
+        "differentiator": "Red salamanders are plethodontids (lungless salamanders) without the red eft's distinct bordered spots; they lack the newt's compressed swimming tail"
+      }
+    ],
+    "funFact": "Red efts are toxic enough that a single newt contains enough tetrodotoxin to kill several adult humans \u2014 making them one of the most toxic vertebrates in North America despite their small size.",
+    "inatTaxonId": 123499
+  },
+  {
+    "id": "spotted-salamander",
+    "commonName": "Spotted Salamander",
+    "scientificName": "Ambystoma maculatum",
+    "family": "Ambystomatidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 6,
+      "maxIn": 9.8
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "One of Virginia's most spectacular amphibians, the spotted salamander is a large, stocky species that spends most of its life underground in hardwood forests. On the first warm rainy nights of late winter or early spring, hundreds may migrate to vernal pools to breed in a brief explosive event. The vivid yellow or orange spots on a black body make them unmistakable.",
+    "identificationFeatures": [
+      "Large, 6\u20139.8 inches",
+      "Black or dark gray above with two irregular rows of yellow or orange spots from head to tail",
+      "Spots on the head often more orange; spots on the body more yellow",
+      "Stout, rounded body",
+      "Yellow belly"
+    ],
+    "colors": [
+      "black",
+      "yellow",
+      "orange"
+    ],
+    "similarSpecies": [
+      {
+        "id": "marbled-salamander",
+        "differentiator": "Marbled salamanders have white or silver bands on black rather than yellow spots; they breed in fall rather than early spring"
+      }
+    ],
+    "funFact": "Spotted salamander eggs contain symbiotic algae that live inside the egg capsules \u2014 the algae produce oxygen from photosynthesis that the developing embryos use, and the embryos produce carbon dioxide that the algae use.",
+    "inatTaxonId": 26790
+  },
+  {
+    "id": "marbled-salamander",
+    "commonName": "Marbled Salamander",
+    "scientificName": "Ambystoma opacum",
+    "family": "Ambystomatidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 3.5,
+      "maxIn": 5
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A strikingly patterned, stocky salamander of Virginia's forests, the marbled salamander is unique among Virginia's mole salamanders in that it breeds in fall rather than spring. Females guard egg clutches in dry depressions until autumn rains fill the vernal pool. The bold white or silver crossbands on a black body make it one of Virginia's most distinctive salamanders.",
+    "identificationFeatures": [
+      "Black body with white or silver crossbands",
+      "Bands more silvery in males, whiter in females",
+      "Stout, heavy-bodied",
+      "Medium size, 3.5\u20135 inches",
+      "Terrestrial, found under logs and in leaf litter"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "similarSpecies": [
+      {
+        "id": "spotted-salamander",
+        "differentiator": "Spotted salamanders have rows of yellow or orange spots, not white crossbands; they breed in early spring while marbled salamanders breed in fall"
+      }
+    ],
+    "funFact": "Female marbled salamanders are unusually devoted parents for amphibians \u2014 they coil around their egg clutch for weeks in fall, protecting it from predators and keeping it moist until rains flood the nest site.",
+    "inatTaxonId": 26736
+  },
+  {
+    "id": "eastern-red-backed-salamander",
+    "commonName": "Eastern Red-backed Salamander",
+    "scientificName": "Plethodon cinereus",
+    "family": "Plethodontidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2.25,
+      "maxIn": 4
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "fossorial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The eastern red-backed salamander is Virginia's most abundant salamander and likely the most abundant terrestrial vertebrate in many of its forests by sheer biomass. Entirely terrestrial and lungless \u2014 they breathe through their moist skin \u2014 they are found under nearly every log and flat rock in suitable forest habitat. They come in two color morphs: the red-backed morph with a brick-red stripe, and the lead-backed morph which is entirely dark gray.",
+    "identificationFeatures": [
+      "Small, slender, 2.25\u20134 inches",
+      "Red-backed morph: broad brick-red or orange-red stripe down the back with straight-edged sides",
+      "Lead-backed morph: uniformly dark gray with no stripe \u2014 same species",
+      "Salt-and-pepper pattern on belly \u2014 black and white flecking",
+      "No spots or other markings"
+    ],
+    "colors": [
+      "red",
+      "orange",
+      "gray",
+      "black"
+    ],
+    "similarSpecies": [
+      {
+        "id": "northern-slimy-salamander",
+        "differentiator": "Slimy salamanders are larger, black with white or silver spots, and produce a sticky mucus; red-backed salamanders are smaller with a plain stripe or lead coloring"
+      },
+      {
+        "id": "red-spotted-newt",
+        "differentiator": "Red efts are brighter orange with bordered black spots; red-backed salamanders have a duller stripe with plain edges and a salt-and-pepper belly"
+      }
+    ],
+    "funFact": "Eastern red-backed salamanders are lungless \u2014 they breathe entirely through their skin and the lining of their mouth. This means they must stay moist at all times and are highly sensitive to drought and pollution.",
+    "inatTaxonId": 27186
+  },
+  {
+    "id": "northern-slimy-salamander",
+    "commonName": "Northern Slimy Salamander",
+    "scientificName": "Plethodon glutinosus",
+    "family": "Plethodontidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 4.75,
+      "maxIn": 6.75
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "fossorial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A large, glossy black salamander with white or silver spots and flecks, the northern slimy salamander is common in Virginia's forests under logs and in rock crevices. True to its name, it produces a thick, sticky mucus from its skin that is notoriously difficult to wash off \u2014 it was historically used as a substitute for glue. Like all plethodontids, it is lungless.",
+    "identificationFeatures": [
+      "Large for a plethodontid, 4.75\u20136.75 inches",
+      "Glossy black above with scattered white or silver spots and flecks",
+      "Dark gray or black belly",
+      "Produces very sticky skin secretions",
+      "Stout body"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-red-backed-salamander",
+        "differentiator": "Red-backed salamanders are smaller with a red stripe or lead-gray coloring, not black with white spots"
+      },
+      {
+        "id": "spotted-salamander",
+        "differentiator": "Spotted salamanders are mole salamanders (Ambystomatidae) with rounder bodies, yellow spots, and are associated with vernal pools; slimy salamanders are slenderer plethodontids with white spots"
+      }
+    ],
+    "funFact": "The sticky secretion of slimy salamanders was once actually used as glue \u2014 it bonds strongly to skin and many surfaces and requires soap and repeated washing to remove.",
+    "inatTaxonId": 1355813
+  },
+  {
+    "id": "two-lined-salamander",
+    "commonName": "Northern Two-lined Salamander",
+    "scientificName": "Eurycea bislineata",
+    "family": "Plethodontidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2.5,
+      "maxIn": 4.75
+    },
+    "habitat": [
+      "semi-aquatic",
+      "riparian",
+      "forest"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A slender, yellow or orange-brown salamander with two dark lines running down the back, the northern two-lined salamander is one of Virginia's most commonly encountered stream salamanders. They are found under rocks along stream edges and seepages throughout the state. Their bright coloring and slender proportions make them easy to identify.",
+    "identificationFeatures": [
+      "Slender body, 2.5\u20134.75 inches",
+      "Yellow, orange, or greenish-yellow above",
+      "Two dark lines or rows of spots running from eye to tail",
+      "Yellow or orange belly",
+      "Found under streamside rocks and in seeps"
+    ],
+    "colors": [
+      "yellow",
+      "orange",
+      "green"
+    ],
+    "similarSpecies": [
+      {
+        "id": "long-tailed-salamander",
+        "differentiator": "Long-tailed salamanders have a proportionally very long tail (more than half total length) with a herringbone pattern; two-lined salamanders have a shorter tail and plainer striping"
+      }
+    ],
+    "funFact": "Two-lined salamander larvae can take up to three years to metamorphose in cold mountain streams \u2014 they spend years as aquatic larvae breathing through feathery external gills before transforming into adults.",
+    "inatTaxonId": 27120
+  },
+  {
+    "id": "common-mudpuppy",
+    "commonName": "Common Mudpuppy",
+    "scientificName": "Necturus maculosus",
+    "family": "Proteidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 8,
+      "maxIn": 17
+    },
+    "habitat": [
+      "aquatic"
+    ],
+    "regions": [
+      "piedmont",
+      "blue ridge",
+      "valley and ridge"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A large, permanently aquatic salamander found in Virginia's rivers and larger streams, the mudpuppy is neotenic \u2014 it retains its larval features, including bushy red external gills, throughout its entire life and never metamorphoses. They are nocturnal and secretive, hiding under large rocks and debris in deeper water. Despite being fairly common, they are rarely seen.",
+    "identificationFeatures": [
+      "Large, 8\u201317 inches",
+      "Bushy, dark red external gills \u2014 present throughout life",
+      "Dark brown or gray with darker spots",
+      "Stout, flattened body with four short legs",
+      "Fully aquatic \u2014 never leaves the water"
+    ],
+    "colors": [
+      "brown",
+      "gray",
+      "red"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-hellbender",
+        "differentiator": "Hellbenders are much larger with no external gills and extensive skin folds; mudpuppies are smaller with distinctive bushy red gills"
+      }
+    ],
+    "funFact": "Mudpuppies are often caught by fishermen and are sometimes killed out of fear \u2014 they are completely harmless and are actually an indicator of healthy river water quality.",
+    "inatTaxonId": 27685
+  },
+  {
+    "id": "four-toed-salamander",
+    "commonName": "Four-toed Salamander",
+    "scientificName": "Hemidactylium scutatum",
+    "family": "Plethodontidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2,
+      "maxIn": 4
+    },
+    "habitat": [
+      "terrestrial",
+      "wetland",
+      "forest"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVa",
+    "description": "A small, delicate salamander of sphagnum bogs and moist forested wetlands, the four-toed salamander is the only Virginia salamander with four toes on the hind foot rather than the usual five. They nest in moss above water, and females often nest communally. The bright white belly with distinct black spots and the constriction at the base of the tail are distinctive.",
+    "identificationFeatures": [
+      "Small, 2\u20134 inches",
+      "Reddish-brown above, sometimes with gray flecking",
+      "White belly with distinct black spots \u2014 very clean, high-contrast pattern",
+      "Visible constriction at base of tail",
+      "Four toes on hind feet instead of the usual five \u2014 requires close examination"
+    ],
+    "colors": [
+      "brown",
+      "red",
+      "white",
+      "black"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-red-backed-salamander",
+        "differentiator": "Red-backed salamanders have five toes on hind feet and a salt-and-pepper belly without distinct black spots; four-toed salamanders have a clean white belly with black spots"
+      }
+    ],
+    "funFact": "If grabbed by a predator, four-toed salamanders can voluntarily drop their tail at the constriction point \u2014 the tail continues to wriggle, distracting the predator while the salamander escapes.",
+    "inatTaxonId": 27652
+  },
+  {
+    "id": "northern-dusky-salamander",
+    "commonName": "Northern Dusky Salamander",
+    "scientificName": "Desmognathus fuscus",
+    "family": "Plethodontidae",
+    "group": "amphibian",
+    "subgroup": "salamander",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 2.5,
+      "maxIn": 5.5
+    },
+    "habitat": [
+      "semi-aquatic",
+      "riparian",
+      "terrestrial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "One of Virginia's most common stream-edge salamanders, the northern dusky salamander is found under rocks and debris along the margins of springs, seeps, and small streams. They are variable in color and can be difficult to distinguish from related dusky salamander species, but the light line from eye to jaw and the keeled tail are consistent features.",
+    "identificationFeatures": [
+      "Light line from the back of the eye to the angle of the jaw",
+      "Keeled (ridged) tail \u2014 laterally compressed and knife-edged",
+      "Variable brown, gray, or tan above, often with a dorsal pattern that fades with age",
+      "Medium size, 2.5\u20135.5 inches",
+      "Found under rocks at stream edges and seeps"
+    ],
+    "colors": [
+      "brown",
+      "gray",
+      "tan"
+    ],
+    "similarSpecies": [
+      {
+        "id": "two-lined-salamander",
+        "differentiator": "Two-lined salamanders are brighter yellow or orange with two distinct dark lines; dusky salamanders are browner and have a keeled tail and the eye-to-jaw light line"
+      }
+    ],
+    "funFact": "Dusky salamanders have unusually strong hind legs relative to their body size, which allows them to jump impressively for a salamander \u2014 a behavior used to escape predators at stream edges.",
+    "inatTaxonId": 27420
+  }
+]

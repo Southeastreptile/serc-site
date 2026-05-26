@@ -1,0 +1,1055 @@
+[
+  {
+    "id": "eastern-copperhead",
+    "commonName": "Eastern Copperhead",
+    "scientificName": "Agkistrodon contortrix",
+    "family": "Viperidae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": true,
+    "sizeRange": {
+      "minIn": 24,
+      "maxIn": 36
+    },
+    "habitat": [
+      "forest",
+      "terrestrial",
+      "riparian"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The eastern copperhead is the most commonly encountered venomous snake in Virginia and the species responsible for the most snakebites in the state. Despite this, copperheads are not aggressive and bites almost always result from accidental contact. They are well camouflaged in leaf litter and often freeze rather than flee when threatened.",
+    "identificationFeatures": [
+      "Hourglass-shaped dark brown bands on a copper, tan, or pinkish body",
+      "Bands are narrow at the top of the spine and wide on the sides \u2014 like Hershey's Kisses viewed from the side",
+      "Unmarked, copper-colored head",
+      "Elliptical (cat-like) pupils",
+      "Stout, heavy body"
+    ],
+    "colors": [
+      "copper",
+      "tan",
+      "brown",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-hog-nosed-snake",
+        "differentiator": "Hog-nosed snakes have an upturned snout and blotched rather than banded pattern; they often flatten their heads and play dead"
+      },
+      {
+        "id": "northern-watersnake",
+        "differentiator": "Watersnakes have round pupils, banding that is wider at the top than the sides, and are found near water; copperheads have elliptical pupils and hourglass-shaped bands"
+      },
+      {
+        "id": "eastern-milksnake",
+        "differentiator": "Milk snakes have a Y or V-shaped light patch on the back of the head and blotches rather than complete bands"
+      }
+    ],
+    "funFact": "Copperheads can deliver a 'dry bite' with no venom injected \u2014 researchers estimate up to 25% of copperhead bites in humans are dry bites, possibly because venom is metabolically expensive to produce.",
+    "sercNotes": "SERC does not rehabilitate venomous snakes. If a venomous snake requires assistance, contact a permitted venomous snake handler or Virginia DWR. Never handle or attempt to transport.",
+    "inatTaxonId": 912622
+  },
+  {
+    "id": "northern-cottonmouth",
+    "commonName": "Northern Cottonmouth",
+    "scientificName": "Agkistrodon piscivorus",
+    "family": "Viperidae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": true,
+    "sizeRange": {
+      "minIn": 30,
+      "maxIn": 48
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The northern cottonmouth, also called the water moccasin, is Virginia's only venomous aquatic snake. It is found in the swamps, marshes, and slow-moving waters of the coastal plain. Despite its fearsome reputation, cottonmouths are generally reluctant to bite and typically give ample warning by opening their mouth wide to reveal the bright white interior \u2014 the source of its common name.",
+    "identificationFeatures": [
+      "Heavy, thick body relative to length",
+      "Dark olive, brown, or black coloring, often with faint banding",
+      "Broad, flat head distinct from neck",
+      "Elliptical pupils",
+      "White mouth interior visible when threatened",
+      "Swims with head held high out of the water"
+    ],
+    "colors": [
+      "brown",
+      "black",
+      "olive",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "northern-watersnake",
+        "differentiator": "Watersnakes have round pupils, a narrower head, and swim with their body at the water surface; cottonmouths hold their head elevated and have elliptical pupils"
+      },
+      {
+        "id": "brown-watersnake",
+        "differentiator": "Brown watersnakes have square blotches on a brown body and a distinctly narrow neck compared to a wide head; cottonmouths are heavier-bodied overall"
+      }
+    ],
+    "funFact": "Young cottonmouths have bright yellow or green tail tips which they wriggle to lure frogs and lizards \u2014 a behavior called caudal luring that they lose as they mature.",
+    "sercNotes": "SERC does not rehabilitate venomous snakes. Coastal plain only. Frequently misidentified \u2014 most 'cottonmouth' reports in Virginia are actually northern watersnakes.",
+    "inatTaxonId": 904170
+  },
+  {
+    "id": "timber-rattlesnake",
+    "commonName": "Timber Rattlesnake",
+    "scientificName": "Crotalus horridus",
+    "family": "Viperidae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": true,
+    "sizeRange": {
+      "minIn": 30,
+      "maxIn": 60
+    },
+    "habitat": [
+      "forest",
+      "terrestrial"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont",
+      "blue ridge",
+      "valley and ridge"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "endangered"
+    },
+    "vwapTier": "Tier IIa",
+    "description": "Virginia's largest venomous snake and one of its most imperiled, the timber rattlesnake is a state endangered species. They have a fragmented range in Virginia \u2014 mountain populations in the Blue Ridge and Ridge and Valley, and a distinct coastal plain population in the southeastern swamps. Despite their size and powerful venom, timber rattlesnakes are remarkably docile and bites are extremely rare.",
+    "identificationFeatures": [
+      "Rattle at the tip of the tail",
+      "Heavy body, 30\u201360 inches",
+      "Dark brown or black crossbands on gray or yellowish-brown body",
+      "Large, triangular head clearly distinct from neck",
+      "Elliptical pupils",
+      "Some adults become almost entirely black"
+    ],
+    "colors": [
+      "brown",
+      "black",
+      "gray",
+      "yellow",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-hog-nosed-snake",
+        "differentiator": "Hog-nosed snakes lack a rattle and have an upturned snout; they dramatically flatten their head when threatened but are harmless"
+      },
+      {
+        "id": "eastern-ratsnake",
+        "differentiator": "Rat snakes lack a rattle and have round pupils; juvenile rat snakes are patterned but have a more slender body"
+      }
+    ],
+    "funFact": "Timber rattlesnakes are among the most long-lived snakes in North America \u2014 some individuals are estimated to be over 30 years old, and females may only reproduce every 3\u20135 years.",
+    "sercNotes": "State endangered. SERC does not rehabilitate venomous snakes. If encountered, do not disturb. Report sightings to Virginia DWR.",
+    "inatTaxonId": 30746
+  },
+  {
+    "id": "eastern-ratsnake",
+    "commonName": "Eastern Ratsnake",
+    "scientificName": "Pantherophis alleghaniensis",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 42,
+      "maxIn": 72,
+      "notes": "Largest snake in Virginia; record is 79.8 inches"
+    },
+    "habitat": [
+      "forest",
+      "terrestrial",
+      "arboreal"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's most common large snake and an important part of the ecosystem, the eastern ratsnake is an excellent rodent controller found statewide in a wide variety of habitats. Adults are typically glossy black, but juveniles are dramatically different \u2014 gray with dark blotches \u2014 leading to frequent misidentification. They are powerful constrictors and skilled climbers.",
+    "identificationFeatures": [
+      "Adults: uniformly glossy black, 42\u201372+ inches",
+      "Slightly keeled scales, slightly squared body cross-section",
+      "White chin and throat",
+      "Juveniles: gray with dark brown blotches and a V-shaped mark behind the head",
+      "No rattle, round pupils"
+    ],
+    "colors": [
+      "black",
+      "gray",
+      "patterned",
+      "white"
+    ],
+    "similarSpecies": [
+      {
+        "id": "north-american-racer",
+        "differentiator": "Racers are also black but have smooth scales, a round body cross-section, and are much faster; ratsnakes have slightly keeled scales and a squarish body"
+      },
+      {
+        "id": "eastern-copperhead",
+        "differentiator": "Juvenile ratsnakes are sometimes mistaken for copperheads but lack the hourglass bands and elliptical pupils; copperheads have a copper-colored head"
+      },
+      {
+        "id": "timber-rattlesnake",
+        "differentiator": "Rattlesnakes have a rattle, elliptical pupils, and a broader, heavier body; ratsnakes have round pupils and no rattle"
+      }
+    ],
+    "funFact": "Eastern ratsnakes are excellent climbers and have been found nesting in trees and barn rafters. They are also known to share den sites with copperheads and timber rattlesnakes during winter hibernation.",
+    "inatTaxonId": 857190
+  },
+  {
+    "id": "north-american-racer",
+    "commonName": "North American Racer",
+    "scientificName": "Coluber constrictor",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 36,
+      "maxIn": 60
+    },
+    "habitat": [
+      "terrestrial",
+      "grassland",
+      "forest"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "One of Virginia's fastest snakes, the North American racer is a sleek, black snake with a white or yellowish chin and belly. Unlike its name suggests, it is not a constrictor \u2014 it subdues prey by pinning it against the ground. Racers are alert, fast-moving, and quick to flee but will bite readily if handled.",
+    "identificationFeatures": [
+      "Adults: uniformly black or blue-black above",
+      "White, yellow, or blue-gray chin and belly",
+      "Smooth, glossy scales",
+      "Slender, round body",
+      "Round pupils",
+      "Juveniles: gray with dark blotches, similar to juvenile ratsnakes"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-ratsnake",
+        "differentiator": "Ratsnakes have slightly keeled scales, a squarish body cross-section, and a white chin that extends further; racers are sleeker and faster"
+      }
+    ],
+    "funFact": "Despite being called 'constrictors' in their scientific name, racers do not constrict their prey \u2014 the name is a historical misnomer.",
+    "inatTaxonId": 27137
+  },
+  {
+    "id": "corn-snake",
+    "commonName": "Corn Snake",
+    "scientificName": "Pantherophis guttatus",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 24,
+      "maxIn": 48
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "grassland"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A beautifully patterned snake of the coastal plain and piedmont, the corn snake is one of Virginia's most attractive native species. They are orange or reddish with dark-bordered reddish blotches and a distinctive black-and-white checkered belly pattern. Corn snakes are popular in the pet trade, so encountered animals may occasionally be escaped pets rather than wild individuals.",
+    "identificationFeatures": [
+      "Orange or brownish-yellow body with reddish blotches bordered by black",
+      "Black and white checkerboard pattern on belly",
+      "Spear-shaped marking on top of head",
+      "Slender body with weakly keeled scales",
+      "Round pupils"
+    ],
+    "colors": [
+      "orange",
+      "red",
+      "brown",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-copperhead",
+        "differentiator": "Copperheads have hourglass-shaped bands (not blotches), elliptical pupils, and a plain copper-colored head without a spear marking"
+      },
+      {
+        "id": "scarlet-kingsnake",
+        "differentiator": "Scarlet kingsnakes have red, black, and yellow banding; corn snakes have reddish blotches on an orange background"
+      }
+    ],
+    "funFact": "The corn snake gets its name not from eating corn, but from the checkered pattern on its belly, which resembles the multicolored kernels of Indian corn.",
+    "inatTaxonId": 73887
+  },
+  {
+    "id": "eastern-kingsnake",
+    "commonName": "Eastern Kingsnake",
+    "scientificName": "Lampropeltis getula getula",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 36,
+      "maxIn": 48
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A strikingly patterned black snake with white or yellow chain-like markings, the eastern kingsnake is one of Virginia's most beneficial predators. They are immune to pit viper venom and regularly eat copperheads and other venomous snakes \u2014 earning their 'king' title. They are powerful constrictors and will also eat other snakes, lizards, rodents, and turtle eggs.",
+    "identificationFeatures": [
+      "Shiny black body with white or pale yellow chain-link crossbands",
+      "Smooth scales",
+      "Stout, cylindrical body",
+      "Round pupils",
+      "White or yellow belly with dark markings"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-ratsnake",
+        "differentiator": "Ratsnakes lack the chain-link banding and have a squarish body cross-section; kingsnakes have distinct white or yellow crossbands"
+      }
+    ],
+    "funFact": "Eastern kingsnakes are immune to the venom of all North American pit vipers \u2014 copperheads, cottonmouths, and rattlesnakes \u2014 and actively hunt them.",
+    "inatTaxonId": 1676766
+  },
+  {
+    "id": "eastern-milksnake",
+    "commonName": "Eastern Milksnake",
+    "scientificName": "Lampropeltis triangulum triangulum",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 24,
+      "maxIn": 36
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "grassland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The eastern milk snake is a medium-sized, patterned snake frequently mistaken for the copperhead. Its blotched pattern on a gray or tan body superficially resembles a copperhead, but milk snakes have a distinctive Y or V-shaped light patch on the back of the head and round pupils. The name comes from the old myth that they milk cows \u2014 they do not.",
+    "identificationFeatures": [
+      "Gray or tan body with reddish-brown or brown blotches bordered by black",
+      "Y or V-shaped white or yellow patch on back of head",
+      "Smooth scales",
+      "Round pupils",
+      "Black-and-white checkerboard belly"
+    ],
+    "colors": [
+      "gray",
+      "tan",
+      "brown",
+      "red",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-copperhead",
+        "differentiator": "Copperheads have hourglass-shaped bands (not blotches), elliptical pupils, and no Y-shaped neck marking; milk snakes have round pupils and distinct blotches"
+      }
+    ],
+    "funFact": "Milk snakes mimic the coloration of venomous coral snakes in parts of their range \u2014 a harmless species benefiting from association with a dangerous one, known as Batesian mimicry.",
+    "inatTaxonId": 1676768
+  },
+  {
+    "id": "scarlet-kingsnake",
+    "commonName": "Scarlet Kingsnake",
+    "scientificName": "Lampropeltis elapsoides",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 14,
+      "maxIn": 20
+    },
+    "habitat": [
+      "terrestrial",
+      "forest"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A small, strikingly banded snake of the coastal plain and piedmont, the scarlet kingsnake mimics the venomous coral snake in coloration. In Virginia, there are no coral snakes, so this mimic has no local model \u2014 but the pattern still deters many predators. They are secretive and rarely seen despite being present throughout their range.",
+    "identificationFeatures": [
+      "Red, black, and yellow (or white) bands encircling the body",
+      "Red snout",
+      "Red bands bordered by black, NOT touching yellow \u2014 'red touches black, friend of Jack'",
+      "Small size, 14\u201320 inches",
+      "Smooth, shiny scales"
+    ],
+    "colors": [
+      "red",
+      "black",
+      "yellow",
+      "white"
+    ],
+    "similarSpecies": [
+      {
+        "id": "corn-snake",
+        "differentiator": "Corn snakes have reddish blotches on an orange background, not complete rings; scarlet kingsnakes have complete red-black-yellow bands"
+      },
+      {
+        "id": "northern-scarletsnake",
+        "differentiator": "Scarletsnakes have a plain white or cream belly without banding; scarlet kingsnakes have bands that extend around the entire body including the belly"
+      }
+    ],
+    "funFact": "The rhyme 'red touches yellow, kill a fellow; red touches black, friend of Jack' helps distinguish coral snakes (red touches yellow) from scarlet kingsnakes (red touches black) \u2014 though in Virginia there are no coral snakes to worry about.",
+    "inatTaxonId": 29793
+  },
+  {
+    "id": "northern-watersnake",
+    "commonName": "Northern Watersnake",
+    "scientificName": "Nerodia sipedon sipedon",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 24,
+      "maxIn": 42
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "riparian"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's most commonly encountered water snake, the northern watersnake is a heavy-bodied, non-venomous snake found near virtually any body of fresh water statewide. It is frequently and dangerously misidentified as a cottonmouth \u2014 which is only found in southeastern Virginia. Watersnakes are defensive and will bite if handled, but are not venomous.",
+    "identificationFeatures": [
+      "Heavy body with dark brown or reddish bands, wider at the sides than the top",
+      "Round pupils",
+      "Narrow head blending into neck \u2014 not triangular",
+      "Swims with body at the water surface, head level",
+      "Older adults become very dark and nearly patternless"
+    ],
+    "colors": [
+      "brown",
+      "red",
+      "black",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "northern-cottonmouth",
+        "differentiator": "Cottonmouths have elliptical pupils, a broad triangular head clearly distinct from neck, swim with head elevated, and are found only in southeastern Virginia's coastal plain"
+      }
+    ],
+    "funFact": "When threatened, northern watersnakes flatten their bodies and release a foul-smelling musk \u2014 an effective deterrent that unfortunately makes them unpleasant to handle even for experienced herpetologists.",
+    "inatTaxonId": 29306
+  },
+  {
+    "id": "brown-watersnake",
+    "commonName": "Brown Watersnake",
+    "scientificName": "Nerodia taxispilota",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 30,
+      "maxIn": 60
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "riparian"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A large, heavy-bodied water snake found in the rivers and swamps of southeastern Virginia, the brown watersnake is another species frequently misidentified as a cottonmouth. They spend considerable time basking in trees and shrubs overhanging water. They are the largest of Virginia's water snakes and primarily eat catfish.",
+    "identificationFeatures": [
+      "Large, very heavy body, 30\u201360 inches",
+      "Brown with large square dark blotches on back and sides",
+      "Very wide, flat head giving a triangular appearance when viewed from above",
+      "Round pupils",
+      "Found overhanging water in trees and shrubs"
+    ],
+    "colors": [
+      "brown",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "northern-cottonmouth",
+        "differentiator": "Cottonmouths have elliptical pupils and open their mouths to show white interior when threatened; brown watersnakes have round pupils and square blotches"
+      },
+      {
+        "id": "northern-watersnake",
+        "differentiator": "Northern watersnakes have bands wider on the sides than the back and are smaller; brown watersnakes have distinct square dorsal blotches"
+      }
+    ],
+    "funFact": "Brown watersnakes are such specialized fish eaters that they have evolved extra teeth to help grip slippery catfish, which have spiny fins that can injure a snake attempting to swallow them.",
+    "inatTaxonId": 29304
+  },
+  {
+    "id": "eastern-gartersnake",
+    "commonName": "Eastern Gartersnake",
+    "scientificName": "Thamnophis sirtalis sirtalis",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 18,
+      "maxIn": 26
+    },
+    "habitat": [
+      "terrestrial",
+      "semi-aquatic",
+      "grassland",
+      "wetland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's official state snake and one of the most commonly encountered snakes in the commonwealth, the eastern gartersnake is a small to medium-sized snake found in a wide variety of habitats. They are active during the day and are frequently seen in gardens, meadows, and near water. They are completely harmless and beneficial to have around.",
+    "identificationFeatures": [
+      "Three yellow stripes running the length of the body \u2014 one down the center of the back, one on each side",
+      "Dark olive, brown, or black background between stripes",
+      "Slender body, 18\u201326 inches",
+      "Round pupils",
+      "Keeled scales"
+    ],
+    "colors": [
+      "black",
+      "olive",
+      "brown",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-ribbon-snake",
+        "differentiator": "Ribbon snakes have the same striped pattern but are more slender with a longer tail relative to body length and prefer wetter habitats"
+      }
+    ],
+    "funFact": "The eastern gartersnake is Virginia's official state snake \u2014 designated in 2016 after a successful campaign by Virginia elementary school students.",
+    "inatTaxonId": 28365
+  },
+  {
+    "id": "eastern-ribbon-snake",
+    "commonName": "Eastern Ribbon Snake",
+    "scientificName": "Thamnophis sauritus sauritus",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 18,
+      "maxIn": 34
+    },
+    "habitat": [
+      "semi-aquatic",
+      "wetland",
+      "terrestrial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "The eastern ribbon snake closely resembles the gartersnake but is noticeably more slender with a proportionally longer tail. They are closely tied to aquatic and wetland habitats and are excellent swimmers. Ribbon snakes primarily eat frogs, salamanders, and small fish.",
+    "identificationFeatures": [
+      "Three bright yellow stripes on a dark brown or black background",
+      "Very slender body \u2014 noticeably thinner than a gartersnake of similar length",
+      "Very long tail, roughly one-third of total length",
+      "White or pale yellow spot in front of each eye",
+      "Clean white belly"
+    ],
+    "colors": [
+      "black",
+      "brown",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-gartersnake",
+        "differentiator": "Gartersnakes are heavier-bodied with a shorter tail; ribbon snakes are noticeably more slender and have a pale spot in front of the eye"
+      }
+    ],
+    "funFact": "Eastern ribbon snakes can be found hunting at the very edge of the water and are capable of running across the water surface for short distances when fleeing predators.",
+    "inatTaxonId": 60342
+  },
+  {
+    "id": "eastern-hog-nosed-snake",
+    "commonName": "Eastern Hog-nosed Snake",
+    "scientificName": "Heterodon platirhinos",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 20,
+      "maxIn": 33
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "grassland"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVc",
+    "description": "One of Virginia's most dramatic and entertaining snakes, the eastern hog-nosed snake is famous for its bluffing behavior. When threatened, it flattens its head and neck to appear cobra-like and hisses loudly \u2014 then, if that fails, it rolls onto its back and plays dead convincingly, even letting its tongue hang out. Despite this performance, it is completely harmless. The upturned snout is unmistakable.",
+    "identificationFeatures": [
+      "Distinctly upturned, pig-like snout",
+      "Stout, heavy body for its length",
+      "Variable coloration: tan, brown, orange, gray, or nearly black with dark blotches",
+      "Flattens head dramatically into a cobra-like hood when threatened",
+      "Round pupils"
+    ],
+    "colors": [
+      "brown",
+      "tan",
+      "orange",
+      "gray",
+      "black",
+      "patterned"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-copperhead",
+        "differentiator": "Copperheads have elliptical pupils, hourglass-shaped bands, and do not flatten their head or play dead; hog-nosed snakes have round pupils and an upturned snout"
+      }
+    ],
+    "funFact": "If playing dead does not deter a predator, the hog-nosed snake adds a convincing touch \u2014 it produces a foul smell mimicking a decaying carcass. If you pick it up, it will go limp in your hand and let its tongue hang out.",
+    "inatTaxonId": 29925
+  },
+  {
+    "id": "ring-necked-snake",
+    "commonName": "Northern Ring-necked Snake",
+    "scientificName": "Diadophis punctatus edwardsii",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 10,
+      "maxIn": 15
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "fossorial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A small, secretive snake found under logs, rocks, and leaf litter throughout Virginia, the ring-necked snake is identified by its slate gray body and bright orange or yellow neck ring. Despite being common, they are rarely seen due to their fossorial habits. When threatened, they curl their tail to expose the bright red or orange underside as a warning display.",
+    "identificationFeatures": [
+      "Slate gray or black above",
+      "Distinct orange or yellow ring encircling the neck",
+      "Bright orange, red, or yellow belly",
+      "Small size, 10\u201315 inches",
+      "Smooth scales"
+    ],
+    "colors": [
+      "black",
+      "gray",
+      "orange",
+      "yellow",
+      "red"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-wormsnake",
+        "differentiator": "Wormsnakes lack the neck ring, have a plain pink or tan belly, and are more uniformly brown or pink; ring-necked snakes have a bright belly and distinct neck band"
+      }
+    ],
+    "funFact": "Ring-necked snakes curl their tail upward when threatened to flash their brightly colored underside \u2014 a behavior called 'unken reflex' that may startle predators or signal toxicity.",
+    "inatTaxonId": 26591
+  },
+  {
+    "id": "eastern-wormsnake",
+    "commonName": "Eastern Wormsnake",
+    "scientificName": "Carphophis amoenus amoenus",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 7.5,
+      "maxIn": 11
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "fossorial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "Virginia's smallest snake, the eastern wormsnake is a burrowing species that lives underground and under logs and rocks in forested areas. With its smooth brown body and blunt head, it closely resembles an earthworm. They are harmless and spend almost their entire lives underground eating earthworms.",
+    "identificationFeatures": [
+      "Very small, 7.5\u201311 inches",
+      "Smooth, glossy brown body above",
+      "Pink or salmon-colored belly",
+      "Blunt, rounded head barely distinct from body",
+      "Very small eyes"
+    ],
+    "colors": [
+      "brown",
+      "pink",
+      "tan"
+    ],
+    "similarSpecies": [
+      {
+        "id": "ring-necked-snake",
+        "differentiator": "Ring-necked snakes have a bright neck ring and colorful belly; wormsnakes are uniformly brown with a plain pink belly"
+      }
+    ],
+    "funFact": "Eastern wormsnakes use their pointed tail tip to push against surfaces when burrowing \u2014 if you hold one, it will press its tail tip firmly against your hand, which feels odd but is completely harmless.",
+    "inatTaxonId": 27389
+  },
+  {
+    "id": "smooth-earthsnake",
+    "commonName": "Eastern Smooth Earthsnake",
+    "scientificName": "Virginia valeriae valeriae",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 7,
+      "maxIn": 10
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "fossorial"
+    ],
+    "regions": [
+      "statewide"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "none",
+    "description": "A tiny, plain, secretive snake found under logs and rocks in forested and suburban areas throughout Virginia, the smooth earthsnake is one of the most commonly encountered small snakes in gardens and yards. Despite this, many people don't know they exist. They are gray-brown with smooth scales and are completely harmless.",
+    "identificationFeatures": [
+      "Small, 7\u201310 inches",
+      "Gray, brown, or reddish-brown above, plain or faintly speckled",
+      "Smooth scales",
+      "White or pale belly",
+      "Pointed head slightly distinct from neck"
+    ],
+    "colors": [
+      "gray",
+      "brown",
+      "tan"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-wormsnake",
+        "differentiator": "Wormsnakes are glossier, more uniformly brown, with a salmon belly and a more blunt head; earthsnakes are grayer and have a slightly more pointed head"
+      },
+      {
+        "id": "ring-necked-snake",
+        "differentiator": "Ring-necked snakes have a bright neck ring and colorful belly; earthsnakes are plain throughout"
+      }
+    ],
+    "funFact": "The smooth earthsnake's genus is named Virginia \u2014 the only snake in the world whose scientific genus name is a US state.",
+    "inatTaxonId": 28109
+  },
+  {
+    "id": "eastern-mudsnake",
+    "commonName": "Eastern Mudsnake",
+    "scientificName": "Farancia abacura abacura",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 40,
+      "maxIn": 54
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVa",
+    "description": "A large, glossy black snake of the coastal plain swamps and wetlands, the eastern mudsnake is one of Virginia's most striking species. The belly is brilliantly patterned in red and black, visible when the snake rolls onto its back in a defensive display. They are specialized predators of amphiumas (aquatic salamanders) and large sirens.",
+    "identificationFeatures": [
+      "Large, 40\u201354 inches",
+      "Glossy black above",
+      "Red and black checkerboard or mottled belly",
+      "Stout body",
+      "Hard, pointed tail tip used to prod prey"
+    ],
+    "colors": [
+      "black",
+      "red"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-ratsnake",
+        "differentiator": "Ratsnakes have a white chin and lack the vivid red belly; mudsnakes are more aquatic and have a hard tail tip"
+      },
+      {
+        "id": "north-american-racer",
+        "differentiator": "Racers are slender with a white or yellow belly; mudsnakes are heavier with a striking red and black belly"
+      }
+    ],
+    "funFact": "Eastern mudsnakes use their hard, spine-like tail tip to prod and control the large, eel-like amphiumas they eat \u2014 which can themselves exceed two feet in length.",
+    "inatTaxonId": 30108
+  },
+  {
+    "id": "common-rainbow-snake",
+    "commonName": "Common Rainbow Snake",
+    "scientificName": "Farancia erytrogramma erytrogramma",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 27,
+      "maxIn": 48
+    },
+    "habitat": [
+      "aquatic",
+      "semi-aquatic",
+      "wetland"
+    ],
+    "regions": [
+      "coastal plain"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVa",
+    "description": "Arguably Virginia's most beautiful snake, the common rainbow snake is an iridescent blue-black with three vivid red stripes running the length of the body. They are aquatic and highly secretive, living in swift-moving streams and rivers of the coastal plain. Despite being present, they are rarely seen \u2014 a sighting is a genuine herpetological treat.",
+    "identificationFeatures": [
+      "Glossy blue-black above with three red or orange-red stripes",
+      "Yellow or red belly with two rows of black spots",
+      "Stout body with a hard tail tip",
+      "Iridescent sheen in sunlight",
+      "Aquatic habitat"
+    ],
+    "colors": [
+      "black",
+      "red",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "eastern-mudsnake",
+        "differentiator": "Mudsnakes are plain black above without stripes; rainbow snakes have three distinct red stripes running the length of the body"
+      }
+    ],
+    "funFact": "Rainbow snakes are so rarely seen that new county records are still being reported in Virginia \u2014 finding one is considered a significant discovery by Virginia herpetologists.",
+    "inatTaxonId": 30105
+  },
+  {
+    "id": "northern-scarletsnake",
+    "commonName": "Northern Scarletsnake",
+    "scientificName": "Cemophora coccinea copei",
+    "family": "Colubridae",
+    "group": "reptile",
+    "subgroup": "snake",
+    "nativeStatus": "native",
+    "venomous": false,
+    "sizeRange": {
+      "minIn": 14,
+      "maxIn": 20
+    },
+    "habitat": [
+      "terrestrial",
+      "forest",
+      "fossorial"
+    ],
+    "regions": [
+      "coastal plain",
+      "piedmont"
+    ],
+    "conservationStatus": {
+      "iucn": "LC",
+      "federal": "none",
+      "virginia": "none"
+    },
+    "vwapTier": "Tier IVa",
+    "description": "A small, strikingly colored burrowing snake, the northern scarletsnake mimics the coral snake pattern with red, black, and white or yellow banding. Unlike the scarlet kingsnake, its bands do not extend around the belly \u2014 the underside is plain white. They are fossorial and rarely seen despite being present throughout their range.",
+    "identificationFeatures": [
+      "Red, black, and yellow or white blotches or bands on back",
+      "Plain white or cream belly \u2014 bands do not wrap around",
+      "Red snout",
+      "Small size, 14\u201320 inches",
+      "Smooth, glossy scales"
+    ],
+    "colors": [
+      "red",
+      "black",
+      "white",
+      "yellow"
+    ],
+    "similarSpecies": [
+      {
+        "id": "scarlet-kingsnake",
+        "differentiator": "Scarlet kingsnakes have complete rings that encircle the belly; scarletsnakes have a plain white belly with patterns only on the back"
+      }
+    ],
+    "funFact": "Northern scarletsnakes are specialized egg eaters \u2014 they use enlarged rear teeth to slit open reptile eggs and extract the contents without swallowing the shell.",
+    "inatTaxonId": 27377
+  }
+]

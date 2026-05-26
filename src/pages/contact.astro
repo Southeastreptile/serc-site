@@ -2,29 +2,74 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Contact" description="Get in touch with Southeastern Reptile Conservation for wildlife rehabilitation help, volunteer inquiries, or general questions.">
+<Layout
+  title="Contact — Southeastern Reptile Conservation"
+  description="Found an injured reptile or amphibian in Virginia? Contact SERC for wildlife rehabilitation guidance. We also welcome volunteer inquiries and general questions."
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Southeastern Reptile Conservation",
+    "alternateName": "SERC",
+    "url": "https://www.southeastreptile.org",
+    "email": "info@southeastreptile.org",
+    "telephone": "+17573243720",
+    "description": "Licensed 501(c)(3) nonprofit providing permitted wildlife rehabilitation for native reptiles and amphibians in Virginia.",
+    "areaServed": { "@type": "State", "name": "Virginia" },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Wildlife Rehabilitation",
+      "email": "info@southeastreptile.org",
+      "areaServed": "VA",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://www.instagram.com/purringturtle",
+      "https://github.com/southeastreptile"
+    ]
+  }}
+>
 
-  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh;">
+  <!-- Triage banner — full width, first thing people see -->
+  <section style="background: var(--color-bg-dark); padding: 2.5rem var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+      <div>
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #6A6560; margin-bottom: 0.4rem;">Found an injured animal?</div>
+        <p style="color: #D5D0C8; font-size: 1.05rem; margin: 0;">Read the triage guide before reaching out — it answers most questions and tells you exactly what to do right now.</p>
+      </div>
+      <a href="/triage" class="btn" style="background: #B5A898; color: #2C2A26; white-space: nowrap; flex-shrink: 0;">Go to triage guide →</a>
+    </div>
+  </section>
+
+  <!-- Contact form + info -->
+  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh;">
 
     <div style="padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem); background: var(--color-bg);">
       <h1 style="margin-bottom: 1.25rem;">Contact us</h1>
-      <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 2rem;">
-        Interested in working together? Need advice on a native reptile or amphibian?
-        Fill out the form and we will be in touch as soon as possible.
+      <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 2.5rem;">
+        General questions, volunteer inquiries, or need advice on a native reptile or amphibian — fill out the form and we'll be in touch.
       </p>
-      <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 0.5rem;">
-        <strong style="font-weight: 500;">Found an injured animal?</strong><br />
-        Please include the species (if known), location, and a description of the
-        animal's condition. Photos are helpful.
-      </p>
-      <p style="color: var(--color-text-muted); line-height: 1.8; margin-top: 2rem;">
-        <a href="mailto:info@southeastreptile.org" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 4px;">
-          info@southeastreptile.org
-        </a>
-      </p>
-      <div style="margin-top: 2rem; padding: 1.25rem 1.5rem; background: var(--color-surface); border: 1px solid var(--color-border); border-left: 3px solid var(--color-text);">
+
+      <!-- Contact details -->
+      <div style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1.25rem;">
+        <div>
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.35rem;">Email</div>
+          <a href="mailto:info@southeastreptile.org" style="font-size: 1.1rem; color: var(--color-text); text-decoration: underline; text-underline-offset: 4px;">
+            info@southeastreptile.org
+          </a>
+        </div>
+        <div>
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.35rem;">Text only — no calls</div>
+          <a href="sms:7573243720" style="font-size: 1.1rem; color: var(--color-text); text-decoration: underline; text-underline-offset: 4px;">
+            757-324-3720
+          </a>
+        </div>
+      </div>
+
+      <!-- Non-native warning -->
+      <div style="padding: 1.25rem 1.5rem; background: #fdf8f2; border: 1px solid #c8b898; border-left: 3px solid #a07840;">
+        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #a07840; margin-bottom: 0.4rem;">We cannot help with</div>
         <p style="font-size: 14px; color: var(--color-text); line-height: 1.7; margin: 0;">
-          <strong style="font-weight: 500;">Please note:</strong> We work exclusively with native Virginia reptiles and amphibians. We are not able to assist with non-native or exotic species.
+          Non-native or exotic species — including red-eared sliders, tortoises, ball pythons, bearded dragons, and any pet reptile. We work exclusively with native Virginia wildlife.
         </p>
       </div>
     </div>
@@ -59,5 +104,17 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
   </section>
+
+  <style>
+    @media (max-width: 768px) {
+      section[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] > div:last-child {
+        border-left: none !important;
+        border-top: 1px solid var(--color-border);
+      }
+    }
+  </style>
 
 </Layout>
