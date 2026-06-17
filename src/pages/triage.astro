@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Found an Injured Reptile or Amphibian in Virginia? Here's What to Do"
-  description="Step-by-step guidance for helping an injured native reptile or amphibian in Virginia — what to do, what not to do, and when to contact a licensed wildlife rehabilitator."
+  title="Found an Injured Reptile or Amphibian in Virginia? | SERC Triage Guide"
+  description="Found an injured turtle, snake, or frog in Hampton Roads or Southeastern Virginia? Step-by-step triage guidance plus how to reach SERC for turtle and reptile rescue."
   image="/images/box-turtle-grass.jpg"
   schema={[
     {
@@ -46,7 +46,56 @@ import Layout from '../layouts/Layout.astro';
       "url": "https://www.southeastreptile.org",
       "email": "info@southeastreptile.org",
       "telephone": "+17573243720",
-      "areaServed": { "@type": "State", "name": "Virginia" }
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Hampton Roads" },
+        { "@type": "AdministrativeArea", "name": "Southeastern Virginia" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What should I do if I find an injured turtle or reptile in Virginia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stay back and observe first, then photograph the animal and note the exact location. If it is injured and small enough to handle safely, place it in a ventilated cardboard box lined with a dry cloth — no food, water, or heat. Then text SERC at 757-324-3720 or email info@southeastreptile.org with your photos and location for guidance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I help a turtle cross the road?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if it is safe for you to do so. Move the turtle across the road in the direction it was already heading — never turn it around. Do not relocate it elsewhere; turtles have small home ranges and will try to return. If the turtle is injured, contain it and contact SERC instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I keep a wild turtle, snake, or frog I found?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Virginia law prohibits keeping most native reptiles and amphibians without a permit, and wild animals have specialized needs that are difficult to meet in captivity. Contact a licensed wildlife rehabilitator like SERC instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who do I contact for an injured reptile or amphibian in Hampton Roads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Southeastern Reptile Conservation (SERC) is a licensed wildlife rehabilitator serving Hampton Roads and Southeastern Virginia. Text 757-324-3720 or email info@southeastreptile.org with photos, the animal's location, and a description of its condition."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SERC take pet turtles or non-native species?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SERC works with native and naturalized Virginia wildlife found in the wild. We cannot take in exotic or purchased pet species such as tortoises, ball pythons, or bearded dragons, and we do not rehome unwanted pets. For exotic species, please contact a local reptile rescue."
+          }
+        }
+      ]
     }
   ]}
 >
@@ -161,12 +210,25 @@ import Layout from '../layouts/Layout.astro';
   }
 </style>
 
+  <!-- Contact bar — first thing on the page for emergencies -->
+  <section style="background: var(--color-bg-dark); padding: 1.5rem var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.75rem 1.5rem; text-align: center;">
+      <span style="color: #C4BBA9; font-size: 14px; font-weight: 500; letter-spacing: 0.04em;">Need help with an injured animal now?</span>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+        <a href="sms:7573243720" class="btn btn--accent">Text 757-324-3720</a>
+        <a href="mailto:info@southeastreptile.org" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">Email us</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Header -->
-  <section style="padding: 5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+  <section style="padding: 3.5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
     <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-faint); display: block; margin-bottom: 1rem;">Wildlife triage guide</span>
     <h1 style="margin-bottom: 1rem;">Found an injured animal?</h1>
-    <p style="max-width: 580px;" class="triage-body">
+    <p style="max-width: 620px;" class="triage-body">
       Here's what to do — and what to avoid — while you wait for guidance from a licensed rehabilitator.
+      SERC provides turtle rescue, reptile rescue, and amphibian rehabilitation across Hampton Roads
+      and Southeastern Virginia.
     </p>
   </section>
 
@@ -263,12 +325,39 @@ import Layout from '../layouts/Layout.astro';
         <div class="who-box" style="background: #fdf8f2; border-color: #c8b898;">
           <h3><span style="color: #8a3228;">✕</span> We can't help</h3>
           <ul>
-            <li>→ Pet reptiles or exotics (red-eared sliders, tortoises, ball pythons, etc.)</li>
+            <li>→ Exotic or purchased pet reptiles (purchased turtles, tortoises, ball pythons, etc.)</li>
             <li>→ Venomous snakes — <a href="https://dwr.virginia.gov" target="_blank" rel="noopener" style="color: var(--color-text-muted); text-decoration: underline;">Virginia DWR</a></li>
             <li>→ Sea turtles — VAST: <a href="tel:7573857575" style="color: var(--color-text-muted); text-decoration: underline; white-space: nowrap;">757-385-7575</a></li>
-            <li>→ Birds or mammals: <a href="tel:8554011527" style="color: var(--color-text-muted); text-decoration: underline; white-space: nowrap;">855-401-1527</a></li>
+            <li>→ Birds or mammals: <a href="sms:7572558710" style="color: var(--color-text-muted); text-decoration: underline; white-space: nowrap;">757-255-8710</a></li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding: 4rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <h2 style="margin-bottom: 2rem;">Frequently asked questions</h2>
+    <div style="display: flex; flex-direction: column; gap: 1.75rem; max-width: 760px;">
+      <div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 0.5rem;">What should I do if I find an injured turtle or reptile in Virginia?</h3>
+        <p class="triage-body">Stay back and observe first, then photograph the animal and note the exact location. If it's injured and small enough to handle safely, place it in a ventilated cardboard box lined with a dry cloth — no food, water, or heat. Then text SERC at <a href="sms:7573243720" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">757-324-3720</a> with your photos and location.</p>
+      </div>
+      <div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 0.5rem;">Should I help a turtle cross the road?</h3>
+        <p class="triage-body">Yes, if it's safe for you. Move it across in the direction it was already heading — never turn it around or relocate it elsewhere. Turtles have small home ranges and will try to return. If the turtle is injured, contain it and contact us instead.</p>
+      </div>
+      <div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 0.5rem;">Can I keep a wild turtle, snake, or frog I found?</h3>
+        <p class="triage-body">No. Virginia law prohibits keeping most native reptiles and amphibians without a permit, and wild animals have specialized needs that are difficult to meet in captivity. Not sure what you found? Our <a href="/species" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">Virginia field guide</a> can help you identify it.</p>
+      </div>
+      <div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 0.5rem;">Who do I contact for an injured reptile or amphibian in Hampton Roads?</h3>
+        <p class="triage-body">SERC is a licensed wildlife rehabilitator serving Hampton Roads and Southeastern Virginia. Text <a href="sms:7573243720" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">757-324-3720</a> or email <a href="mailto:info@southeastreptile.org" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">info@southeastreptile.org</a> with photos, the animal's location, and a description of its condition.</p>
+      </div>
+      <div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 0.5rem;">Does SERC take pet turtles or non-native species?</h3>
+        <p class="triage-body">We work with native and naturalized Virginia wildlife found in the wild. We can't take in exotic or purchased pet species such as tortoises, ball pythons, or bearded dragons, and we don't rehome unwanted pets. For exotic species, please contact a local reptile rescue.</p>
       </div>
     </div>
   </section>

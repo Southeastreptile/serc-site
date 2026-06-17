@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Contact — Southeastern Reptile Conservation"
-  description="Found an injured reptile or amphibian in Virginia? Contact SERC for wildlife rehabilitation guidance. We also welcome volunteer inquiries and general questions."
+  title="Contact SERC | Report an Injured Animal in Hampton Roads"
+  description="Contact SERC, a licensed wildlife rehabilitator serving Hampton Roads & Southeastern Virginia. Turtle rescue, reptile rescue, and amphibian rehabilitation. Text 757-324-3720."
   schema={{
     "@context": "https://schema.org",
     "@type": "NGO",
@@ -13,18 +13,30 @@ import Layout from '../layouts/Layout.astro';
     "url": "https://www.southeastreptile.org",
     "email": "info@southeastreptile.org",
     "telephone": "+17573243720",
-    "description": "Licensed 501(c)(3) nonprofit providing permitted wildlife rehabilitation for native reptiles and amphibians in Virginia.",
-    "areaServed": { "@type": "State", "name": "Virginia" },
+    "description": "Licensed 501(c)(3) nonprofit providing permitted wildlife rehabilitation and reptile, turtle, and amphibian rescue across Hampton Roads and Southeastern Virginia.",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Hampton Roads" },
+      { "@type": "AdministrativeArea", "name": "Southeastern Virginia" },
+      { "@type": "City", "name": "Virginia Beach" },
+      { "@type": "City", "name": "Norfolk" },
+      { "@type": "City", "name": "Chesapeake" },
+      { "@type": "City", "name": "Newport News" },
+      { "@type": "City", "name": "Hampton" },
+      { "@type": "City", "name": "Portsmouth" },
+      { "@type": "City", "name": "Suffolk" }
+    ],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Wildlife Rehabilitation",
       "email": "info@southeastreptile.org",
-      "areaServed": "VA",
+      "telephone": "+17573243720",
+      "areaServed": "Hampton Roads, VA",
       "availableLanguage": "English"
     },
     "sameAs": [
       "https://www.instagram.com/purringturtle",
-      "https://github.com/southeastreptile"
+      "https://github.com/southeastreptile",
+      "https://www.inaturalist.org/people/southeastreptile"
     ]
   }}
 >
@@ -58,18 +70,32 @@ import Layout from '../layouts/Layout.astro';
           </a>
         </div>
         <div>
-          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.35rem;">Text only — no calls</div>
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.35rem;">Please text</div>
           <a href="sms:7573243720" style="font-size: 1.1rem; color: var(--color-text); text-decoration: underline; text-underline-offset: 4px;">
             757-324-3720
           </a>
+          <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6; margin: 0.5rem 0 0;">
+            For a sick or injured animal that needs immediate attention, please text — it's the
+            fastest way to reach us.
+          </p>
         </div>
+      </div>
+
+      <!-- Service area -->
+      <div style="margin-bottom: 2rem;">
+        <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.5rem;">Service area</div>
+        <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7; margin: 0;">
+          We provide turtle rescue, reptile rescue, and amphibian rehabilitation across
+          <strong style="font-weight: 500; color: var(--color-text);">Hampton Roads and Southeastern Virginia</strong> — including Virginia Beach,
+          Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.
+        </p>
       </div>
 
       <!-- Non-native warning -->
       <div style="padding: 1.25rem 1.5rem; background: #fdf8f2; border: 1px solid #c8b898; border-left: 3px solid #a07840;">
         <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #a07840; margin-bottom: 0.4rem;">We cannot help with</div>
         <p style="font-size: 14px; color: var(--color-text); line-height: 1.7; margin: 0;">
-          Non-native or exotic species — including red-eared sliders, tortoises, ball pythons, bearded dragons, and any pet reptile. We work exclusively with native Virginia wildlife.
+          Exotic or purchased pet species — including purchased turtles, tortoises, ball pythons, bearded dragons, and any pet reptile. We work with native and naturalized Virginia wildlife only.
         </p>
       </div>
     </div>

@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Virginia Reptile & Amphibian Rehabilitation and Conservation"
-  description="Southeastern Reptile Conservation (SERC) is a licensed nonprofit providing wildlife rehabilitation for injured native reptiles and amphibians in Virginia. We rescue, rehabilitate, and release."
+  title="Reptile & Amphibian Rescue in Hampton Roads, VA | SERC"
+  description="Licensed turtle, reptile, and amphibian rescue serving Hampton Roads and Southeastern Virginia. We rehabilitate injured native turtles, snakes, and frogs — found an injured animal? Here's how to get help."
   image="/images/hero-turtle.jpg"
   schema={{
     "@context": "https://schema.org",
@@ -13,15 +13,26 @@ import Layout from '../layouts/Layout.astro';
     "alternateName": "SERC",
     "url": "https://www.southeastreptile.org",
     "logo": "https://www.southeastreptile.org/images/serc-logo.png",
-    "description": "Licensed nonprofit providing wildlife rehabilitation for native reptiles and amphibians in Virginia.",
+    "description": "Licensed nonprofit providing wildlife rehabilitation and reptile, turtle, and amphibian rescue across Hampton Roads and Southeastern Virginia.",
     "email": "info@southeastreptile.org",
-    "areaServed": { "@type": "State", "name": "Virginia" },
+    "telephone": "+17573243720",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Hampton Roads" },
+      { "@type": "AdministrativeArea", "name": "Southeastern Virginia" },
+      { "@type": "City", "name": "Virginia Beach" },
+      { "@type": "City", "name": "Norfolk" },
+      { "@type": "City", "name": "Chesapeake" },
+      { "@type": "City", "name": "Newport News" },
+      { "@type": "City", "name": "Hampton" },
+      { "@type": "City", "name": "Portsmouth" },
+      { "@type": "City", "name": "Suffolk" }
+    ],
     "sameAs": [
       "https://www.instagram.com/purringturtle",
       "https://github.com/southeastreptile",
       "https://www.inaturalist.org/people/southeastreptile"
     ],
-    "knowsAbout": ["Wildlife Rehabilitation", "Reptile Conservation", "Amphibian Conservation", "Diamondback Terrapin", "Eastern Box Turtle"]
+    "knowsAbout": ["Wildlife Rehabilitation", "Turtle Rescue", "Reptile Rescue", "Snake Rescue", "Amphibian Conservation", "Diamondback Terrapin", "Eastern Box Turtle"]
   }}
 >
 
@@ -32,15 +43,13 @@ import Layout from '../layouts/Layout.astro';
         Protecting native species.
       </h1>
       <p style="font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 2rem; max-width: 480px;">
-        Southeastern Reptile Conservation is a Virginia-based nonprofit dedicated to the
-        conservation, rehabilitation, and protection of native reptiles and amphibians.
-        We provide permitted wildlife rehabilitation with the goal of returning animals
-        to the wild, while supporting habitat stewardship, public education, and
-        conservation-focused technology.
+        Southeastern Reptile Conservation is a nonprofit based in Hampton Roads, Virginia,
+        dedicated to the conservation, rehabilitation, and protection of native reptiles and
+        amphibians. We provide permitted wildlife rehabilitation — turtle, snake, and amphibian
+        rescue — across Southeastern Virginia, with the goal of returning animals to the wild.
       </p>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
-        <a href="/triage" class="btn btn--dark">Found an animal?</a>
-        <a href="/donate" class="btn btn--outline">Donate</a>
+        <a href="/triage" class="btn btn--dark">Found an animal that needs help?</a>
       </div>
     </div>
     <div style="height: 100%; min-height: 90vh; overflow: hidden;">
@@ -53,6 +62,18 @@ import Layout from '../layouts/Layout.astro';
         style="width: 100%; height: 100%; object-fit: cover;"
       />
     </div>
+  </section>
+
+  <!-- Donate CTA -->
+  <section style="background: var(--color-bg-dark); padding: clamp(4.5rem, 9vw, 7rem) var(--site-gutter); text-align: center;">
+    <h2 style="font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 300; color: #F5F2EC; margin-bottom: 1.25rem;">
+      Support native wildlife rehabilitation
+    </h2>
+    <p style="color: #C4BBA9; max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.8; font-size: 1.15rem;">
+      SERC is a 501(c)(3) nonprofit. Your donation directly supports the care of
+      injured and orphaned reptiles and amphibians in Virginia.
+    </p>
+    <a href="/donate" class="btn btn--accent btn--lg">Donate</a>
   </section>
 
   <!-- Mission strip -->
@@ -74,14 +95,27 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Found an animal callout -->
-  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 2.5rem var(--site-gutter);">
-    <div style="max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem;">
+  <section style="background: var(--color-accent); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: clamp(3rem, 6vw, 4.5rem) var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2.5rem;">
       <div>
-        <div style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.4rem;">Need help right now?</div>
-        <h2 style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 300; margin-bottom: 0.4rem;">Found an injured reptile or amphibian?</h2>
-        <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7;">Our triage guide tells you exactly what to do — step by step.</p>
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-bg-dark); opacity: 0.7; margin-bottom: 0.6rem;">Need help right now?</div>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(1.9rem, 3.5vw, 2.6rem); font-weight: 300; color: var(--color-text); margin-bottom: 0.6rem; line-height: 1.15;">Found an injured reptile or amphibian?</h2>
+        <p style="font-size: 1.1rem; color: var(--color-bg-dark); line-height: 1.7; max-width: 520px;">Our triage guide tells you exactly what to do — step by step.</p>
       </div>
-      <a href="/triage" class="btn btn--dark" style="white-space: nowrap; flex-shrink: 0;">Go to triage guide →</a>
+      <a href="/triage" class="btn btn--dark btn--lg" style="white-space: nowrap; flex-shrink: 0;">Go to triage guide →</a>
+    </div>
+  </section>
+
+  <!-- Scope note -->
+  <section style="background: #fdf8f2; border-bottom: 1px solid var(--color-border); padding: 1.5rem var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: flex; align-items: flex-start; gap: 0.75rem;">
+      <span style="color: #a07840; font-size: 1.1rem; line-height: 1.5; flex-shrink: 0;">&#9888;</span>
+      <p style="font-size: 15px; color: var(--color-text); line-height: 1.7; margin: 0;">
+        <strong style="font-weight: 500;">We work only with native and naturalized Virginia wildlife.</strong>
+        We cannot take in exotic or purchased pet species (purchased turtles, tortoises, ball pythons,
+        bearded dragons, etc.) and we do not rehome unwanted pets. For exotic species, please contact
+        a local reptile rescue.
+      </p>
     </div>
   </section>
 
@@ -102,18 +136,6 @@ import Layout from '../layouts/Layout.astro';
         <img src="/images/hatchling-rock.jpg" alt="Diamondback terrapin hatchling" width="3012" height="2846" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </a>
-  </section>
-
-  <!-- Donate CTA -->
-  <section style="background: var(--color-bg-dark); padding: 5rem var(--site-gutter); text-align: center;">
-    <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: #F5F2EC; margin-bottom: 1rem;">
-      Support native wildlife rehabilitation
-    </h2>
-    <p style="color: #9A9080; max-width: 520px; margin: 0 auto 2rem; line-height: 1.75; font-size: 1rem;">
-      SERC is a 501(c)(3) nonprofit. Your donation directly supports the care of
-      injured and orphaned reptiles and amphibians in Virginia.
-    </p>
-    <a href="/donate" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">Donate</a>
   </section>
 
 </Layout>

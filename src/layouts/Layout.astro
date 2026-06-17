@@ -19,6 +19,9 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images/serc-logo.png', Astro.site).toString();
+
+// Append the brand suffix only when the page title doesn't already include it.
+const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
 ---
 
 <!doctype html>
@@ -26,6 +29,10 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <!-- Local SEO -->
+    <meta name="geo.region" content="US-VA" />
+    <meta name="geo.placename" content="Hampton Roads, Virginia" />
     <!-- Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +42,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
     <link rel="canonical" href={canonicalURL} />
     <meta name="description" content={description} />
     <!-- Open Graph -->
-    <meta property="og:title" content={`${title} — SERC`} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
@@ -43,7 +50,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
     <meta property="og:image" content={ogImage} />
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} — SERC`} />
+    <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <!-- JSON-LD -->
@@ -51,7 +58,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
       ? schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)
       : <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
-    <title>{title} — SERC</title>
+    <title>{fullTitle}</title>
     <link rel="icon" type="image/png" href="/images/serc-logo.png" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N186ZPKTJC"></script>
@@ -188,6 +195,33 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
       })();
     </script>
 
+    <!-- GA4 key-event tracking -->
+    <script is:inline>
+      (function () {
+        function track(name, params) {
+          if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+        }
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest ? e.target.closest('a') : null;
+          if (!a) return;
+          var href = a.getAttribute('href') || '';
+          if (href.indexOf('sms:') === 0) {
+            track('text_click', { link_url: href });
+          } else if (href.indexOf('mailto:') === 0) {
+            track('email_click', { link_url: href });
+          } else if (href === '/donate' || /zeffy|paypal|bonfire/i.test(href)) {
+            track('donate_click', { link_url: href });
+          }
+        }, true);
+        var form = document.querySelector('form[name="contact"]');
+        if (form) {
+          form.addEventListener('submit', function () {
+            track('contact_submit');
+          });
+        }
+      })();
+    </script>
+
     <main>
       <slot />
     </main>
@@ -199,6 +233,10 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
           <p class="footer__tagline">
             Protecting native reptiles and amphibians through rehabilitation,<br />
             habitat stewardship, and community education.
+          </p>
+          <p class="footer__tagline" style="margin-top: 0.75rem;">
+            Licensed wildlife rehabilitation serving Hampton Roads<br />
+            and Southeastern Virginia.
           </p>
         </div>
         <div class="footer__contact">
