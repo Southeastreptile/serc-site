@@ -7,6 +7,7 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   image,
   type = 'website',
   schema,
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -29,7 +31,7 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <!-- Local SEO -->
     <meta name="geo.region" content="US-VA" />
     <meta name="geo.placename" content="Hampton Roads, Virginia" />
@@ -92,6 +94,7 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
             </li>
             <li><a href="/open-source" aria-current={Astro.url.pathname.startsWith('/open-source') ? 'page' : undefined}>Software</a></li>
             <li><a href="/blog" aria-current={Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
+            <li><a href="/rehabber-resources" aria-current={Astro.url.pathname.startsWith('/rehabber-resources') ? 'page' : undefined}>Rehabbers</a></li>
             <li><a href="/contact" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a></li>
           </ul>
         </nav>
@@ -137,6 +140,7 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
           <li class="nav__mobile-sub"><a href="/turtle-watch" aria-current={Astro.url.pathname.startsWith('/turtle-watch') ? 'page' : undefined}>Turtle Watch</a></li>
           <li><a href="/open-source" aria-current={Astro.url.pathname.startsWith('/open-source') ? 'page' : undefined}>Software</a></li>
           <li><a href="/blog" aria-current={Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
+          <li><a href="/rehabber-resources" aria-current={Astro.url.pathname.startsWith('/rehabber-resources') ? 'page' : undefined}>Rehabbers</a></li>
           <li><a href="/contact" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a></li>
           <li class="nav__mobile-group-label">Support</li>
           <li class="nav__mobile-sub"><a href="/donate">Donate</a></li>
@@ -211,6 +215,8 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
             track('email_click', { link_url: href });
           } else if (href === '/donate' || /zeffy|paypal|bonfire/i.test(href)) {
             track('donate_click', { link_url: href });
+          } else if (/amazon|chewy|walmart/i.test(href)) {
+            track('wishlist_click', { link_url: href });
           }
         }, true);
         var form = document.querySelector('form[name="contact"]');
@@ -241,7 +247,8 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
         </div>
         <div class="footer__contact">
           <strong>Contact</strong><br />
-          <a href="mailto:info@southeastreptile.org">info@southeastreptile.org</a>
+          <a href="mailto:info@southeastreptile.org">info@southeastreptile.org</a><br />
+          <a href="/rehabber-resources" style="font-size: 13px; color: var(--color-text-faint);">Rehabber resources</a>
         </div>
       </div>
       <div class="footer__bottom">
