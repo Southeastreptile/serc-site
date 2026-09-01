@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 const financial = [
   {
     name: 'Zeffy',
-    description: 'Make a direct monetary donation to SERC. Zeffy charges zero fees — 100% of your donation goes to us.',
+    description: 'Make a direct monetary donation to SERC. Zeffy charges zero fees, so 100% of your donation goes to us. Prefer to give monthly? Zeffy supports recurring donations at any amount.',
     url: 'https://www.zeffy.com/en-US/donation-form/donate-to-help-turtles',
     cta: 'Donate on Zeffy',
   },
@@ -53,8 +53,8 @@ const inkind = [
   <section style="padding: 5rem var(--site-gutter) 3rem; max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
     <h1 style="margin-bottom: 1rem;">How to help</h1>
     <p style="max-width: 580px; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8;">
-      SERC is an all-volunteer 501(c)(3) nonprofit. Every contribution — whether a financial
-      donation, a bag of supplies, or a t-shirt purchase — directly supports the care of
+      SERC is an all-volunteer 501(c)(3) nonprofit. Every contribution, whether a financial
+      donation, a bag of supplies, or a t-shirt purchase, directly supports the care of
       injured and displaced native reptiles and amphibians in Virginia.
     </p>
   </section>
@@ -62,8 +62,11 @@ const inkind = [
   <!-- Financial donations -->
   <section style="padding: 4rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
     <h2 style="margin-bottom: 0.5rem;">Financial donations</h2>
-    <p style="color: var(--color-text-muted); font-size: 15px; margin-bottom: 2.5rem;">
+    <p style="color: var(--color-text-muted); font-size: 15px; margin-bottom: 0.75rem;">
       Tax-deductible donations fund veterinary care, supplies, and rehabilitation equipment.
+    </p>
+    <p style="color: var(--color-text-faint); font-size: 13px; line-height: 1.7; margin-bottom: 2.5rem;">
+      SERC is a 501(c)(3) nonprofit. Donations are tax-deductible to the extent allowed by law. EIN 39-4578100.
     </p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
       {financial.map(item => (
@@ -74,6 +77,27 @@ const inkind = [
         </div>
       ))}
     </div>
+    <div style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 2rem; margin-top: 1.5rem;">
+      <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Employer matching</h3>
+      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
+        Many employers match charitable donations, which can double your impact at no additional cost to you.
+        SERC is registered with Benevity, so if your company gives through Benevity you can find us by searching
+        Southeastern Reptile Conservation (EIN 39-4578100). Contact us at
+        <a href="mailto:info@southeastreptile.org" style="color: var(--color-text); text-decoration: underline;">info@southeastreptile.org</a>
+        if you need any documentation for your submission.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sponsor open-source work -->
+  <section style="padding: 4rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
+    <h2 style="margin-bottom: 0.5rem;">Sponsor our open-source work</h2>
+    <p style="color: var(--color-text-muted); font-size: 15px; line-height: 1.8; max-width: 640px; margin-bottom: 1.75rem;">
+      SERC builds open-source conservation technology used by rehabilitators beyond our own program.
+      Recurring GitHub sponsorship helps us keep these tools running and maintained. Sponsors receive
+      recognition tiers from a listing in our project READMEs up to logo placement on this site.
+    </p>
+    <a href="https://github.com/sponsors/southeastreptile" target="_blank" rel="noopener noreferrer" class="btn btn--dark">Sponsor on GitHub</a>
   </section>
 
   <!-- In-kind supplies -->
@@ -109,9 +133,13 @@ const inkind = [
       <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 0.75rem;">
         Follow us on Instagram <a href="https://www.instagram.com/purringturtle" target="_blank" rel="noopener" style="color: var(--color-text-muted); text-decoration: underline;">@purringturtle</a> and share our work with your community.
       </p>
-      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8;">
+      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 0.75rem;">
         Spreading the word about native reptile and amphibian conservation makes a real difference
         for species that rarely make headlines.
+      </p>
+      <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8;">
+        Developers and technically-minded supporters can also contribute to our
+        <a href="/open-source" style="color: var(--color-text-muted); text-decoration: underline;">open-source conservation tools</a>.
       </p>
     </div>
   </section>

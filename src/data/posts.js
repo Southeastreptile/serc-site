@@ -2,6 +2,15 @@
 // ("From the blog") and the /blog index always feature the latest one.
 export const posts = [
   {
+    slug: 'tech-savvy-wildlife-nonprofit-on-almost-no-budget',
+    title: 'How to run a tech savvy wildlife nonprofit on almost no budget',
+    date: 'July 31, 2026',
+    excerpt: 'The software we use would cost more per year at retail than our entire annual budget. We pay almost none of it, because a lot of companies give this away to nonprofits. A field guide to the free and discounted tools, shortest path first.',
+    image: '/images/juvenile-box-turtle.jpg',
+    imageAlt: 'A juvenile eastern box turtle',
+    tags: ['resources', 'nonprofit', 'wildlife rehabilitation'],
+  },
+  {
     slug: 'turtle-poaching-and-why-we-keep-locations-vague',
     title: 'Turtle poaching is local: why we keep locations vague',
     date: 'June 22, 2026',

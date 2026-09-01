@@ -32,6 +32,8 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <!-- impact.com site verification -->
+    <meta name="impact-site-verification" value="8b2a17d3-8bc5-45a9-bbec-506276819a8b" />
     <!-- Local SEO -->
     <meta name="geo.region" content="US-VA" />
     <meta name="geo.placename" content="Hampton Roads, Virginia" />
@@ -248,13 +250,14 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
         <div class="footer__contact">
           <strong>Contact</strong><br />
           <a href="mailto:info@southeastreptile.org">info@southeastreptile.org</a><br />
-          <a href="/rehabber-resources" style="font-size: 13px; color: var(--color-text-faint);">Rehabber resources</a>
+          <a href="/rehabber-resources" style="font-size: 13px; color: var(--color-text-faint);">Rehabber resources</a><br />
+          <a href="/privacy" style="font-size: 13px; color: var(--color-text-faint);">Privacy policy</a>
         </div>
       </div>
       <div class="footer__bottom">
         <span>&copy; {new Date().getFullYear()} Southeastern Reptile Conservation. All rights reserved.</span>
         <span style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
-          <span>501(c)(3) Nonprofit &nbsp;&middot;&nbsp; EIN 39-4578100</span>
+          <span>501(c)(3) Nonprofit &nbsp;&middot;&nbsp; EIN 39-4578100 &nbsp;&middot;&nbsp; <a href="/privacy" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Privacy</a></span>
           <span style="display: flex; gap: 1rem; align-items: center;">
             <a href="https://www.inaturalist.org/people/southeastreptile" target="_blank" rel="noopener" aria-label="iNaturalist" style="opacity: 0.5; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">

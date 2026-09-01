@@ -300,7 +300,7 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <div class="step__title">Contact SERC</div>
           <p class="triage-body">
-            Email <a href="mailto:info@southeastreptile.org" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">info@southeastreptile.org</a> or text <a href="sms:7573243720" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">757-324-3720</a> with your photos, the species (best guess is fine), where you found it, and what it's doing. We'll tell you exactly what to do next.
+            Email <a href="mailto:info@southeastreptile.org" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">info@southeastreptile.org</a> or text <a href="sms:7573243720" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">757-324-3720</a> with your photos, the species (best guess is fine), where you found it, and what it's doing. You can also <a href="/intake" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">file a report through our online intake form</a>. We'll tell you exactly what to do next.
           </p>
         </div>
       </div>
@@ -375,9 +375,10 @@ import Layout from '../layouts/Layout.astro';
       &nbsp;&middot;&nbsp;
       Text: <a href="sms:7573243720" style="color: #9A9080;">757-324-3720</a>
     </p>
-    <a href="/contact" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">
-      Contact us
-    </a>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/intake" class="btn btn--accent">Report an animal</a>
+      <a href="/contact" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">Contact us</a>
+    </div>
   </section>
 
 </Layout>

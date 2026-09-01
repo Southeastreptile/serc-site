@@ -9,11 +9,11 @@ const projects = [
     status: 'Active',
     github: 'https://github.com/southeastreptile/turtle-ai',
     tech: ['Python', 'Gemma 3n', 'Ollama', 'Docker', 'RTSP', 'Twilio'],
-    description: `turtle-ai is an open-source, locally-run AI monitoring system designed to detect signs of distress in rehabilitating turtles using live RTSP camera feeds. Built for resource-limited rehabilitation environments, the system runs entirely on local hardware with no cloud dependency, capturing still frames every ten minutes and evaluating them using the Gemma 3n model via Ollama. When distress is detected — such as a turtle in a carapace-up position, showing signs of entrapment, or exhibiting unusual inactivity — the system sends a real-time WhatsApp alert via Twilio for immediate intervention.`,
+    description: `turtle-ai is an open-source, locally-run AI monitoring system designed to detect signs of distress in rehabilitating turtles using live RTSP camera feeds. Built for resource-limited rehabilitation environments, the system runs entirely on local hardware with no cloud dependency, capturing still frames every ten minutes and evaluating them using the Gemma 3n model via Ollama. When distress is detected (such as a turtle in a carapace-up position, showing signs of entrapment, or exhibiting unusual inactivity), the system sends a real-time WhatsApp alert via Twilio for immediate intervention.`,
     presented: 'Presented at the 23rd TSA Annual Symposium, 2025',
     highlights: [
       'Detects carapace-up positioning, entrapment, unusual inactivity, and aggressive interactions',
-      'Fully local inference using Gemma 3n and Ollama — no cloud services required',
+      'Fully local inference using Gemma 3n and Ollama, with no cloud services required',
       'Containerized architecture using Docker for easy deployment',
       'Real-time WhatsApp alerts via Twilio with debounce logic to prevent alert fatigue',
       'Prompt-engineered for turtle-specific distress detection with minimized false positives',
@@ -23,7 +23,7 @@ const projects = [
       'RTSP cameras stream live enclosure video',
       'Python script captures still frames every 10 min',
       'Gemma 3n (via Ollama) evaluates each frame locally',
-      'Distress detected — WhatsApp alert via Twilio',
+      'Distress detected: WhatsApp alert via Twilio',
       'Web app logs observations and human review',
     ],
   },
@@ -37,7 +37,7 @@ const projects = [
     highlights: [
       'Intelligent tool routing between SERC knowledge base and Google Search',
       'Powered by Gemini via Vertex AI with RAG grounding through Vertex AI Search',
-      'Knowledge gap tracking — every query logged for volunteer review',
+      'Knowledge gap tracking: every query logged for volunteer review',
       'User feedback system with thumbs up/down response ratings',
       'Admin dashboard for reviewing knowledge gaps at /admin',
       'Automated Cloud Function syncs Google Drive documents daily',
@@ -55,7 +55,7 @@ const projects = [
 
 <Layout
   title="Open-Source Wildlife Conservation Software | SERC"
-  description="Open-source tools built by SERC for wildlife rehabilitation and conservation — including AI-powered turtle monitoring, a grounded rehab chatbot, and live corridor mapping."
+  description="Open-source tools built by SERC for wildlife rehabilitation and conservation, including AI-powered turtle monitoring, a grounded rehab chatbot, and live corridor mapping."
 >
 
   <!-- Header -->
@@ -85,7 +85,7 @@ const projects = [
         <a href="https://landrecords.us/" target="_blank" rel="noopener noreferrer" aria-label="Land Records">
           <img
             src="/images/landrecords_og_with_text.png"
-            alt="Land Records — landrecords.us"
+            alt="Land Records logo"
             width="5120"
             height="1024"
             style="height: 40px; width: auto; display: block; opacity: 0.7; transition: opacity 0.2s;"
@@ -206,7 +206,7 @@ const projects = [
       </p>
       <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.8;">
         It also means the community can improve, audit, and adapt the tools
-        for their own species and environments — advancing the field together.
+        for their own species and environments, advancing the field together.
       </p>
     </div>
   </section>
@@ -214,12 +214,19 @@ const projects = [
   <!-- Sponsor us on GitHub -->
   <section style="padding: 0 var(--site-gutter) 5rem; max-width: var(--site-max); margin: 0 auto; text-align: center;">
     <h2 style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 300; margin-bottom: 0.5rem;">Sponsor our work on GitHub</h2>
-    <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 520px; margin: 0 auto 1.5rem;">
-      Recurring GitHub sponsorship helps us keep building and maintaining open-source conservation tools.
+    <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 640px; margin: 0 auto 1.5rem;">
+      SERC's tools run on real infrastructure: local hardware, camera feeds, and messaging costs that
+      add up month to month. Recurring GitHub sponsorship helps us cover those running costs and keep
+      building open-source tools that any rehabilitation program can use for free. Sponsors receive
+      recognition from a README listing up to logo placement on our website.
     </p>
     <div style="max-width: 100%; overflow-x: auto; display: flex; justify-content: center;">
       <iframe src="https://github.com/sponsors/southeastreptile/card" title="Sponsor southeastreptile" height="225" width="600" style="border: 0; flex-shrink: 0;" loading="lazy"></iframe>
     </div>
+    <p style="color: var(--color-text-muted); font-size: 15px; line-height: 1.7; max-width: 640px; margin: 1.5rem auto 0;">
+      Looking for other ways to give, including one-time donations and supply wish lists? Visit our
+      <a href="/donate" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">donate page</a>.
+    </p>
   </section>
 
   <!-- Firebase config update note -->

@@ -7,6 +7,10 @@ const DRIVE_URL = 'https://drive.google.com/drive/folders/1sSIvS8w8yoMq8L0qwLHAM
 // Set to true to re-enable the access-controlled resource library section.
 const SHOW_LIBRARY = false;
 
+// Suggested-supplies section is hidden for now (Amazon affiliate links kept out
+// of the site while Google Ad Grants is being set up). Set to true to re-enable.
+const SHOW_SUPPLIES = false;
+
 // Suggested supplies. Amazon affiliate links (tag: southeastrept-20).
 const supplies = [
   {
@@ -135,7 +139,8 @@ const guides = [
     </div>
   </section>
 
-  <!-- Suggested supplies -->
+  <!-- Suggested supplies (hidden for now; toggle SHOW_SUPPLIES above) -->
+  {SHOW_SUPPLIES && (
   <section style="padding: 3rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
     <h2 style="margin-bottom: 0.5rem;">Suggested supplies</h2>
     <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 620px; margin-bottom: 1.25rem;">
@@ -160,6 +165,7 @@ const guides = [
       ))}
     </div>
   </section>
+  )}
 
   <!-- Access-controlled library (hidden until fleshed out; toggle SHOW_LIBRARY above) -->
   {SHOW_LIBRARY && (
