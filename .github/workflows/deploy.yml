@@ -1,3 +1,12 @@
+# Auto-deploys the site to Firebase Hosting on every push to main.
+#
+# Requires the repo secret FIREBASE_SERVICE_ACCOUNT (a Firebase service-account
+# JSON key with deploy access). Set it up with `firebase init hosting:github`,
+# which creates the service account and uploads the secret for you.
+#
+# Firebase project ID is serc-website-d2ac4 (the display name "serc-website" is
+# NOT the ID). Node must be >= 22.12 for Astro to build.
+
 name: Deploy to Firebase Hosting
 
 on:
@@ -15,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -30,4 +39,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
-          projectId: serc-website
+          projectId: serc-website-d2ac4

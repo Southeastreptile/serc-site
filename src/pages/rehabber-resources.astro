@@ -7,63 +7,16 @@ const DRIVE_URL = 'https://drive.google.com/drive/folders/1sSIvS8w8yoMq8L0qwLHAM
 // Set to true to re-enable the access-controlled resource library section.
 const SHOW_LIBRARY = false;
 
-// Suggested-supplies section is hidden for now (Amazon affiliate links kept out
-// of the site while Google Ad Grants is being set up). Set to true to re-enable.
-const SHOW_SUPPLIES = false;
-
-// Suggested supplies. Amazon affiliate links (tag: southeastrept-20).
-const supplies = [
-  {
-    category: 'Food & supplements',
-    items: [
-      { name: 'Mazuri Aquatic Turtle Food (Freshwater Formula)', url: 'https://amzn.to/4fedV2n' },
-      { name: 'Zoo Med Natural Aquatic Turtle Food, Hatchling Formula', url: 'https://amzn.to/3T4oMDx' },
-      { name: 'Carlson Cod Liver Oil (vitamin A/D source)', url: 'https://amzn.to/4hoKgVt' },
-      { name: 'Herptivite Multivitamin & Mineral Powder', url: 'https://amzn.to/4pKzj2L' },
-      { name: 'Phosphorus-Free Calcium with Vitamin D3 (ultrafine powder)', url: 'https://amzn.to/4x7TOJj' },
-    ],
-  },
-  {
-    category: 'Water & habitat',
-    items: [
-      { name: 'Fluval U3 Underwater Filter', url: 'https://amzn.to/4fMNRLV' },
-      { name: 'Zilla Aquatic Submersible Heater', url: 'https://amzn.to/44DFyfh' },
-      { name: 'Jasonwell Foldable Pool (soaking & temporary setups)', url: 'https://amzn.to/3RLprt6' },
-      { name: 'Reptile Food & Water Dish with Ramp and Basking Platform', url: 'https://amzn.to/4fB6alU' },
-    ],
-  },
-  {
-    category: 'Lighting',
-    items: [
-      { name: 'Zoo Med ReptiSun 5.0 Mini Compact UVB Lamp', url: 'https://amzn.to/4vKIdif' },
-      { name: 'Zoo Med ReptiSun T5 HO Hood with 10.0 UVB Bulb', url: 'https://amzn.to/4fM6gsa' },
-      { name: 'Reptile Systems Eco T5 Zone 2 Lighting Kit (36in / 39W)', url: 'https://amzn.to/4wpWGRV' },
-      { name: 'Reptile Basking Heat Lamp Bulbs (75W, 2-pack)', url: 'https://amzn.to/4fUCHET' },
-    ],
-  },
-  {
-    category: 'Substrate & bedding',
-    items: [
-      { name: 'Zoo Med ReptiSoil', url: 'https://amzn.to/4b6hiGh' },
-      { name: 'Zilla Coconut Husk Brick (egg incubation & tropical bedding)', url: 'https://amzn.to/4fuF6VA' },
-    ],
-  },
-  {
-    category: 'Medical & cleaning',
-    items: [
-      { name: 'Manuka Honey Gauze Dressing (wound care)', url: 'https://amzn.to/4gRcVCv' },
-      { name: 'Manuka Honey, UMF 10+ / MGO 250+ (wound care)', url: 'https://amzn.to/4x41yfj' },
-      { name: 'Oxivir Tb Surface Disinfectant', url: 'https://amzn.to/4ypSLWu' },
-    ],
-  },
-];
+// Curated supplies list for rehabbers, hosted on SERC's Chewy storefront.
+const CHEWY_STOREFRONT_URL = 'https://chewpanions.chewy.com/southeastreptile';
 
 // Publicly shareable guides and whitepapers. Add new entries here.
 const guides = [
   {
     title: 'Head-starting Eastern Box Turtles',
     description: 'Our approach to head-starting Eastern box turtle hatchlings — husbandry, measurement, and release readiness.',
-    url: 'https://drive.google.com/file/d/1EYdIJbuL072JlHKs60dfyaJ0AvUKuj25/view?usp=sharing',
+    // Stable short link; the actual Drive URL lives in the redirects block of firebase.json.
+    url: '/guides/box-turtle-headstart',
   },
 ];
 ---
@@ -139,33 +92,15 @@ const guides = [
     </div>
   </section>
 
-  <!-- Suggested supplies (hidden for now; toggle SHOW_SUPPLIES above) -->
-  {SHOW_SUPPLIES && (
+  <!-- Supplies for rehabbers (Chewy storefront) -->
   <section style="padding: 3rem var(--site-gutter); max-width: var(--site-max); margin: 0 auto; border-bottom: 1px solid var(--color-border);">
-    <h2 style="margin-bottom: 0.5rem;">Suggested supplies</h2>
-    <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 620px; margin-bottom: 1.25rem;">
-      Products we use and recommend for reptile and amphibian rehabilitation, organized by purpose.
+    <h2 style="margin-bottom: 0.5rem;">Supplies for rehabbers</h2>
+    <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 620px; margin-bottom: 1.75rem;">
+      The food, supplements, lighting, habitat, and wound-care products we use and recommend for
+      reptile and amphibian rehabilitation, collected in one place on our Chewy storefront.
     </p>
-    <p style="font-size: 13px; color: var(--color-text-faint); line-height: 1.7; max-width: 620px; margin-bottom: 2rem; padding: 0.85rem 1.1rem; background: var(--color-surface); border: 1px solid var(--color-border);">
-      As an Amazon Associate, SERC earns from qualifying purchases. The links below are affiliate links,
-      so we may receive a small commission at no extra cost to you &mdash; which helps fund the animals in our care.
-    </p>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; max-width: 900px;">
-      {supplies.map(group => (
-        <div>
-          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 0.85rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border);">{group.category}</div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem;">
-            {group.items.map(item => (
-              <li style="font-size: 15px; line-height: 1.5;">
-                <a href={item.url} target="_blank" rel="noopener sponsored nofollow" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">{item.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+    <a href={CHEWY_STOREFRONT_URL} target="_blank" rel="noopener" class="btn btn--dark">View the supplies list on Chewy</a>
   </section>
-  )}
 
   <!-- Access-controlled library (hidden until fleshed out; toggle SHOW_LIBRARY above) -->
   {SHOW_LIBRARY && (

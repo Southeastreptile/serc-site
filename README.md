@@ -11,6 +11,8 @@ npm run dev
 
 Open http://localhost:4321
 
+Requires Node 22.12 or newer.
+
 ## Build and deploy
 
 ```
@@ -18,7 +20,7 @@ npm run build
 firebase deploy --only hosting --project serc-website-d2ac4
 ```
 
-Pushing to `main` triggers an automatic deploy via GitHub Actions.
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) deploys automatically on push to `main` once the `FIREBASE_SERVICE_ACCOUNT` repo secret is set up (`firebase init hosting:github`). Until then, deploy manually with the commands above.
 
 ## Project layout
 
@@ -28,9 +30,8 @@ Pushing to `main` triggers an automatic deploy via GitHub Actions.
 - `src/content/species/*.json` — data for the Field Guide
 - `src/styles/global.css` — all styles and design tokens
 - `public/images/` — all images (use **lowercase** filenames; the host is case-sensitive)
-- `scripts/` — helper scripts (e.g. the intake-form Apps Script backend)
 
-Pages: Home, About, Our Patients, Field Guide, Turtle Watch, Software, Blog, Rehabber Resources, Contact, Donate, Merch, Triage, Intake, and a 404.
+Pages: Home, About, Our Patients, Field Guide, Turtle Watch, Software, Blog, Rehabber Resources, Contact, Donate, Merch, Triage, Intake, Privacy Policy, and a 404.
 
 ## Adding a blog post
 
@@ -54,6 +55,14 @@ const MIN_CLUSTER = 2;      // minimum sightings to highlight a cell
 
 Data sources: iNaturalist (`api.inaturalist.org/v1/observations`, Testudines) and the OpenStreetMap Overpass API (motorway, trunk, primary, secondary roads). A seasonal alert banner appears automatically April through September.
 
-## Intake form
+## Intake form (`/intake`)
 
-`/intake` is a wildlife intake form that posts to a Google Apps Script web app (which appends to a Google Sheet and emails the team). It is not fully live yet: paste the deployed script's `/exec` URL into `INTAKE_ENDPOINT` in `src/pages/intake.astro` to activate it. Setup steps are in `scripts/intake-apps-script.gs`.
+The intake page embeds the public animal report form from WRMD (Wildlife Rehabilitation MD), SERC's intake system. Reports go directly into WRMD; the site stores nothing. The form's pre- and post-submit messages are configured in WRMD. WRMD only serves the embed to the domain registered in the account, so a 404 inside the iframe means the domain is not registered.
+
+## Short links
+
+Stable short links to external resources live in the `redirects` block of `firebase.json` (e.g. `/chewy`, `/guides/box-turtle-headstart`). Share those instead of raw Drive or storefront URLs; when a destination changes, update the one entry and every shared link keeps working. To replace a guide PDF without changing its link, use Drive's Manage versions → Upload new version.
+
+## Rehabber resources and privacy
+
+`/rehabber-resources` (not indexed) links SERC's curated supplies list on Chewy and any publicly shareable guides. `/privacy` is the privacy policy; update the `effectiveDate` constant at the top of `src/pages/privacy.astro` when the text changes.

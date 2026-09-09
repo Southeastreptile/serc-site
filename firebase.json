@@ -7,6 +7,18 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "regex": "^/chewy/?$",
+        "destination": "https://chewpanions.chewy.com/southeastreptile",
+        "type": 302
+      },
+      {
+        "regex": "^/guides/box-turtle-headstart/?$",
+        "destination": "https://drive.google.com/file/d/1ZAwaorgIVqJCR710Yso36rfeImbNhnzK/view?usp=drive_link",
+        "type": 302
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
