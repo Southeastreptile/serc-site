@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { posts } from '../data/posts.js';
+import { upcomingEvents, formatEventDate, lastDay } from '../data/events.js';
 
 const latestPost = posts[0];
+const nextEvent = upcomingEvents()[0];
 
 const featuredMerch = [
   {
@@ -52,11 +54,30 @@ const featuredMerch = [
       "https://www.instagram.com/purringturtle",
       "https://github.com/southeastreptile",
       "https://www.inaturalist.org/people/southeastreptile",
-      "https://www.youtube.com/@southeastreptile"
+      "https://www.youtube.com/@southeastreptile",
+      "https://x.com/purringturtle"
     ],
     "knowsAbout": ["Wildlife Rehabilitation", "Turtle Rescue", "Reptile Rescue", "Snake Rescue", "Amphibian Conservation", "Diamondback Terrapin", "Eastern Box Turtle"]
   }}
 >
+
+  <!-- Event banner: shows while an event is upcoming, drops off the day after it ends -->
+  {nextEvent && (
+    <a
+      href={nextEvent.url || '/events'}
+      target={nextEvent.url ? '_blank' : undefined}
+      rel={nextEvent.url ? 'noopener' : undefined}
+      data-hide-after={lastDay(nextEvent)}
+      data-track={nextEvent.url ? 'event-link' : undefined}
+      data-event-title={nextEvent.url ? nextEvent.title : undefined}
+      style="display: block; background: var(--color-accent); color: var(--color-bg-dark); text-decoration: none; padding: 0.8rem var(--site-gutter); text-align: center; font-size: 15px; line-height: 1.5; border-bottom: 1px solid var(--color-border);"
+    >
+      <span style="font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; margin-right: 0.6rem;">{formatEventDate(nextEvent.date, nextEvent.endDate)}</span>
+      <span style="font-family: var(--font-serif); font-size: 1.05rem;">{nextEvent.title}</span>
+      <span style="opacity: 0.75;"> at {nextEvent.venue}, {nextEvent.city}</span>
+      <span style="text-decoration: underline; text-underline-offset: 3px; margin-left: 0.6rem; white-space: nowrap;">{nextEvent.url ? (nextEvent.urlLabel || 'Event details') : 'Details'} &rarr;</span>
+    </a>
+  )}
 
   <!-- Hero -->
   <section style="background: #B5A090; min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden;">
@@ -98,6 +119,34 @@ const featuredMerch = [
     <a href="/donate" class="btn btn--accent btn--lg">Donate</a>
   </section>
 
+  <!-- Next upcoming event (rendered only when one exists; hidden client-side once it passes) -->
+  {nextEvent && (
+    <section data-hide-after={lastDay(nextEvent)} style="background: var(--color-bg-light); border-bottom: 1px solid var(--color-border); padding: clamp(3rem, 6vw, 4.5rem) var(--site-gutter);">
+      <div style="max-width: var(--site-max); margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--color-border);">
+          <h2 style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300;">Upcoming event</h2>
+          <a href="/events" style="font-size: 13px; text-decoration: underline; text-underline-offset: 4px; color: var(--color-text-muted);">All events</a>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2.5rem;">
+          <div>
+            <div class="post-card__date">
+              <time datetime={nextEvent.date}>{formatEventDate(nextEvent.date, nextEvent.endDate)}</time>
+              {nextEvent.time && <span> &middot; {nextEvent.time}</span>}
+            </div>
+            <div class="post-card__title" style="margin-bottom: 0.4rem;">{nextEvent.title}</div>
+            <div style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 0.6rem;">{nextEvent.venue}, {nextEvent.city}, VA</div>
+            <p class="post-card__excerpt" style="max-width: 560px;">{nextEvent.description}</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; flex-shrink: 0;">
+            {nextEvent.url
+              ? <a href={nextEvent.url} target="_blank" rel="noopener" class="btn btn--dark btn--lg" data-track="event-link" data-event-title={nextEvent.title}>{nextEvent.urlLabel || 'Event details'}</a>
+              : <a href="/events" class="btn btn--dark btn--lg">Event details</a>}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Merch showcase -->
   <section style="background: var(--color-bg); padding: clamp(3rem, 6vw, 4.5rem) var(--site-gutter); border-bottom: 1px solid var(--color-border);">
     <div style="max-width: var(--site-max); margin: 0 auto;">
@@ -135,6 +184,36 @@ const featuredMerch = [
       <div>
         <div style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.5rem;">Education</div>
         <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">Building community awareness and using technology to advance conservation outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open-source software highlight -->
+  <section style="background: var(--color-bg-dark); padding: clamp(3.5rem, 7vw, 5.5rem) var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center;">
+        <div>
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9A9080; margin-bottom: 0.75rem;">Open source</div>
+          <h2 style="font-family: var(--font-serif); font-size: clamp(1.9rem, 3.5vw, 2.6rem); font-weight: 300; color: #F5F2EC; line-height: 1.15; margin-bottom: 1rem;">Software we build for wildlife rehab, free for anyone to use</h2>
+          <p style="color: #C4BBA9; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; max-width: 520px;">
+            Small rehab programs rarely have a tech budget. We write the tools we need, run them on
+            modest hardware, and publish the code so other rehabilitators can use and improve them.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="/open-source" class="btn btn--accent">See our software</a>
+            <a href="https://github.com/southeastreptile" target="_blank" rel="noopener" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">SERC on GitHub</a>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <a href="/open-source" style="display: block; padding: 1.5rem 1.75rem; border: 1px solid #4A463F; text-decoration: none; color: inherit; transition: border-color 0.2s;" onmouseover="this.style.borderColor='#9A9080'" onmouseout="this.style.borderColor='#4A463F'">
+            <div style="font-family: var(--font-serif); font-size: 1.3rem; color: #F5F2EC; margin-bottom: 0.35rem;">turtle-ai</div>
+            <p style="font-size: 14px; color: #C4BBA9; line-height: 1.6; margin: 0;">Camera monitoring that spots a flipped or trapped turtle and sends an alert, running entirely on local hardware.</p>
+          </a>
+          <a href="/open-source" style="display: block; padding: 1.5rem 1.75rem; border: 1px solid #4A463F; text-decoration: none; color: inherit; transition: border-color 0.2s;" onmouseover="this.style.borderColor='#9A9080'" onmouseout="this.style.borderColor='#4A463F'">
+            <div style="font-family: var(--font-serif); font-size: 1.3rem; color: #F5F2EC; margin-bottom: 0.35rem;">Ask Susie</div>
+            <p style="font-size: 14px; color: #C4BBA9; line-height: 1.6; margin: 0;">A chatbot grounded in our own care protocols, so volunteers get answers from SERC's knowledge base, not the open internet.</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>

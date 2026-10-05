@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { upcomingEvents, formatEventDate, lastDay } from '../data/events.js';
+
+const upcoming = upcomingEvents();
+
+// Past events are dropped entirely. Flip this and add a past list below if we
+// ever want an archive (same idea as SHOW_LIBRARY on rehabber-resources).
+const SHOW_PAST = false;
+
+const SITE = 'https://www.southeastreptile.org';
+
+const eventSchema = upcoming.map((e) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: e.title,
+  startDate: e.date,
+  ...(e.endDate ? { endDate: e.endDate } : {}),
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  description: e.description,
+  ...(e.url ? { url: e.url } : {}),
+  ...(e.image ? { image: `${SITE}${e.image}` } : {}),
+  location: {
+    '@type': 'Place',
+    name: e.venue,
+    address: {
+      '@type': 'PostalAddress',
+      ...(e.address ? { streetAddress: e.address } : {}),
+      addressLocality: e.city,
+      addressRegion: 'VA',
+      addressCountry: 'US',
+    },
+  },
+  organizer: {
+    '@type': 'NGO',
+    name: 'Southeastern Reptile Conservation',
+    url: SITE,
+  },
+}));
+---
+
+<Layout
+  title="Community Events and Fundraisers in Hampton Roads, VA | SERC"
+  description="Upcoming SERC events in Hampton Roads: fundraisers, cleanups, and education events where you can meet the team and support native reptile and amphibian rehabilitation."
+  schema={eventSchema.length ? eventSchema : undefined}
+>
+
+  <div class="events blog-list">
+
+    <!-- Header -->
+    <div style="margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border);">
+      <span class="events__kicker">Community</span>
+      <h1 class="blog-list__heading" style="margin: 0 0 0.75rem; padding: 0; border: 0;">Events</h1>
+      <p class="events__intro">
+        Fundraisers, cleanups, and education events where you can meet the SERC team, see what
+        we do, and help native reptiles and amphibians. Come say hello.
+      </p>
+    </div>
+
+    <!-- Upcoming events -->
+    <ol class="events__list" id="events-list">
+      {upcoming.map((e) => (
+        <li class="event" data-hide-after={lastDay(e)}>
+          <div class="event__date">
+            <time datetime={e.date}>{formatEventDate(e.date, e.endDate)}</time>
+            {e.time && <div class="event__time">{e.time}</div>}
+          </div>
+          <div class="event__body">
+            {e.type && <span class="tag">{e.type}</span>}
+            <h2 class="event__title">{e.title}</h2>
+            <div class="event__meta">
+              <div>{e.venue}</div>
+              {e.address && <div>{e.address}</div>}
+              <div>{e.city}, VA</div>
+            </div>
+            <p class="event__desc">{e.description}</p>
+            {e.partners && e.partners.length > 0 && (
+              <p class="event__partners">With {e.partners.join(' and ')}</p>
+            )}
+            {e.url && (
+              <a href={e.url} target="_blank" rel="noopener" class="btn btn--dark" data-track="event-link" data-event-title={e.title}>
+                {e.urlLabel || 'Event details'}
+              </a>
+            )}
+          </div>
+          {e.image && (
+            <div class="event__image">
+              <img src={e.image} alt={e.imageAlt || ''} loading="lazy" />
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+
+    <!-- Empty state (also revealed client-side if every event has passed) -->
+    <div class="events__empty" data-empty-for="events-list" hidden={upcoming.length > 0}>
+      <p>
+        Nothing on the calendar right now. Follow us on
+        <a href="https://www.instagram.com/purringturtle" target="_blank" rel="noopener">Instagram</a>
+        for announcements, or <a href="/contact">get in touch</a> if you would like SERC at your event.
+      </p>
+    </div>
+
+  </div>
+
+  <style>
+    .events__kicker {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-faint);
+      margin-bottom: 1rem;
+    }
+    .events__intro {
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 640px;
+    }
+    .events__list { list-style: none; margin: 0; padding: 0; }
+    .event {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2.5rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .event:has(.event__image) { grid-template-columns: 200px 1fr 320px; }
+    .event__date time {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      line-height: 1.25;
+      color: var(--color-text);
+    }
+    .event__time {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-top: 0.4rem;
+    }
+    .event__title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin: 0.6rem 0 0.5rem;
+    }
+    .event__meta {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.9rem;
+    }
+    .event__desc {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    .event__partners {
+      font-size: 13px;
+      color: var(--color-text-faint);
+      margin-bottom: 1.25rem;
+    }
+    .event__image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      align-self: start;
+    }
+    .event__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .events__empty {
+      padding: 3rem 0;
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    .events__empty a {
+      color: var(--color-text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    @media (max-width: 900px) {
+      .event:has(.event__image) { grid-template-columns: 200px 1fr; }
+      .event__image { grid-column: 1 / -1; max-width: 560px; }
+    }
+    @media (max-width: 768px) {
+      .event, .event:has(.event__image) { grid-template-columns: 1fr; gap: 1rem; }
+      .event__image { order: -1; max-width: 100%; }
+    }
+  </style>
+
+</Layout>

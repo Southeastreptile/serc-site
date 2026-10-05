@@ -27,11 +27,16 @@ A GitHub Actions workflow (`.github/workflows/deploy.yml`) deploys automatically
 - `src/layouts/Layout.astro` — nav, footer, `<head>` (SEO meta, JSON-LD, GA4 analytics)
 - `src/pages/` — one file per page (blog posts in `src/pages/blog/`)
 - `src/data/posts.js` — shared blog post list (newest first); drives the blog index and the homepage feature
+- `src/data/events.js` — community events with ISO dates; drives `/events` and the homepage "Upcoming event" card
 - `src/content/species/*.json` — data for the Field Guide
 - `src/styles/global.css` — all styles and design tokens
 - `public/images/` — all images (use **lowercase** filenames; the host is case-sensitive)
 
-Pages: Home, About, Our Patients, Field Guide, Turtle Watch, Software, Blog, Rehabber Resources, Contact, Donate, Merch, Triage, Intake, Privacy Policy, and a 404.
+Pages: Home, About, Our Patients, Field Guide, Turtle Watch, Software, Blog, Events, Rehabber Resources, Contact, Donate, Merch, Triage, Intake, Privacy Policy, and a 404.
+
+## Adding an event
+
+Add an object to `src/data/events.js` with an ISO `date` (`YYYY-MM-DD`), `title`, `venue`, `city`, and `description`; optional `time`, `address`, `url` + `urlLabel`, `image`, `type`. Past events hide automatically. Speaking engagements live in the `talks` array at the top of `src/pages/about.astro`.
 
 ## Adding a blog post
 

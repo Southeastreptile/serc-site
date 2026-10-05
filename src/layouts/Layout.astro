@@ -54,6 +54,7 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
     <meta property="og:image" content={ogImage} />
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@purringturtle" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -83,7 +84,16 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
         <nav>
           <ul class="nav__links">
             <li><a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>Home</a></li>
-            <li><a href="/about" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a></li>
+            <li class="nav__has-dropdown">
+              <a href="/about" class="nav__dropdown-toggle" aria-current={(Astro.url.pathname === '/about' || Astro.url.pathname.startsWith('/events') || Astro.url.pathname.startsWith('/rehabber-resources')) ? 'page' : undefined}>
+                About <span class="nav__caret">▾</span>
+              </a>
+              <ul class="nav__dropdown">
+                <li><a href="/about" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About us</a></li>
+                <li><a href="/events" aria-current={Astro.url.pathname.startsWith('/events') ? 'page' : undefined}>Events</a></li>
+                <li><a href="/rehabber-resources" aria-current={Astro.url.pathname.startsWith('/rehabber-resources') ? 'page' : undefined}>For rehabbers</a></li>
+              </ul>
+            </li>
             <li><a href="/wildlife" aria-current={Astro.url.pathname === '/wildlife' ? 'page' : undefined}>Our patients</a></li>
             <li class="nav__has-dropdown">
               <a href="/species" class="nav__dropdown-toggle" aria-current={(Astro.url.pathname.startsWith('/species') || Astro.url.pathname.startsWith('/turtle-watch')) ? 'page' : undefined}>
@@ -96,7 +106,6 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
             </li>
             <li><a href="/open-source" aria-current={Astro.url.pathname.startsWith('/open-source') ? 'page' : undefined}>Software</a></li>
             <li><a href="/blog" aria-current={Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
-            <li><a href="/rehabber-resources" aria-current={Astro.url.pathname.startsWith('/rehabber-resources') ? 'page' : undefined}>Rehabbers</a></li>
             <li><a href="/contact" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a></li>
           </ul>
         </nav>
@@ -122,6 +131,12 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
               <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/>
             </svg>
           </a>
+          <a href="https://x.com/purringturtle" target="_blank" rel="noopener" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4l16 16"/>
+              <path d="M20 4L4 20"/>
+            </svg>
+          </a>
           <div class="nav__has-dropdown">
             <a href="/donate" class="btn btn--dark nav__support-btn">Support <span class="nav__caret nav__caret--btn">▾</span></a>
             <ul class="nav__dropdown nav__dropdown--right">
@@ -141,14 +156,16 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
       <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
         <ul class="nav__mobile-links">
           <li><a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>Home</a></li>
-          <li><a href="/about" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a></li>
+          <li class="nav__mobile-group-label">About</li>
+          <li class="nav__mobile-sub"><a href="/about" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About us</a></li>
+          <li class="nav__mobile-sub"><a href="/events" aria-current={Astro.url.pathname.startsWith('/events') ? 'page' : undefined}>Events</a></li>
+          <li class="nav__mobile-sub"><a href="/rehabber-resources" aria-current={Astro.url.pathname.startsWith('/rehabber-resources') ? 'page' : undefined}>For rehabbers</a></li>
           <li><a href="/wildlife" aria-current={Astro.url.pathname === '/wildlife' ? 'page' : undefined}>Our patients</a></li>
           <li class="nav__mobile-group-label">Field guide</li>
           <li class="nav__mobile-sub"><a href="/species" aria-current={Astro.url.pathname.startsWith('/species') ? 'page' : undefined}>Species ID</a></li>
           <li class="nav__mobile-sub"><a href="/turtle-watch" aria-current={Astro.url.pathname.startsWith('/turtle-watch') ? 'page' : undefined}>Turtle Watch</a></li>
           <li><a href="/open-source" aria-current={Astro.url.pathname.startsWith('/open-source') ? 'page' : undefined}>Software</a></li>
           <li><a href="/blog" aria-current={Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
-          <li><a href="/rehabber-resources" aria-current={Astro.url.pathname.startsWith('/rehabber-resources') ? 'page' : undefined}>Rehabbers</a></li>
           <li><a href="/contact" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a></li>
           <li class="nav__mobile-group-label">Support</li>
           <li class="nav__mobile-sub"><a href="/donate">Donate</a></li>
@@ -174,6 +191,12 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="5" width="20" height="14" rx="4" ry="4"/>
               <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://x.com/purringturtle" target="_blank" rel="noopener" aria-label="X (Twitter)" style="color: var(--color-text-muted);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4l16 16"/>
+              <path d="M20 4L4 20"/>
             </svg>
           </a>
           <a href="/donate" class="btn btn--dark">Donate</a>
@@ -223,7 +246,9 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
           var a = e.target.closest ? e.target.closest('a') : null;
           if (!a) return;
           var href = a.getAttribute('href') || '';
-          if (href.indexOf('sms:') === 0) {
+          if (a.getAttribute('data-track') === 'event-link') {
+            track('event_link_click', { link_url: href, event_title: a.getAttribute('data-event-title') || '' });
+          } else if (href.indexOf('sms:') === 0) {
             track('text_click', { link_url: href });
           } else if (href.indexOf('mailto:') === 0) {
             track('email_click', { link_url: href });
@@ -245,6 +270,27 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
     <main>
       <slot />
     </main>
+
+    <!-- Date guard: hides anything with data-hide-after="YYYY-MM-DD" once that day has
+         passed (visitor's local time), then reveals any [data-empty-for="<list id>"]
+         whose list has no visible items left. Covers the gap between an event passing
+         and the next deploy. Runs after <main> so the elements already exist. -->
+    <script is:inline>
+      (function () {
+        var items = document.querySelectorAll('[data-hide-after]');
+        if (!items.length) return;
+        var d = new Date();
+        var p = function (n) { return String(n).padStart(2, '0'); };
+        var today = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+        items.forEach(function (el) {
+          if (el.getAttribute('data-hide-after') < today) el.hidden = true;
+        });
+        document.querySelectorAll('[data-empty-for]').forEach(function (empty) {
+          var list = document.getElementById(empty.getAttribute('data-empty-for'));
+          if (list && !list.querySelector(':scope > :not([hidden])')) empty.hidden = false;
+        });
+      })();
+    </script>
 
     <footer class="footer">
       <div class="footer__inner">
@@ -290,6 +336,12 @@ const fullTitle = /serc/i.test(title) ? title : `${title} | SERC`;
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="5" width="20" height="14" rx="4" ry="4"/>
                 <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://x.com/purringturtle" target="_blank" rel="noopener" aria-label="X (Twitter)" style="opacity: 0.5; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l16 16"/>
+                <path d="M20 4L4 20"/>
               </svg>
             </a>
           </span>

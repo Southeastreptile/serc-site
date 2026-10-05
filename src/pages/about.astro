@@ -1,5 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { formatEventDate, isUpcoming } from '../data/events.js';
+
+// Speaking engagements, kept as a record (past talks stay listed).
+// `date` is ISO YYYY-MM-DD when known; otherwise leave it null and set `year`
+// so the entry still sorts and displays. `title` is the talk title and is
+// optional; when missing, the event name is used as the heading.
+// `format`: Talk | Poster | Workshop | Panel | Virtual talk.
+const talks = [
+  {
+    title: 'Practical AI for Wildlife Rehabilitators',
+    event: 'Call of the Wild Conference',
+    format: 'Virtual talk',
+    date: '2026-11-22',
+    time: '2:15 to 3:25 PM',
+    location: 'Virtual',
+  },
+  {
+    title: 'Keep It Secret, Keep It Safe: Threat Modeling Vulnerable Species Data',
+    event: 'BSides Hampton Roads',
+    format: 'Talk',
+    date: '2026-10-10',
+    time: '11:00 to 11:45 AM',
+    location: 'Hampton Roads, VA',
+  },
+  {
+    title: 'Head-starting diamondback terrapins (Malaclemys terrapin): raising a hatchling group from egg to release in a coastal Virginia rehabilitation program',
+    // Optional: same title with markup, used for italic scientific names.
+    titleHtml: 'Head-starting diamondback terrapins (<em>Malaclemys terrapin</em>): raising a hatchling group from egg to release in a coastal Virginia rehabilitation program',
+    event: 'SEPARC Annual Meeting',
+    eventFull: 'Southeast Partners in Amphibian and Reptile Conservation',
+    format: 'Poster',
+    date: '2026-09-19',
+  },
+  {
+    title: 'The turtles have an AI now',
+    event: 'Resonate 757',
+    format: 'Talk',
+    date: '2026-08-28',
+    location: 'Hampton Roads, VA',
+  },
+  {
+    title: 'Integrating Technology and Husbandry Innovations to Improve Overwintering Success in Rehabilitating Native Turtles',
+    event: '23rd Annual TSA Symposium',
+    eventFull: 'Turtle Survival Alliance',
+    format: 'Talk',
+    date: '2025-07-24',
+    location: 'Chattanooga, TN',
+  },
+];
+
+// Sort newest first. Dated talks sort by date; undated ones sort by year and
+// otherwise keep the order written above.
+const sortKey = (t) => t.date || `${t.year}-00-00`;
+const talksSorted = talks
+  .map((t, i) => ({ t, i }))
+  .sort((a, b) => sortKey(b.t).localeCompare(sortKey(a.t)) || a.i - b.i)
+  .map(({ t }) => t);
+
+const talkDate = (t) => (t.date ? formatEventDate(t.date) : String(t.year));
 ---
 
 <Layout
@@ -37,51 +96,110 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- What we do -->
-  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+  <!-- Speaking and outreach -->
+  <section id="speaking" class="speaking" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
     <div class="section">
-      <h2 style="margin-bottom: 3rem;">What we do</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+      <h2 style="margin-bottom: 0.5rem;">Speaking and outreach</h2>
+      <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; max-width: 640px; margin-bottom: 2.5rem;">
+        SERC shares what we learn in rehab with other rehabbers, researchers, and the public.
+        Linda Nichols, our founder, has presented on turtle rehabilitation and the open-source
+        tools we build to support it.
+      </p>
+      <ol class="speaking__list">
+        {talksSorted.map((t) => (
+          <li class="talk">
+            <div class="talk__date">
+              {t.date ? <time datetime={t.date}>{talkDate(t)}</time> : <span>{talkDate(t)}</span>}
+              {t.time && <div class="talk__time">{t.time}</div>}
+            </div>
+            <div>
+              <div class="talk__pills">
+                {t.format && <span class="tag">{t.format}</span>}
+                {isUpcoming(t) && <span class="tag talk__upcoming" data-hide-after={t.date}>Upcoming</span>}
+              </div>
+              {t.titleHtml
+                ? <h3 class="talk__title" set:html={t.titleHtml} />
+                : <h3 class="talk__title">{t.title || t.event}</h3>}
+              <div class="talk__meta">
+                {t.title && <span>{t.event}</span>}
+                {t.title && t.eventFull && <span> ({t.eventFull})</span>}
+                {!t.title && t.eventFull && <span>{t.eventFull}</span>}
+                {t.location && <span>{(t.title || t.eventFull) ? ' · ' : ''}{t.location}</span>}
+              </div>
+              {t.url && <a href={t.url} target="_blank" rel="noopener" class="talk__link">Event details</a>}
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-top: 2rem;">
+        Interested in having SERC speak at your event?
+        <a href="/contact" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">Get in touch</a>.
+      </p>
+    </div>
+    <style>
+      .speaking__list { list-style: none; margin: 0; padding: 0; max-width: 820px; }
+      .talk {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 2rem;
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--color-border);
+      }
+      .talk:last-child { border-bottom: 1px solid var(--color-border); }
+      .talk__date {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-text-faint);
+        padding-top: 0.35rem;
+      }
+      .talk__time { margin-top: 0.35rem; text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--color-text-muted); }
+      .talk__pills { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+      .talk__upcoming { border-color: var(--color-text-muted); color: var(--color-text); }
+      .talk__title {
+        font-family: var(--font-serif);
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin: 0 0 0.3rem;
+      }
+      .talk__meta { font-size: 14px; color: var(--color-text-muted); line-height: 1.6; }
+      .talk__link {
+        display: inline-block;
+        margin-top: 0.6rem;
+        font-size: 13px;
+        color: var(--color-text);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      @media (max-width: 768px) {
+        .talk { grid-template-columns: 1fr; gap: 0.5rem; }
+      }
+    </style>
+  </section>
 
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Wildlife Rehabilitation</h3>
-          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
-            We provide expert care for injured, orphaned, and displaced native reptiles
-            and amphibians with the goal of returning healthy animals to the wild.
-            All rehabilitation is conducted by licensed Category IV rehabbers and
-            supervised volunteers.
-          </p>
-        </div>
-
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Species Conservation</h3>
-          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
-            Several of the species we work with are of greatest conservation concern
-            in Virginia, including the diamondback terrapin. We partner with state
-            agencies and conservation organizations to support population monitoring,
-            habitat protection, and recovery efforts.
-          </p>
-        </div>
-
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Technology & Data</h3>
-          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
-            We use data and technology to improve conservation outcomes. This includes
-            open-source monitoring tools, AI-assisted data analysis, and community
-            reporting systems that help us track wildlife health and trends over time.
-          </p>
-        </div>
-
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.75rem;">Community Education</h3>
-          <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.75;">
-            We work to build awareness of native reptile and amphibian species
-            through public education, community partnerships, and outreach to
-            builders, landowners, and the general public on how to coexist with
-            and protect local wildlife.
-          </p>
-        </div>
-
+  <!-- Second image section -->
+  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; background: var(--color-bg);">
+    <div style="overflow: hidden;">
+      <img
+        src="/images/box-turtle-leaves.jpg"
+        alt="Eastern box turtle on leaf litter"
+        width="5472"
+        height="3648"
+        loading="lazy"
+        style="width: 100%; height: 100%; object-fit: cover;"
+      />
+    </div>
+    <div style="padding: clamp(3rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center; background: var(--color-bg-dark);">
+      <h2 style="color: #F5F2EC; margin-bottom: 1.25rem;">Get involved</h2>
+      <p style="color: #9A9080; font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;">
+        SERC depends on the support of volunteers, donors, and the community.
+        Whether you want to volunteer your time, report a found animal, or make
+        a donation, we would love to hear from you.
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/contact" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">Contact us</a>
+        <a href="/donate" class="btn" style="background: #B5A898; color: #2C2A26;">Donate</a>
       </div>
     </div>
   </section>
@@ -91,7 +209,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="section">
       <h2 style="margin-bottom: 0.5rem;">Meet our ambassadors</h2>
       <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; max-width: 600px; margin-bottom: 3rem;">
-        Our education ambassadors are animals in our permanent care — unable to survive in the wild
+        Our education ambassadors are animals in our permanent care, unable to survive in the wild
         for various reasons. They represent the species we work to protect and help us connect
         communities to native reptiles and amphibians.
       </p>
@@ -146,32 +264,6 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Second image section -->
-  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; background: var(--color-bg);">
-    <div style="overflow: hidden;">
-      <img
-        src="/images/box-turtle-leaves.jpg"
-        alt="Eastern box turtle on leaf litter"
-        width="5472"
-        height="3648"
-        loading="lazy"
-        style="width: 100%; height: 100%; object-fit: cover;"
-      />
-    </div>
-    <div style="padding: clamp(3rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center; background: var(--color-bg-dark);">
-      <h2 style="color: #F5F2EC; margin-bottom: 1.25rem;">Get involved</h2>
-      <p style="color: #9A9080; font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;">
-        SERC depends on the support of volunteers, donors, and the community.
-        Whether you want to volunteer your time, report a found animal, or make
-        a donation, we would love to hear from you.
-      </p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="/contact" class="btn btn--outline" style="border-color: #D5D0C8; color: #D5D0C8;">Contact us</a>
-        <a href="/donate" class="btn" style="background: #B5A898; color: #2C2A26;">Donate</a>
       </div>
     </div>
   </section>
