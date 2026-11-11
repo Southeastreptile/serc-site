@@ -9,13 +9,28 @@
     ],
     "redirects": [
       {
+        "regex": "^/(newsletter|subscribe)/?$",
+        "destination": "/signup",
+        "type": 301
+      },
+      {
         "regex": "^/chewy/?$",
         "destination": "https://chewpanions.chewy.com/southeastreptile",
         "type": 302
       },
       {
+        "regex": "^/venmo/?$",
+        "destination": "https://www.venmo.com/u/southeastreptile",
+        "type": 302
+      },
+      {
         "regex": "^/slack/?$",
         "destination": "https://join.slack.com/t/southeastreptile/shared_invite/zt-4ae66cdeb-jW~Rm6Y1kgjqVu5kYCPFqQ",
+        "type": 302
+      },
+      {
+        "regex": "^/talks/bsides-2026/?$",
+        "destination": "https://docs.google.com/presentation/d/1c4o92Ig1UyRqLvSDO9gf-KOKkpIHYoC-3deD2PC7adA/edit?usp=sharing",
         "type": 302
       },
       {
@@ -40,7 +55,7 @@
       {
         "source": "**/*.@(jpg|jpeg|png|gif|webp|svg|ico)",
         "headers": [
-          { "key": "Cache-Control", "value": "max-age=86400" }
+          { "key": "Cache-Control", "value": "max-age=2592000" }
         ]
       }
     ]

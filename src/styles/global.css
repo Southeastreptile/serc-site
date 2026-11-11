@@ -725,9 +725,9 @@ p:last-child { margin-bottom: 0; }
 /* ── Responsive ───────────────────────────────────────────────────────── */
 
 /* Compact header: the full desktop nav (7 links + icons + Support) needs about
-   1170px. Below that, collapse the links into the hamburger but keep the social
+   1200px. Below that, collapse the links into the hamburger but keep the social
    icons and Support button visible. The 768px block below declutters further. */
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
   .nav__links    { display: none; }
   .nav__hamburger { display: flex; }
 }

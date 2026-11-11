@@ -55,7 +55,8 @@ const featuredMerch = [
       "https://github.com/southeastreptile",
       "https://www.inaturalist.org/people/southeastreptile",
       "https://www.youtube.com/@southeastreptile",
-      "https://x.com/purringturtle"
+      "https://x.com/purringturtle",
+      "https://www.facebook.com/southeastreptile/"
     ],
     "knowsAbout": ["Wildlife Rehabilitation", "Turtle Rescue", "Reptile Rescue", "Snake Rescue", "Amphibian Conservation", "Diamondback Terrapin", "Eastern Box Turtle"]
   }}
@@ -76,6 +77,18 @@ const featuredMerch = [
       <span style="font-family: var(--font-serif); font-size: 1.05rem;">{nextEvent.title}</span>
       <span style="opacity: 0.75;"> at {nextEvent.venue}, {nextEvent.city}</span>
       <span style="text-decoration: underline; text-underline-offset: 3px; margin-left: 0.6rem; white-space: nowrap;">{nextEvent.url ? (nextEvent.urlLabel || 'Event details') : 'Details'} &rarr;</span>
+    </a>
+  )}
+
+  <!-- Standing banner when no event is scheduled: injured-animal text line -->
+  {!nextEvent && (
+    <a
+      href="sms:7573243720"
+      style="display: block; background: var(--color-accent); color: var(--color-bg-dark); text-decoration: none; padding: 0.8rem var(--site-gutter); text-align: center; font-size: 15px; line-height: 1.5; border-bottom: 1px solid var(--color-border);"
+    >
+      <span style="font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; margin-right: 0.6rem;">Found an injured animal?</span>
+      <span style="font-family: var(--font-serif); font-size: 1.05rem;">Text us at 757-324-3720</span>
+      <span style="opacity: 0.75;"> for native turtles, snakes, frogs, and salamanders in Hampton Roads</span>
     </a>
   )}
 
@@ -224,11 +237,10 @@ const featuredMerch = [
       <div>
         <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-bg-dark); opacity: 0.7; margin-bottom: 0.6rem;">Need help right now?</div>
         <h2 style="font-family: var(--font-serif); font-size: clamp(1.9rem, 3.5vw, 2.6rem); font-weight: 300; color: var(--color-text); margin-bottom: 0.6rem; line-height: 1.15;">Found an injured reptile or amphibian?</h2>
-        <p style="font-size: 1.1rem; color: var(--color-bg-dark); line-height: 1.7; max-width: 520px;">Our triage guide tells you exactly what to do, step by step, and you can file a report when you're ready.</p>
+        <p style="font-size: 1.1rem; color: var(--color-bg-dark); line-height: 1.7; max-width: 520px;">Our triage guide tells you exactly what to do, step by step.</p>
       </div>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; flex-shrink: 0;">
         <a href="/triage" class="btn btn--dark btn--lg" style="white-space: nowrap;">Triage guide</a>
-        <a href="/intake" class="btn btn--outline btn--lg" style="white-space: nowrap;">Report an animal</a>
       </div>
     </div>
   </section>
@@ -263,6 +275,19 @@ const featuredMerch = [
         <img src={latestPost.image} alt={latestPost.imageAlt} loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </a>
+  </section>
+
+  <!-- Email sign-up -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); padding: clamp(2.5rem, 5vw, 3.5rem) var(--site-gutter);">
+    <div style="max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;">
+      <div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 300; margin-bottom: 0.5rem;">Get updates from SERC</h2>
+        <p style="color: var(--color-text-muted); line-height: 1.7; margin: 0; max-width: 620px;">
+          We email a few times a year with news from the rehab room. No spam, and you can unsubscribe any time.
+        </p>
+      </div>
+      <a href="/signup" class="btn btn--dark">Sign up for email updates</a>
+    </div>
   </section>
 
 </Layout>

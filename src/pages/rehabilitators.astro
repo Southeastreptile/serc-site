@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Our permitted rehabilitators. Keep entries short: name, a fun title, the
+// credential line, and city. Photos go in public/images (lowercase), then
+// run `npm run images`. Portrait photos work best; adjust `focus` to keep
+// the face in frame (CSS object-position).
+const people = [
+  {
+    name: 'Linda Nichols',
+    funTitle: 'Chief Shell Officer',
+    roles: ['Founder', 'Licensed wildlife rehabilitator', 'Virginia Tech Hokie'],
+    city: 'Norfolk',
+    image: '/images/linda-card.jpg',
+    imageAlt: 'Linda Nichols, founder of SERC',
+    focus: '50% 50%',
+  },
+  {
+    name: 'Regan Knutson',
+    funTitle: 'Hurt Turt Wizard',
+    roles: ['Licensed wildlife rehabilitator', 'Turtle addict', 'Balances budgets and box turtles'],
+    city: 'Virginia Beach',
+    image: '/images/regan-card.jpg',
+    imageAlt: 'Regan Knutson, SERC wildlife rehabilitator, in front of the turtle tanks',
+    focus: '50% 50%',
+  },
+  {
+    name: 'Johnnae Davis',
+    funTitle: 'Future Turtle Doc',
+    roles: ['Licensed wildlife rehabilitator', 'Pre-vet student', 'ODU Monarch'],
+    city: 'Norfolk',
+    image: '/images/johnnae-card.jpg',
+    imageAlt: 'Johnnae Davis, SERC wildlife rehabilitator, holding a patient wrapped in a blanket',
+    focus: '50% 50%',
+  },
+  {
+    name: 'Ainsley John Darling',
+    funTitle: 'Terrapin Field Scout',
+    roles: ['Licensed wildlife rehabilitator', 'Lanternfly Nemesis', 'Sweet Briar College graduate'],
+    city: '',
+    image: '/images/ainsley-card.jpg',
+    imageAlt: 'Ainsley John Darling, SERC wildlife rehabilitator, holding a diamondback terrapin in a salt marsh',
+    focus: '50% 50%',
+  },
+  {
+    name: 'Emma Evans',
+    funTitle: 'Master Shell Mechanic',
+    roles: ['Licensed wildlife rehabilitator', 'Box turtle researcher', 'Sweet Briar College graduate', 'William & Mary graduate student'],
+    city: 'Williamsburg',
+    image: '/images/emma-card.jpg',
+    imageAlt: 'Emma Evans, SERC wildlife rehabilitator, on a mountain overlook at sunset',
+    focus: '50% 50%',
+  },
+];
+---
+
+<Layout
+  title="Our Rehabilitators"
+  description="Meet the permitted wildlife rehabilitators behind Southeastern Reptile Conservation, caring for native turtles, snakes, and amphibians across Hampton Roads, Virginia."
+>
+
+  <section style="padding: 4rem var(--site-gutter) 1rem; max-width: var(--site-max); margin: 0 auto;">
+    <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-faint); display: block; margin-bottom: 1rem;">The team</span>
+    <h1 style="margin-bottom: 1rem;">Our rehabilitators</h1>
+    <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8; max-width: 640px; margin: 0;">
+      SERC is run by wildlife rehabilitators permitted by the Virginia Department of Wildlife
+      Resources, working out of our homes across Hampton Roads with help from a crew of
+      volunteers and transport drivers.
+    </p>
+  </section>
+
+  <section style="padding: 2rem var(--site-gutter) 5rem; max-width: var(--site-max); margin: 0 auto;">
+    <div class="team">
+      {people.map((p) => (
+        <div class="team__card">
+          <div class="team__photo">
+            <img src={p.image} alt={p.imageAlt} loading="lazy" style={`object-position: ${p.focus};`} />
+          </div>
+          <div class="team__body">
+            <div class="team__fun">{p.funTitle}</div>
+            <h2 class="team__name">{p.name}</h2>
+            <p class="team__roles">{p.roles.join(' · ')}</p>
+            {p.city && <p class="team__city">{p.city}, VA</p>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="team__cta">
+      Want to join them? Most of our rehabilitators started as volunteers.
+      <a href="/volunteer">See how to help</a> or
+      <a href="/contact">ask us about getting permitted</a>.
+    </p>
+  </section>
+
+  <style>
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+      gap: 2rem;
+    }
+    .team__card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+    }
+    /* Soft, matte treatment so different photos read as one set:
+       lower contrast and saturation, a touch warmer, plus a faint warm wash. */
+    .team__photo {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      position: relative;
+    }
+    .team__photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(214, 196, 170, 0.18), rgba(120, 100, 80, 0.22));
+      pointer-events: none;
+    }
+    .team__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(0.88) saturate(0.8) brightness(1.04) sepia(0.12);
+    }
+    .team__body { padding: 1.5rem; }
+    .team__fun {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-faint);
+      margin-bottom: 0.4rem;
+    }
+    .team__name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 0 0.5rem;
+    }
+    .team__roles {
+      font-size: 15px;
+      color: var(--color-text);
+      line-height: 1.6;
+      margin: 0 0 0.25rem;
+    }
+    .team__city {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+    .team__cta {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+    .team__cta a {
+      color: var(--color-text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+
+</Layout>

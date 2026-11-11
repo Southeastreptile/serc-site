@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Email sign-up page. Share it as southeastreptile.org/signup (event sign-in
+// sheets, QR codes, social bios).
+//
+// SIGNUP_FORM_URL: the embed URL of the sign-up form from our email tool
+// (Google Forms "Send > Embed" src, Mailchimp embedded form, Zeffy form, etc.).
+// When set, the form is embedded below. When empty, the page shows an
+// email-us button instead so the link always works.
+const SIGNUP_FORM_URL = '';
+const SIGNUP_FORM_HEIGHT = 720;
+
+const subscribeMailto =
+  'mailto:info@southeastreptile.org?subject=' +
+  encodeURIComponent('Add me to SERC email updates') +
+  '&body=' +
+  encodeURIComponent('Please add me to the SERC email list.\n\nName:\nCity:\nHow I heard about SERC:\n');
+---
+
+<Layout
+  title="Sign Up for Email Updates"
+  description="Join the Southeastern Reptile Conservation email list for updates a few times a year on the native turtles, snakes, and amphibians we rehabilitate in Hampton Roads. No spam, unsubscribe any time."
+>
+
+  <!-- Header -->
+  <section style="padding: 4rem var(--site-gutter) 1.5rem; max-width: 820px; margin: 0 auto;">
+    <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-faint); display: block; margin-bottom: 1rem;">Stay in touch</span>
+    <h1 style="margin-bottom: 1rem;">Sign up for email updates</h1>
+    <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.25rem;">
+      Thanks for stopping by our table. Join our email list and we'll send you updates a few
+      times a year: news from the rehab room, upcoming events, and what your support made possible.
+    </p>
+    <ul class="signup__list">
+      <li>A few emails a year, not a few a week.</li>
+      <li>We never share or sell your email address.</li>
+      <li>Unsubscribe any time with one click.</li>
+    </ul>
+  </section>
+
+  <!-- Form -->
+  <section style="padding: 0 var(--site-gutter) 5rem; max-width: 820px; margin: 0 auto;">
+    {SIGNUP_FORM_URL ? (
+      <iframe
+        src={SIGNUP_FORM_URL}
+        title="SERC email sign-up form"
+        loading="lazy"
+        style={`width: 100%; border: 0; min-height: ${SIGNUP_FORM_HEIGHT}px;`}
+      ></iframe>
+    ) : (
+      <div class="signup__fallback">
+        <p style="margin: 0 0 1.25rem; line-height: 1.8;">
+          Send us a quick email and we'll add you to the list. The button below opens a message with
+          the subject already filled in.
+        </p>
+        <a href={subscribeMailto} class="btn btn--dark">Email us to sign up</a>
+        <p style="font-size: 14px; color: var(--color-text-muted); margin: 1.25rem 0 0; line-height: 1.7;">
+          Prefer to type it yourself? Email
+          <a href="mailto:info@southeastreptile.org">info@southeastreptile.org</a>
+          with the subject "Add me to SERC email updates."
+        </p>
+      </div>
+    )}
+    <p style="font-size: 13px; color: var(--color-text-faint); line-height: 1.7; margin-top: 1.25rem; max-width: 640px;">
+      We use your email address only to send SERC updates. See our
+      <a href="/privacy#email-updates" style="color: var(--color-text-muted); text-decoration: underline; text-underline-offset: 3px;">privacy policy</a>.
+    </p>
+  </section>
+
+  <style>
+    .signup__list {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+      line-height: 1.9;
+    }
+    .signup__fallback {
+      padding: 2rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+    }
+    .signup__fallback a:not(.btn) {
+      color: var(--color-text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+
+</Layout>

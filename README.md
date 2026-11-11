@@ -1,6 +1,6 @@
 # SERC Website
 
-Website for Southeastern Reptile Conservation (southeastreptile.org), a Virginia 501(c)(3) rehabilitating native reptiles and amphibians in Hampton Roads and Southeastern Virginia. Built with Astro and hosted on Firebase.
+Website for Southeastern Reptile Conservation (southeastreptile.org), a Virginia 501(c)(3) rehabilitating native reptiles and amphibians in Hampton Roads. Built with Astro 6, hosted on Firebase.
 
 ## Getting started
 
@@ -9,9 +9,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:4321
-
-Requires Node 22.12 or newer.
+Open http://localhost:4321. Requires Node 22.12 or newer.
 
 ## Build and deploy
 
@@ -20,54 +18,34 @@ npm run build
 firebase deploy --only hosting --project serc-website-d2ac4
 ```
 
-A GitHub Actions workflow (`.github/workflows/deploy.yml`) deploys automatically on push to `main` once the `FIREBASE_SERVICE_ACCOUNT` repo secret is set up (`firebase init hosting:github`). Until then, deploy manually with the commands above.
+Deploys are manual for now. The GitHub Actions workflow in `.github/workflows/deploy.yml` will deploy on push to `main` once the `FIREBASE_SERVICE_ACCOUNT` secret is set (`firebase init hosting:github`).
 
 ## Project layout
 
-- `src/layouts/Layout.astro` — nav, footer, `<head>` (SEO meta, JSON-LD, GA4 analytics)
-- `src/pages/` — one file per page (blog posts in `src/pages/blog/`)
-- `src/data/posts.js` — shared blog post list (newest first); drives the blog index and the homepage feature
-- `src/data/events.js` — community events with ISO dates; drives `/events` and the homepage "Upcoming event" card
-- `src/content/species/*.json` — data for the Field Guide
-- `src/styles/global.css` — all styles and design tokens
-- `public/images/` — all images (use **lowercase** filenames; the host is case-sensitive)
+- `src/layouts/Layout.astro`: nav, footer, `<head>` (SEO, JSON-LD, GA4)
+- `src/pages/`: one file per page; blog posts in `src/pages/blog/`
+- `src/data/posts.js`: blog list, newest first
+- `src/data/events.js`: events with ISO dates; drives `/events` and the homepage event banner
+- `src/content/species/*.json`: field guide data
+- `src/styles/global.css`: design tokens and shared styles
+- `public/images/`, `public/guides/`: images and self-hosted PDFs (lowercase filenames; hosting is case-sensitive). After adding photos, run `npm run images` to resize and compress them for the web.
 
-Pages: Home, About, Our Patients, Field Guide, Turtle Watch, Software, Blog, Events, Rehabber Resources, Contact, Donate, Merch, Triage, Intake, Privacy Policy, and a 404.
+Pages: Home, About, Our Rehabilitators, Our Patients, Field Guide, Turtle Watch, Software, Blog, Events, Rehabber Resources, Contact, Donate, Merch, Triage, Intake, Privacy, Sign Up (email list), an unlisted Get Permitted guide, and a 404. Agent and contributor notes live in `AGENTS.md`.
 
-## Adding an event
+## Common edits
 
-Add an object to `src/data/events.js` with an ISO `date` (`YYYY-MM-DD`), `title`, `venue`, `city`, and `description`; optional `time`, `address`, `url` + `urlLabel`, `image`, `type`. Past events hide automatically. Speaking engagements live in the `talks` array at the top of `src/pages/about.astro`.
+- **Blog post**: copy an existing post in `src/pages/blog/`, then add an entry to the top of `src/data/posts.js`.
+- **Event**: add an object with an ISO `date` to `src/data/events.js`. Past events hide automatically.
+- **Talk or poster**: edit the `talks` array at the top of `src/pages/about.astro`.
+- **Short link** (`/chewy`, `/slack`, `/venmo`, `/guides/...`, `/talks/...`): add a redirect in `firebase.json` and deploy.
+- **Email sign-up form**: set `SIGNUP_FORM_URL` at the top of `src/pages/signup.astro` to the form's embed URL.
 
-## Adding a blog post
-
-1. Create `src/pages/blog/your-post-slug.astro` (copy an existing post as a template).
-2. Add an entry to the **top** of the array in `src/data/posts.js` (newest first) so it lists on `/blog` and features on the homepage.
-3. Drop any images in `public/images/`.
-
-Notes: blog posts are `.astro`, not MDX. Keep body copy free of em dashes, and keep animal, nesting, and release locations general (anti-poaching). Pass `noindex={true}` to the Layout for drafts or private pages.
+Content rules: no em dashes in body copy; keep animal locations general (anti-poaching); pass `noindex={true}` to the Layout for unlisted pages.
 
 ## Turtle Watch (`/turtle-watch`)
 
-Live corridor map showing where turtles are active near major roads in southeastern Virginia. Fetches observations from the iNaturalist API and road geometry from the OpenStreetMap Overpass API. No build-time data, all client-side.
-
-Key constants at the top of `src/pages/turtle-watch/index.astro`:
-
-```js
-const GRID_DEG    = 0.04;   // grid cell size
-const ROAD_THRESH = 0.004;  // road proximity threshold
-const MIN_CLUSTER = 2;      // minimum sightings to highlight a cell
-```
-
-Data sources: iNaturalist (`api.inaturalist.org/v1/observations`, Testudines) and the OpenStreetMap Overpass API (motorway, trunk, primary, secondary roads). A seasonal alert banner appears automatically April through September.
+Live map of turtle activity near major roads in southeastern Virginia, built client-side from the iNaturalist API and OpenStreetMap Overpass. Tuning constants (`GRID_DEG`, `ROAD_THRESH`, `MIN_CLUSTER`) are at the top of `src/pages/turtle-watch/index.astro`. A seasonal banner shows April through September.
 
 ## Intake form (`/intake`)
 
-The intake page embeds the public animal report form from WRMD (Wildlife Rehabilitation MD), SERC's intake system. Reports go directly into WRMD; the site stores nothing. The form's pre- and post-submit messages are configured in WRMD. WRMD only serves the embed to the domain registered in the account, so a 404 inside the iframe means the domain is not registered.
-
-## Short links
-
-Stable short links to external resources live in the `redirects` block of `firebase.json` (e.g. `/chewy`, `/guides/box-turtle-headstart`). Share those instead of raw Drive or storefront URLs; when a destination changes, update the one entry and every shared link keeps working. To replace a guide PDF without changing its link, use Drive's Manage versions → Upload new version.
-
-## Rehabber resources and privacy
-
-`/rehabber-resources` (not indexed) links SERC's curated supplies list on Chewy and any publicly shareable guides. `/privacy` is the privacy policy; update the `effectiveDate` constant at the top of `src/pages/privacy.astro` when the text changes.
+Embeds the public animal report form from WRMD (Wildlife Rehabilitation MD), SERC's intake system. Reports go directly to WRMD; the site stores nothing. WRMD only serves the embed to the domain registered in the account.

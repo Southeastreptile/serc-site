@@ -1,11 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// Sweatshirt and hoodie cards link to the same Bonfire campaign as the tee of the
+// same design; shoppers pick the garment on Bonfire. Prices are the campaign's
+// listed tier for that garment.
 const products = [
   {
     name: 'Help save injured turtles!',
     price: '$30',
     styles: '8 styles',
+    url: 'https://www.bonfire.com/help-save-injured-turtles/',
+    image: 'https://dynamic.bonfireassets.com/thumb/design-image/0d782fda-7508-4790-b681-8c4eb7fb6235/a12f1364-34a5-4ab3-bcd5-fb45910a2e8f/450/',
+  },
+  {
+    name: 'Help save injured turtles! (crewneck sweatshirt)',
+    price: '$40',
+    styles: 'Crewneck',
     url: 'https://www.bonfire.com/help-save-injured-turtles/',
     image: 'https://dynamic.bonfireassets.com/thumb/design-image/0d782fda-7508-4790-b681-8c4eb7fb6235/a12f1364-34a5-4ab3-bcd5-fb45910a2e8f/450/',
   },
@@ -24,9 +34,23 @@ const products = [
     image: 'https://dynamic.bonfireassets.com/thumb/design-image/68e3a592-b0ff-4ad1-b4ca-e474eee6f7e6/a12f1364-34a5-4ab3-bcd5-fb45910a2e8f/450/',
   },
   {
+    name: 'Wear a snake on your heart! (crewneck sweatshirt)',
+    price: '$35',
+    styles: 'Crewneck',
+    url: 'https://www.bonfire.com/save-native-snakes/',
+    image: 'https://dynamic.bonfireassets.com/thumb/design-image/68e3a592-b0ff-4ad1-b4ca-e474eee6f7e6/a12f1364-34a5-4ab3-bcd5-fb45910a2e8f/450/',
+  },
+  {
     name: 'Meet the toads at midnight!',
     price: '$28',
     styles: '7 styles',
+    url: 'https://www.bonfire.com/save-the-toads/',
+    image: 'https://c.bonfireassets.com/thumb/design-image/4873981f-4b02-452a-8ced-be98bcd6ed75/e9c2cd77-4ea2-4179-a32e-3b0e6282c053/900/',
+  },
+  {
+    name: 'Meet the toads at midnight! (crewneck sweatshirt)',
+    price: '$40',
+    styles: 'Crewneck',
     url: 'https://www.bonfire.com/save-the-toads/',
     image: 'https://c.bonfireassets.com/thumb/design-image/4873981f-4b02-452a-8ced-be98bcd6ed75/e9c2cd77-4ea2-4179-a32e-3b0e6282c053/900/',
   },
@@ -38,7 +62,21 @@ const products = [
     image: 'https://c.bonfireassets.com/thumb/design-image/cc8a528d-27bd-4891-8f9f-845140ae3b60/fefea009-962d-403a-b60d-f799fa6bf49a/900/',
   },
   {
-    name: 'Help support the baby turtles! (hoodie)',
+    name: 'Help support the baby turtles! (crewneck sweatshirt)',
+    price: '$40',
+    styles: 'Crewneck',
+    url: 'https://www.bonfire.com/support-baby-turtles/',
+    image: 'https://c.bonfireassets.com/thumb/design-image/cc8a528d-27bd-4891-8f9f-845140ae3b60/fefea009-962d-403a-b60d-f799fa6bf49a/900/',
+  },
+  {
+    name: 'Help support the baby turtles! (pullover hoodie)',
+    price: '$50',
+    styles: 'Hoodie',
+    url: 'https://www.bonfire.com/support-baby-turtles/',
+    image: 'https://c.bonfireassets.com/thumb/design-image/cc8a528d-27bd-4891-8f9f-845140ae3b60/fefea009-962d-403a-b60d-f799fa6bf49a/900/',
+  },
+  {
+    name: 'Help support the baby turtles! (zip hoodie)',
     price: '$45',
     styles: '6 styles',
     url: 'https://www.bonfire.com/support-baby-turtles-winter/',

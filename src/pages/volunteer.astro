@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const EMAIL = 'info@southeastreptile.org';
+const TEXT = '757-324-3720';
+const SMS_HREF = `sms:${TEXT.replace(/-/g, '')}`;
+
+const mailto = (subject) => `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`;
+---
+
+<Layout
+  title="Volunteer with SERC"
+  description="Ways to volunteer with Southeastern Reptile Conservation in Hampton Roads: transport drivers (our biggest need, no permit required), hands-on animal care, events, fundraising, and skills."
+  image="/images/toano.jpg"
+>
+
+  <!-- Hero (same split layout as About and Contact) -->
+  <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; background: var(--color-bg);">
+    <div style="padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center;">
+      <span class="vol__kicker">Volunteer</span>
+      <h1 style="margin-bottom: 1.5rem;">Volunteer with SERC</h1>
+      <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.8;">
+        SERC is run entirely by volunteers, and there is a place for you whether you have a free
+        Saturday a month or a free afternoon this week. Some roles need a state permit and some need
+        nothing but a car.
+      </p>
+    </div>
+    <!-- img stays a direct child so the global mobile rule still stacks and sizes this column -->
+    <div style="overflow: hidden; min-height: 500px; display: flex; flex-direction: column;">
+      <img
+        src="/images/toano.jpg"
+        alt="An eastern box turtle with a healed crack down one side of its shell, walking through leaf litter after release."
+        fetchpriority="high"
+        style="width: 100%; flex: 1; min-height: 0; object-fit: cover;"
+      />
+      <p style="margin: 0; padding: 0.6rem 1rem; font-size: 13px; line-height: 1.6; color: var(--color-text-faint); background: var(--color-bg);">
+        A box turtle released after shell repair. A volunteer driver brought him in, and a volunteer driver took him home.
+      </p>
+    </div>
+  </section>
+
+  <div class="vol">
+
+    <!-- Biggest need: transport -->
+    <section class="vol__section vol__section--featured" id="transport">
+      <div class="vol__flag">Our biggest need</div>
+      <h2>Transport drivers</h2>
+      <p>
+        Someone finds an injured turtle, calls us, and the animal needs a ride to our facility or to
+        the vet. Our rehabilitators are busy with the animals already in care, so volunteer drivers
+        are how most of our patients get to us.
+      </p>
+      <ul class="vol__points">
+        <li><strong>No permit needed.</strong> The animal rides in a box or carrier; you never have to touch it.</li>
+        <li><strong>No schedule.</strong> Transport needs are posted as they come up, and you pick the ones that work for you.</li>
+        <li><strong>What you need:</strong> a license, a reliable car, and a charged phone. We send simple instructions for each run.</li>
+      </ul>
+
+      <div class="vol__cta">
+        <p><strong>Want to drive?</strong> Email or text us your general area and we will add you to the transport list. No commitment until your first run.</p>
+        <div class="vol__cta-buttons">
+          <a class="btn btn--accent" href={mailto('Transport volunteer')}>Email us</a>
+          <a class="btn btn--outline" href={SMS_HREF}>Text {TEXT}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other ways -->
+    <section class="vol__section" id="other-ways">
+      <h2>Other ways to volunteer</h2>
+      <p>Transport is the biggest need, but it is not the only one. Pick the one that fits your time and skills.</p>
+
+      <div class="vol__ways">
+        <article class="vol__way">
+          <h3>Hands-on animal care</h3>
+          <p>
+            Feeding, soaking, cleaning, weighing, and watching for the small changes that matter.
+            Direct care of wildlife requires a Virginia DWR permit, and the entry level (Category IV,
+            Care Provider) needs no sponsor and no home inspection. We will walk you through it.
+          </p>
+          <a href={mailto('Volunteering: animal care')}>Ask about animal care</a>
+        </article>
+        <article class="vol__way">
+          <h3>Events and outreach</h3>
+          <p>
+            Staff a table at a fundraiser or community event, help with setup and teardown, talk to
+            people about native turtles and snakes, and bring an education ambassador along when one
+            is available. Our <a href="/events">events page</a> shows what is coming up.
+          </p>
+          <a href={mailto('Volunteering: events')}>Help at an event</a>
+        </article>
+        <article class="vol__way">
+          <h3>Fundraising</h3>
+          <p>
+            Every animal has a cost: fuel for the runs, crates and heat, and the vet bills that turn a
+            maybe into a release. Run a birthday fundraiser, an office drive, or a 5K with SERC as the
+            beneficiary, or point people to the <a href="/donate">donate page</a>.
+          </p>
+          <a href={mailto('Volunteering: fundraising')}>Plan a fundraiser</a>
+        </article>
+        <article class="vol__way">
+          <h3>Skills and software</h3>
+          <p>
+            Photography, writing, grant research, and design all help. If you write code, our
+            conservation tools are <a href="/open-source">open source</a> and welcome contributors.
+          </p>
+          <a href={mailto('Volunteering: skills')}>Offer a skill</a>
+        </article>
+        <article class="vol__way">
+          <h3>Spread the word</h3>
+          <p>
+            Most people who find an injured turtle do not know who to call. Follow and share SERC,
+            send the <a href="/triage">triage guide</a> to your neighborhood group, and keep our number
+            where you can grab it fast. A share is free, and it is how finders find us.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Permit path -->
+    <section class="vol__section" id="permitted">
+      <h2>Interested in becoming a permitted rehabilitator?</h2>
+      <p>
+        Some volunteers want to do more: raise box turtle hatchlings, incubate rescued eggs,
+        overwinter animals that cannot go back out until spring. Virginia issues wildlife
+        rehabilitation permits in five categories, and reptile and amphibian work has its own
+        housing standards and release seasons. It is real work with real rules, and the people who
+        thrive are the ones who read the instructions and follow them.
+      </p>
+      <p>
+        If that sounds like you, get in touch and we will send our plain-language guide to the
+        permit categories, the application steps, and what we look for in the care providers and
+        apprentices we sponsor.
+      </p>
+      <div class="vol__cta-buttons">
+        <a class="btn btn--accent" href={mailto('Becoming a permitted rehabilitator')}>Email us about permits</a>
+        <a class="btn btn--outline" href="/contact">Contact page</a>
+      </div>
+    </section>
+
+  </div>
+
+  <style>
+    /* Same content width as the other pages; prose stays at a readable measure, grids go full width. */
+    .vol { max-width: var(--site-max); margin: 0 auto; padding: 1rem var(--site-gutter) 5rem; }
+    .vol__section > p, .vol__points, .vol__cta { max-width: 760px; }
+    .vol__kicker {
+      display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 1rem;
+    }
+
+    .vol__section { padding: 2.5rem 0; border-top: 1px solid var(--color-border); }
+    .vol__section h2 { font-family: var(--font-serif); font-weight: 300; font-size: 1.8rem; margin-bottom: 1rem; }
+    .vol__section p { color: var(--color-text-muted); font-size: 1.02rem; line-height: 1.8; margin-bottom: 1.1rem; }
+    .vol__section strong { font-weight: 500; color: var(--color-text); }
+    /* Text links only; buttons keep their own colors. */
+    .vol__section a:not(.btn) { color: var(--color-text); text-decoration: underline; text-underline-offset: 3px; }
+
+    .vol__section--featured {
+      margin-top: 2.5rem; padding: 2rem 2rem 2.25rem; border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-text); background: var(--color-bg-light);
+    }
+    .vol__flag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 0.5rem; }
+
+    .vol__points { margin: 0.25rem 0 1.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .vol__points li { color: var(--color-text-muted); font-size: 1.02rem; line-height: 1.75; }
+
+    .vol__cta { background: var(--color-surface); border: 1px solid var(--color-border); padding: 1.3rem 1.5rem; margin-top: 1.5rem; }
+    .vol__cta p { margin-bottom: 0.9rem; }
+    .vol__cta-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    .vol__ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+    .vol__way { background: var(--color-surface); border: 1px solid var(--color-border); padding: 1.4rem 1.6rem; display: flex; flex-direction: column; }
+    .vol__way h3 { font-family: var(--font-serif); font-weight: 400; font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .vol__way p { font-size: 15px; margin-bottom: 0.9rem; flex: 1; }
+    .vol__way > a { font-size: 14px; }
+  </style>
+
+</Layout>

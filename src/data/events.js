@@ -19,6 +19,8 @@ export const events = [
     description:
       'A Turtle Survival Alliance fundraiser hosted with Afterglow Brewing. Come have a pint, meet the SERC team, and support native turtle rehabilitation.',
     partners: ['Afterglow Brewing', 'Turtle Survival Alliance'],
+    url: 'https://turtlesurvival.org/events/drink-beer-save-turtles-at-afterglow-brewing-in-norfolk-va/',
+    urlLabel: 'Event details on TSA',
     image: '/images/drink-beer-save-turtles-2026.jpg',
     imageAlt: 'Drink Beer. Save Turtles. event flyer with turtles stacked beside a pint glass',
     type: 'fundraiser',
@@ -48,6 +50,13 @@ export function upcomingEvents(today = todayLocalISO()) {
   return events
     .filter((e) => isUpcoming(e, today))
     .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+// Events that have ended, most recent first (for the archive on /events).
+export function pastEvents(today = todayLocalISO()) {
+  return events
+    .filter((e) => !isUpcoming(e, today))
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 // "November 6, 2026", or for ranges "November 6 to 8, 2026" /

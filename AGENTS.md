@@ -1,104 +1,65 @@
 # SERC Site
 
-Astro static site for Southeastern Reptile Conservation (southeastreptile.org), a Virginia 501(c)(3) that rehabilitates native reptiles and amphibians and serves Hampton Roads / Southeastern Virginia. Hosted on Firebase Hosting.
+Astro 6 static site for Southeastern Reptile Conservation (southeastreptile.org), a Virginia 501(c)(3) rehabilitating native reptiles and amphibians in Hampton Roads. Firebase Hosting (site `serc-website-d2ac4`, public dir `dist`).
 
-## Stack
+## Build and deploy
 
-Astro 6 | `@astrojs/sitemap` (auto-generates the sitemap on every build) | Firebase Hosting (site id: `serc-website-d2ac4`, public dir: `dist`) | Fonts: Marcellus (headings), PT Serif (body/nav), loaded via `<link>` in Layout | All styles in `src/styles/global.css` using CSS custom properties.
-
-`@astrojs/mdx` is installed but unused; blog posts are `.astro`, not MDX.
-
-Astro requires Node >= 22.12. If the local `node` is broken (Homebrew `node@22` has had a dyld error), use `export PATH="/opt/homebrew/Cellar/node/26.5.0/bin:$PATH"`.
-
-## Commands
-
-`npm run dev` starts local dev at localhost:4321
-`npm run build` builds to `dist/`
-`firebase deploy --only hosting --project serc-website-d2ac4` deploys (this is how the site is currently shipped)
-
-## Deploys
-
-`.github/workflows/deploy.yml` auto-deploys on push to `main`, but it needs the `FIREBASE_SERVICE_ACCOUNT` repo secret, which has not been set yet (create it with `firebase init hosting:github`). Until then, deploy manually with the command above. Gotchas are documented in the workflow header: the Firebase project ID is `serc-website-d2ac4` (the display name `serc-website` is not the ID), and Node must be >= 22.
+- Node >= 22.12. If local `node` is broken, `export PATH="/opt/homebrew/Cellar/node/26.5.0/bin:$PATH"`.
+- `npm run dev` (localhost:4321), `npm run build` (to `dist/`), `firebase deploy --only hosting --project serc-website-d2ac4`.
+- Deploys are manual. `.github/workflows/deploy.yml` will auto-deploy on push to `main` once the `FIREBASE_SERVICE_ACCOUNT` secret exists (`firebase init hosting:github`). Project ID is `serc-website-d2ac4`, not the display name `serc-website`.
+- `CLAUDE.md` is gitignored; `AGENTS.md` is its committed mirror. Keep them identical (`cp CLAUDE.md AGENTS.md`).
 
 ## Structure
 
-`src/layouts/Layout.astro` — nav, footer, `<head>` (SEO meta + JSON-LD + analytics)
-`src/pages/` — one file per page; blog posts in `src/pages/blog/`
-`src/data/posts.js` — shared blog post metadata, newest first (drives the blog index and the homepage "From the blog" feature)
-`src/data/events.js` — community events (ISO dates) plus date helpers; drives `/events` and the homepage "Upcoming event" card
-`src/content/species/*.json` — species data for the field guide (four files: turtles, snakes, frogs-toads, salamanders), each with `inatTaxonId`
-`src/pages/turtle-watch/index.astro` — live iNaturalist corridor map (client-side)
-`src/styles/global.css` — all styles and design tokens
-`public/images/` — all images
+- `src/layouts/Layout.astro`: nav, footer, `<head>` (SEO meta, JSON-LD, GA4), date guard script.
+- `src/pages/`: one file per page; blog posts in `src/pages/blog/`.
+- `src/data/posts.js`: blog metadata, newest first (blog index + homepage feature).
+- `src/data/events.js`: events with ISO dates plus date helpers (`/events`, homepage banner and card).
+- `src/content/species/*.json`: field guide data (turtles, snakes, frogs-toads, salamanders), each with `inatTaxonId`. Loaded by direct import, not content collections.
+- `src/styles/global.css`: all design tokens and shared classes (`.btn*`, `.post-card*`, `.tag`, `.section`). Pages use inline styles or a scoped `<style>` block.
+- `public/images/`: images (lowercase filenames). `public/guides/`: self-hosted PDFs (e.g. `separc-2026-terrapin-poster.pdf`).
 
-## Pages
+## Pages and nav
 
-Home, About (includes the Speaking and outreach section), Our patients (`/wildlife`), Field guide (`/species` + `/species/[id]`), Turtle Watch, Software (`/open-source`), Blog, Events (`/events`), Rehabber resources (`/rehabber-resources`, noindexed), Contact, Donate, Merch, Triage (`/triage`), Intake (`/intake`), Privacy policy (`/privacy`), 404.
+Home, About (with Speaking and outreach), Our rehabilitators (`/rehabilitators`), Our patients (`/wildlife`), Field guide (`/species`, `/species/[id]`), Turtle Watch, Software (`/open-source`), Blog, Events, Volunteer, Rehabber resources (noindex), Contact, Donate, Merch, Triage, Intake, Privacy, Sign up (`/signup`, email list), Get permitted (noindex, unlisted), 404.
 
-Nav (in Layout): logo + Home, About (dropdown: About us, Events, For rehabbers), Our patients, Field guide (dropdown: Species ID, Turtle Watch), Software, Blog, Contact, and a Support dropdown (Donate, Merch). Software stays top-level on purpose: the open-source work is core to SERC's identity and should be visible on every page. Blog stays top-level too (main public content). Not every page is in the nav. The footer links Rehabber resources and Privacy policy. Software is also highlighted in a dark band on the homepage (after the mission strip).
+Nav: Home · About ▾ (About us, Our rehabilitators, Events, Volunteer, For rehabbers) · Our patients · Field guide ▾ (Species ID, Turtle Watch) · Software · Blog · Contact, plus a Support ▾ button (Donate, Merch). Software and Blog stay top-level on purpose. Below 1200px the links collapse to the hamburger (icons and Support stay); below 768px those hide too. A new top-level item adds ~100px and a new social icon ~30px; prefer a dropdown, and re-measure before adding either. Social icons: iNaturalist, Instagram, YouTube, X, Facebook (also listed in the homepage and contact `sameAs`). Footer links Email updates (`/signup`), Rehabber resources, and Privacy.
 
-The full desktop nav needs about 1170px. Below `max-width: 1180px` the links collapse into the hamburger menu while the social icons and Support button stay visible; below 768px those hide too (both rules are in the Responsive block of `global.css`). Adding a top-level nav item pushes that figure up by roughly 100px; prefer adding to a dropdown, and re-measure `.nav__links` width at 1440px before changing the breakpoint.
+## Conventions
 
-## Layout / SEO conventions
+- **No em dashes** in body copy. Use commas, colons, periods, parentheses.
+- **Never use the word "roadkill."** Say "hit by car" or "car strike"; it reads as disturbing to our audience.
+- **Keep animal locations generic** (nests, rescues, releases): anti-poaching. City or county level at most. Venue addresses for public events are fine.
+- **Lowercase image and file names** (hosting is case-sensitive).
+- **Run `npm run images` after adding photos.** It resizes anything in `public/images` wider than 2000px and recompresses files over 400 KB in place (`scripts/optimize-images.mjs`, uses sharp). Camera-sized originals tanked mobile Lighthouse (6.5 MB hero, LCP 39 s). Images are cached for 30 days, so renaming a replaced image is safer than overwriting it.
+- **No affiliate or commercial links** outside Donate, Merch, and the noindexed rehabber page (Google Ad Grants). The Chewy storefront link there pays a commission, so it carries `rel="sponsored"` and a disclosure.
+- SERC accepts **venomous snakes** (coordinated with DWR and partner handlers); do not add copy saying otherwise.
+- Titles get ` | SERC` appended unless they already contain "SERC". Pass `noindex={true}` for unlisted pages; also add them to the sitemap `filter` in `astro.config.mjs`.
 
-- Titles auto-get ` | SERC` appended only when the title does not already contain "SERC".
-- `<head>` includes `robots`, `geo.region`/`geo.placename`, canonical, Open Graph/Twitter tags, and an `impact-site-verification` meta tag.
-- Pass `noindex={true}` to `Layout` for drafts or private pages (e.g. rehabber resources).
-- GA4 (`G-N186ZPKTJC`) plus a delegated click tracker in Layout fires: `event_link_click` (anchors with `data-track="event-link"`, carries `event_title`), `donate_click` (Donate / Zeffy / PayPal / Bonfire), `wishlist_click` (Amazon / Chewy / Walmart), `text_click` (`sms:`), `email_click` (`mailto:`), `contact_submit`. The intake form is a third-party iframe, so its submissions are not tracked by our page.
-- Date guard (inline script after `<main>` in Layout): any element with `data-hide-after="YYYY-MM-DD"` is hidden once that day has passed in the visitor's local time, and any `[data-empty-for="<list id>"]` is revealed when that list has no visible items. Used by event cards, the homepage event section, and the "Upcoming" pill on talks.
+## Layout features
 
-## Adding a blog post
+- GA4 `G-N186ZPKTJC` with a delegated click tracker: `event_link_click` (`data-track="event-link"`, carries `event_title`), `donate_click` (Donate/Zeffy/PayPal/Venmo/Bonfire), `wishlist_click` (Amazon/Chewy/Walmart), `text_click`, `email_click`, `contact_submit`. The WRMD intake iframe is not tracked.
+- Date guard (inline script after `<main>`): hides any `[data-hide-after="YYYY-MM-DD"]` once that local day passes and reveals `[data-empty-for="<list id>"]` when its list is empty. Used by events and the "Upcoming" pill on talks.
+- `<head>` has robots, geo, canonical, OG/Twitter (`twitter:site` @purringturtle), and an `impact-site-verification` meta.
 
-1. Create `src/pages/blog/<slug>.astro` (copy an existing post as a template; use the `blog-post` structure and classes).
-2. Add an entry to the **top** of the array in `src/data/posts.js` (newest first) so it lists on `/blog` and features on the homepage.
-3. Drop images in `public/images/`.
+## Content recipes
 
-## Adding an event
+- **Blog post**: create `src/pages/blog/<slug>.astro` from an existing post; add an entry to the top of `src/data/posts.js`.
+- **Event**: add to `src/data/events.js` (`title`, ISO `date`, `venue`, `city`, `description`; optional `endDate`, `time`, `address`, `partners[]`, `url` + `urlLabel`, `image` + `imageAlt`, `type`). Upcoming events render in full; the homepage shows the soonest as a banner above the hero and a card below the Donate band. When nothing is upcoming the homepage banner becomes a standing "Found an injured animal? Text us" strip (sms link, tracked as `text_click`). Past events move to a compact "Past events" archive on `/events` (`SHOW_PAST`, `pastEvents()`), filtered at build and hidden client-side the next day; a deploy is still needed to publish new ones or swap the banner. Each event emits `Event` JSON-LD on `/events`.
+- **Talk**: edit `talks` at the top of `src/pages/about.astro` (`event`, `format`, ISO `date` or `date: null` + `year`, optional `eventFull`, `title`, `titleHtml` for italic binomials, `time`, `location`, `url` + `urlLabel`). Newest first; future dates get an "Upcoming" pill.
+- **Press**: edit `press` in `src/pages/about.astro` (`title`, `outlet`, ISO `date`, `url`, optional `author`, `note`). Renders as "In the news" (`/about#press`) under Speaking and outreach, newest first.
+- **Short link**: add a 302 to the `redirects` block in `firebase.json` (regex with optional trailing slash) and deploy; no build needed. Current: `/chewy`, `/venmo`, `/slack`, `/guides/box-turtle-headstart` (Drive PDF), `/talks/bsides-2026` (Google Slides); `/newsletter` and `/subscribe` 301 to `/signup`. Share the short link, never the raw URL. For Drive PDFs, replace the file via Manage versions to keep the ID. Self-hosted PDFs go in `public/guides/` and are linked directly.
 
-1. Add an object to the array in `src/data/events.js`. `date` must be ISO `YYYY-MM-DD`; add `endDate` for multi-day events. Required: `title`, `date`, `venue`, `city`, `description`. Optional: `time` (display string), `address`, `partners[]`, `url` + `urlLabel` (button text, defaults to "Event details"), `image` + `imageAlt`, `type` (fundraiser | cleanup | education | other).
-2. Event images go in `public/images/` with lowercase filenames; the events page renders them 16:9.
-3. Build and deploy. Only upcoming events render. On the homepage the soonest event appears twice: a slim accent banner above the hero and the "Upcoming event" section below the Donate band. Both disappear when nothing is scheduled. Each upcoming event also emits `Event` JSON-LD on `/events`.
+## Page notes
 
-Past events are filtered at build time and also hidden in the browser the day after they end (date guard above), so a stale event vanishes for visitors immediately. A deploy is still needed to remove it from the HTML and JSON-LD and to publish new events. Venue names and street addresses for public fundraisers are fine; the location rule below is about animals.
-
-## Adding a talk
-
-Edit the `talks` array at the top of `src/pages/about.astro`. Fields: `event` (conference name), optional `eventFull` (spelled-out org), `format` (Talk | Poster | Workshop | Panel | Virtual talk), `date` (ISO) or `date: null` plus `year` when the exact day is unknown, optional `title` (talk title; the event name is used as the heading when missing), `titleHtml` (same title with markup, for italic scientific names via `<em>`), `time` (display string, shown under the date), `location`, `url`. All talks stay listed, newest first; a dated talk in the future gets an "Upcoming" pill automatically.
-
-## Intake form
-
-`/intake` embeds the public animal report form from WRMD (Wildlife Rehabilitation MD), SERC's intake system, via an iframe plus `https://wrmd.org/embed/v1/resize.js`. Submissions go straight into the WRMD account; nothing is stored on this site. "Report an animal" links to `/intake` from the homepage callout, the triage page, and the contact page.
-
-- The pre-submit and post-submit messages (text-first instructions, VA DWR data notice, what happens next) are configured inside WRMD, not in this repo.
-- WRMD only serves the embed to the domain registered in the account (it sends `Content-Security-Policy: frame-ancestors`). If the iframe shows a 404, the site domain is not registered in WRMD.
-
-## Rehabber resources
-
-`/rehabber-resources` links a curated supplies list on SERC's Chewy storefront (`CHEWY_STOREFRONT_URL` at the top of the page). The storefront pays SERC a commission, so the link carries `rel="sponsored"` and a short disclosure sits under the button; keep both if the link moves. The former Amazon affiliate supplies list was removed for Google Ad Grants compliance (this page is noindexed, which is why the storefront link is acceptable here). The access-controlled Drive library section is hidden behind the `SHOW_LIBRARY` toggle in the same file.
-
-## Short links and redirects
-
-External resources get a stable path on our domain via the `redirects` block in `firebase.json` (302s, matched by regex so a trailing slash also works). Firebase applies redirects before the SPA `**` rewrite, so no page file is needed. Current entries: `/chewy` (Chewy storefront), `/slack` (volunteer Slack invite), and `/guides/box-turtle-headstart` (Head-starting guide PDF on Drive).
-
-- Share the short link, never the raw Drive or storefront URL, so shared links survive when the destination changes.
-- New guides go under `/guides/<name>`, and the site should link to the short path, not the destination, so the real URL lives only in `firebase.json`.
-- When updating a guide PDF, use Drive's **Manage versions → Upload new version** to keep the same file ID instead of uploading a new file.
-- Deploying a `firebase.json` change requires `firebase deploy`; no build is needed unless page files also changed.
-
-## Privacy policy
-
-`/privacy` is a static page; the effective date is the `effectiveDate` constant at the top of `src/pages/privacy.astro`. Update it whenever the policy text changes. Added for Google Ad Grants.
-
-## Content conventions
-
-- **No em dashes** in blog and body copy (author preference). Use commas, colons, periods, or parentheses.
-- **Keep locations generic** for animals, nests, and releases (anti-poaching). Never publish precise nesting, rescue, or release sites; the field guide and Turtle Watch use only already-public data.
-- **Image filenames must be lowercase** (Firebase Hosting is case-sensitive even though macOS is not).
-- Avoid affiliate links and other commercial content outside the Donate and Merch pages (Google Ad Grants).
-
-## Notes
-
-- Turtle Watch fetches live data from iNaturalist and the OpenStreetMap Overpass API — no build-time data, all client-side. Key constants (grid size, road proximity threshold, min cluster) are at the top of `src/pages/turtle-watch/index.astro`.
-- Field guide species pages are generated with `getStaticPaths()` from `src/content/species/*.json`; photos load client-side from the iNaturalist API by taxon ID.
-- Firebase serves the SPA fallback (`/index.html`) for unmatched paths, so a not-found URL returns the HTML 404 page.
-- GitHub repos are under the `southeastreptile` org except `turtle-ai`, which is also forked there from lynnaloo. The org-wide GitHub Sponsors button is configured via `.github/FUNDING.yml` in the org's `.github` repo; the Software page embeds the GitHub Sponsors card.
+- **Intake** (`/intake`): WRMD public report form in an iframe plus `wrmd.org/embed/v1/resize.js`. Submissions go to WRMD; nothing is stored here. Pre/post-submit messages are configured in WRMD. WRMD only serves the embed to the registered domain (a 404 in the iframe means the domain is not registered). Linked only from the Contact page; the homepage and triage page intentionally do not link it. Small print under the form links to `/privacy#animal-reports`.
+- **Privacy** (`/privacy`): `effectiveDate` constant at top; update when text changes. The `#animal-reports` section states intake data commitments (locations never published, reports seen only by permitted rehabilitators, records in WRMD, DWR gets species and counts in the annual report and may inspect full records on request). Keep the intake small print consistent with it.
+- **Sign up** (`/signup`): email-list page for event sign-in sheets and QR codes. `SIGNUP_FORM_URL` constant at top takes the embed URL of the sign-up form from the email tool (Google Forms, Mailchimp, Zeffy); while empty, the page shows a mailto button with a prefilled subject so the link always works. Promise is updates a few times a year, no spam, unsubscribe any time; keep copy consistent. Promoted from the homepage band after the blog feature, the Events page footer line, and the Contact sidebar. Privacy `#email-updates` bullet covers the list (updates only, never shared, unsubscribe any time).
+- **Get permitted** (`/get-permitted`): unlisted six-part guide to Virginia's permit categories for prospective volunteers; casual herp-focused voice (Linda's), sections are a JS click-through that lands on the header overview (no part open until the reader picks one; `#step-N` and `#cat-*` hashes deep-link), all visible without JS. Facts come from the DWR Permit Conditions PDF (`CONDITIONS_DATE` constant) and 4VAC15-30-50; re-check each January. Opens with three quick-path links: no-permit start (to `/volunteer#transporters`), in-home rehab (Cat I to II, six months Cat IV first), and hands-on-without-home (Cat IV, the most common ask). Transporter designation: keep it vague; the reg says "in writing" but DWR accepts a standing transport group or bulk designation, so never promise individual written designations. Virginia has no 24-hour "Good Samaritan" holding rule for the unlicensed public; do not add one. Licensees are different: Cat I and Cat II may house animals outside their permit up to 24 hours with advance authorization and instructions, and Cat IV holds at the permitted facility; the page says this under "bridge, not destination." Category II requires two years of permitted experience, with Category IV time counting; Category IV can also request a direct upgrade to IIA after two years at the same facility (no apprentice step; note the conditions PDF says II-B, Linda confirmed IIA in practice). Category I's "uninjured or orphaned" is explained as hatchlings and incubated/rescued eggs. Residency: students at Virginia schools with a temporary Virginia address count for Categories I to III. Patient records and the Feb 1 annual report are Cat I and Cat II duties shown on their level cards, not in Part 4 (Category IVs are covered by the facility's records; they still owe CE certificates and renewals). Application steps stay in email.
+- **Our rehabilitators** (`/rehabilitators`): `people` array at top (name, `funTitle`, `roles[]`, `city`, `image`, `imageAlt`, `focus` for object-position). Card photos are 1000x1250 crops (`linda-card.jpg`, `regan-card.jpg`, `johnnae-card.jpg`, `ainsley-card.jpg`, `emma-card.jpg`) made with sharp from the originals; new headshots should match that frame and the same mild desaturation. Intentionally minimal: no permit categories, no bios. Fun titles are part of the voice (Chief Shell Officer, Hurt Turt Wizard).
+- **Volunteer** (`/volunteer`): public page, opens "Turtle Uber drivers wanted" with the Toano release photo (`/images/toano.jpg`, also the OG image; was 8.5 MB, resized to 612 KB). Transporter-first, framed as our biggest need because it frees in-home rehabbers from leaving jobs and patients for pickups and vet runs; no permit required (4VAC15-30-50 plus rehabilitator designation, worded vaguely since DWR accepts group/bulk transporter coverage, animal stays secured). Other ways to help: fundraising and sharing. Closes with "Interested in becoming a permitted rehabilitator?" linking to `/contact` (the permit guide `/get-permitted` stays unlisted: never link it, offer it by email).
+- **Rehabber resources** (`/rehabber-resources`): Chewy storefront link (`CHEWY_STOREFRONT_URL`), guides, and a hidden Drive library behind `SHOW_LIBRARY`.
+- **Turtle Watch**: client-side map from iNaturalist and OpenStreetMap Overpass; constants at the top of `src/pages/turtle-watch/index.astro`.
+- **Field guide**: species pages via `getStaticPaths()`; photos load client-side from iNaturalist by taxon ID.
+- Firebase rewrites unmatched paths to `/index.html`, so unknown URLs render the 404 page.
+- GitHub repos live under the `southeastreptile` org (`turtle-ai` is forked from lynnaloo). Org-wide Sponsors button is in the org `.github` repo's `FUNDING.yml`; the Software page embeds the Sponsors card.
